@@ -45,7 +45,7 @@ First section of .env-file is related to defining envinromentals for Postgres-co
 
 Second section of .env-file is related to defining environmentals for app-container itself. These environmentals needs to be also in production by methods provided in Heroku.
 
-## Structure of development server
+## Structure of development environment
 
 ![Image of stucture](./media/dev-env-structure.png)
 
