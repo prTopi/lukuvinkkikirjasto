@@ -73,6 +73,14 @@ setproctitle = ["setproctitle"]
 tornado = ["tornado (>=0.2)"]
 
 [[package]]
+name = "invoke"
+version = "1.6.0"
+description = "Pythonic task execution"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "itsdangerous"
 version = "2.0.1"
 description = "Safely pass data to untrusted environments and back."
@@ -167,7 +175,7 @@ watchdog = ["watchdog"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "5d672ba8515a4b37a167d8ad7802aeca6130c0ee0a9b8e0c753ee0ac7105bc61"
+content-hash = "a61b9e29e60da5e236f26b11c633bac49a8037694b3b7ab520c28385e8416313"
 
 [metadata.files]
 click = [
@@ -241,6 +249,11 @@ greenlet = [
 gunicorn = [
     {file = "gunicorn-20.1.0-py3-none-any.whl", hash = "sha256:9dcc4547dbb1cb284accfb15ab5667a0e5d1881cc443e0677b4882a4067a807e"},
     {file = "gunicorn-20.1.0.tar.gz", hash = "sha256:e0a968b5ba15f8a328fdfd7ab1fcb5af4470c28aaf7e55df02a99bc13138e6e8"},
+]
+invoke = [
+    {file = "invoke-1.6.0-py2-none-any.whl", hash = "sha256:e6c9917a1e3e73e7ea91fdf82d5f151ccfe85bf30cc65cdb892444c02dbb5f74"},
+    {file = "invoke-1.6.0-py3-none-any.whl", hash = "sha256:769e90caeb1bd07d484821732f931f1ad8916a38e3f3e618644687fc09cb6317"},
+    {file = "invoke-1.6.0.tar.gz", hash = "sha256:374d1e2ecf78981da94bfaf95366216aaec27c2d6a7b7d5818d92da55aa258d3"},
 ]
 itsdangerous = [
     {file = "itsdangerous-2.0.1-py3-none-any.whl", hash = "sha256:5174094b9637652bdb841a3029700391451bd092ba3db90600dea710ba28e97c"},
