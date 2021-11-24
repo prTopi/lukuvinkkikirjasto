@@ -13,8 +13,8 @@ RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/inst
 RUN poetry --version
 
 # Change to run as non root
-RUN adduser lukuvinkkikirjasto
-USER lukuvinkkikirjasto
+# RUN adduser lukuvinkkikirjasto
+# USER lukuvinkkikirjasto
 
 # copy install files for installing dependencies
 COPY pyproject.toml poetry.lock /usr/src/lukuvinkkikirjasto/

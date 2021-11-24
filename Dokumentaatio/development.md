@@ -45,10 +45,19 @@ First section of .env-file is related to defining envinromentals for Postgres-co
 
 Second section of .env-file is related to defining environmentals for app-container itself. These environmentals needs to be also in production by methods provided in Heroku.
 
-## Structure of development server
+## Structure of development environment
 
 ![Image of stucture](./media/dev-env-structure.png)
 
 The diagram shows dependencies inside the development environment. Development server and database are isolated in Docker containers and those are linked to each other with same network inside the Docker environment.
 
 Only port exposed outside the Docker environment is port 5000 for accessing Flask development server.
+
+## Interacting with the database
+
+PostgreSQL CLI can be accessed with `docker exec -it lukuvinkkikirjasto-db psql --user user --password lukuvinkkikirjasto`.
+
+- After entering the command, it should ask for password - that is same as in the .env-file (in example `password`). Attributes for user (`user`) and database (`lukuvinkkikirjasto`) are same as in the .env-file.
+- PostgreSQL CLI can be closed with command `exit;`
+
+File named as `database_structure.sql` is injected into database container and can be used to initialize database with normal SQL commands. Content of the file will be runned in database container, when first time creating the container or the database's volume is removed with `docker-compose down -v`.
