@@ -9,5 +9,6 @@
 | 24.11.2021 | 2    | Kehitysympäristön käyttöönottaminen                 | Antti     |
 | 25.11.2021 | 3    | Kirjojen ja videoiden lisääminen lukuvinkkeihin     | Antti     |
 | 25.11.2021 | 2    | Kehitysympäristön käyttöönottaminen                 | Lauri     |
-| 25.11.2021 | 1    | Kirjojen selaaminen/listaus etusivulle              | Lauri     | 
-|    yht     | 13.7  | h                                                   |
+| 25.11.2021 | 1    | Kirjojen selaaminen/listaus etusivulle              | Lauri     |
+| 25.11.2021 | 1    | Palaveri                                            | Antti     |
+|    yht     | 14.7 | h                                                  |
