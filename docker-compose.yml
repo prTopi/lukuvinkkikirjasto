@@ -17,7 +17,9 @@ services:
       - ./:/usr/src/lukuvinkkikirjasto
     
   db:
-    image: postgres:latest
+    build:
+      context: ./
+      dockerfile: ./db.Dockerfile
     container_name: lukuvinkkikirjasto-db
     volumes:
       - postgres-data:/var/lib/postgresql/data/

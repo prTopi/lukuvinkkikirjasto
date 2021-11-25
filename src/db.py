@@ -57,3 +57,14 @@ def insert_video(user_id, title, description, creator, link):
     }
     db.session.execute(sql, values)
     db.session.commit()
+
+
+def get_all_books(user_id):
+    sql = """
+    SELECT B.title, B.author, BM.description, B.isbn, BM.unread, BM.date
+    FROM Books B
+    JOIN Bookmarks BM ON BM.id = B.bookmark_id  
+    WHERE BM.user_id=:id
+    """
+    books = db.session.execute(sql, {"id": user_id}).fetchall()
+    return books
