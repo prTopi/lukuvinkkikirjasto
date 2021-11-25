@@ -1,14 +1,12 @@
 from app import app
-from flask import redirect, render_template, request, session, abort
+from flask import redirect, render_template, request
 from os import getenv
 import db
 from secrets import token_hex
 
 app.secret_key = getenv("SECRET")
 
-session["csrf_token"] = token_hex(16)
-session["username"] = "Pekka"
-session["id"] = 1
+user_id = 1
 
 @app.route("/")
 def index():
@@ -25,13 +23,9 @@ def add_bookmark(type):
 
 @app.route("/add", methods=["POST"])
 def add():
-    if session["csrf_token"] != request.form["csrf_token"]:
-        abort(403)
 
-    user_id = session["id"]
     type = request.form["type"]
     name = request.form["name"].strip()
-
     if type == "book":
         author = request.form["author"]
         ISBN = request.form["ISBN"]

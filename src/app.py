@@ -8,7 +8,3 @@ import routes
 def health():
     return "Health check: ✅"
 
-
-@app.route('/')
-def index():
-    return "Lukuvinkkikirjasto"
