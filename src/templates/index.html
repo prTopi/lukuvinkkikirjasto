@@ -4,4 +4,23 @@
 <br><h1>Lukuvinkkikirjasto</h1><br>
 <a href="/add_bookmark/book">Add bookmark</a><br>
 <a href="/add_bookmark/youtube">Add Youtube bookmark</a>
+<h2>Lukuvinkit</h2>
+  <table class="table table-light">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Author</th>
+            <th>ISBN</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+        <tr>
+            <td>{{book.name}}</td>
+            <td>{{book.author}}</td>
+            <td>{{book.isbn}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}

@@ -1,0 +1,3 @@
+CREATE TABLE Users (id SERIAL PRIMARY KEY, username TEXT, password TEXT);
+CREATE TABLE Books (id SERIAL PRIMARY KEY, user_id INTEGER REFERENCES Users, name TEXT, author TEXT, ISBN TEXT);
+CREATE TABLE Videos (id SERIAL PRIMARY KEY, user_id INTEGER REFERENCES Users, name TEXT, creator TEXT, link TEXT);
