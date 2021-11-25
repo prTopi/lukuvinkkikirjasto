@@ -1,6 +1,7 @@
 from app import app
 from flask import redirect, render_template, request
 from os import getenv
+from books.models import Books
 import db
 from secrets import token_hex
 
@@ -11,7 +12,7 @@ user_id = 1
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", books = Books.get_all_books())
 
 
 @app.route("/add_bookmark")
