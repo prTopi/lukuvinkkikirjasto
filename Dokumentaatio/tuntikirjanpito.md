@@ -13,5 +13,5 @@
 |   25.11.2021   | 1      | Kirjojen selaaminen/listaus etusivulle                                           | Lauri     |
 |   25.11.2021   | 1      | Palaveri                                                                         | Antti     |
 | 24.-25.11.2021 | 1,5    |  Kehitysympäristön bugikorjailuja, konsultointia                                 |  Tuomas   |
-|   25.11.2021   | 1,5    | Uuden tietokantarakenteen päivitys sovellukseen + yksisivuinen bookmarkin lisäys | Tuomas    |
-|      yht       | 18.2   | h                                                                                |           |
+|   25.11.2021   | 2      | Uuden tietokantarakenteen päivitys sovellukseen + yksisivuinen bookmarkin lisäys | Tuomas    |
+|      yht       | 18.7   | h                                                                                |           |
