@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<title>Add bookmark</title>
+<form action="/add" method="POST">
+Name of Book: <br>  
+<input type="text" name="name" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" required>
+<br><br>
+Author: <br>
+<input type="text" name="author" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" required>
+<br><br>
+ISBN: <br>
+<input type="text" name="ISBN" oninvalid="alert('Code must be between 1-50 characters');" pattern=".{1,50}" required>
+<br><br>
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+<input type="hidden" name="type" value="book">
+<input type="submit" value="Add bookmark">
+</form>
+{% endblock %}

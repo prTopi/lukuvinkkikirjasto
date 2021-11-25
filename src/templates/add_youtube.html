@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<title>Add Youtube bookmark</title>
+<form action="/add" method="POST">
+Name of Video: <br>  
+<input type="text" name="name" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" required>
+<br><br>
+Creator: <br>
+<input type="text" name="creator" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" required>
+<br><br>
+Link: <br>
+<input type="text" name="link" oninvalid="alert('Link must be between 1-200 characters');" pattern=".{1,200}" required>
+<br><br>
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+<input type="hidden" name="type" value="youtube">
+<input type="submit" value="Add bookmark">
+</form>
+{% endblock %}
