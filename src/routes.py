@@ -12,7 +12,7 @@ user_id = 1
 
 @app.route("/")
 def index():
-    return render_template("index.html", books = Books.get_all_books())
+    return render_template("index.html", books=db.get_all_books(1))
 
 
 @app.route("/add_bookmark")
