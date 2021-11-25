@@ -9,32 +9,30 @@ app.secret_key = getenv("SECRET")
 
 user_id = 1
 
+
 @app.route("/")
 def index():
     return render_template("index.html", books = Books.get_all_books())
 
-@app.route("/add_bookmark/<type>")
-def add_bookmark(type):
-    if type == "book":
-        return render_template("add_book.html")
-    if type == "youtube":
-        return render_template("add_youtube.html")
-    return render_template("index.html")
+
+@app.route("/add_bookmark")
+def add_bookmark():
+    return render_template("add_bookmark.html")
 
 
 @app.route("/add", methods=["POST"])
 def add():
-
     type = request.form["type"]
-    name = request.form["name"].strip()
+    name = request.form["title"].strip()
+    title = request.form["title"]
+    description = request.form["description"]
+    author = request.form["author"]
     if type == "book":
-        author = request.form["author"]
-        ISBN = request.form["ISBN"]
-        db.insert_book(name,author,ISBN,user_id)
 
-    if type == "youtube":
-        creator = request.form["creator"]
+        isbn = request.form["ISBN"]
+        db.insert_book(user_id, title, description, author, isbn)
+    elif type == "video":
         link = request.form["link"]
-        db.insert_video(name,creator,link,user_id)
+        db.insert_video(user_id, title, description, author, link)
 
     return redirect("/")

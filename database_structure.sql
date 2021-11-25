@@ -1,3 +1,13 @@
-CREATE TABLE Users (id SERIAL PRIMARY KEY, username TEXT, password TEXT);
-CREATE TABLE Books (id SERIAL PRIMARY KEY, user_id INTEGER REFERENCES Users, name TEXT, author TEXT, ISBN TEXT);
-CREATE TABLE Videos (id SERIAL PRIMARY KEY, user_id INTEGER REFERENCES Users, name TEXT, creator TEXT, link TEXT);
+CREATE TABLE Users (id SERIAL PRIMARY KEY, username TEXT NOT NULL, password TEXT);
+
+CREATE TABLE Bookmarks (id SERIAL PRIMARY KEY, user_id INTEGER REFERENCES Users, description TEXT, unread BOOLEAN DEFAULT false, date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP);
+
+CREATE TABLE Books (id SERIAL PRIMARY KEY, bookmark_id INTEGER NOT NULL REFERENCES Bookmarks, title TEXT, author TEXT, ISBN TEXT);
+
+CREATE TABLE Videos (id SERIAL PRIMARY KEY, bookmark_id INTEGER NOT NULL REFERENCES Bookmarks, title TEXT, creator TEXT, link TEXT);
+
+CREATE TABLE Blogs (id SERIAL PRIMARY KEY, bookmark_id INTEGER NOT NULL REFERENCES Bookmarks, title TEXT, creator TEXT, link TEXT);
+
+CREATE TABLE Podcasts (id SERIAL PRIMARY KEY, bookmark_id INTEGER NOT NULL REFERENCES Bookmarks, title TEXT, creator TEXT, link TEXT);
+
+INSERT INTO Users (username) VALUES ('kayttaja');
