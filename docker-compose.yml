@@ -32,6 +32,10 @@ services:
       dockerfile: ./devrobot.Dockerfile
     network_mode: host
     container_name: lukuvinkkikirjasto-test
+    depends_on:
+      - app
+    profiles:
+      - test
     image: robot
     shm_size: "256M"
     environment:
