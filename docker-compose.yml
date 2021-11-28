@@ -25,6 +25,22 @@ services:
       - postgres-data:/var/lib/postgresql/data/
     env_file:
       - ./.env
+ 
+  test:
+    build:
+      context: ./
+      dockerfile: ./devrobot.Dockerfile
+    network_mode: host
+    container_name: lukuvinkkikirjasto-test
+    image: robot
+    shm_size: "256M"
+    environment:
+        USERNAME: Test
+    volumes: [
+        "$PWD/src/tests:/src/tests",
+        "$PWD/scripts:/scripts",
+        "$PWD/reports:/reports"
+    ]
     
 volumes:
   postgres-data:
