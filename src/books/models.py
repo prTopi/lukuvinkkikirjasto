@@ -1,6 +1,7 @@
-from app import app
+"""TODO: doc"""
 from sqlalchemy.sql import text
 from db import db
+
 
 class Books():
     @staticmethod

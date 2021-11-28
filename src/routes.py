@@ -1,9 +1,8 @@
+"""Module containing all routes of the server"""
 from app import app
 from flask import redirect, render_template, request
 from os import getenv
-from books.models import Books
 import db
-from secrets import token_hex
 
 app.secret_key = getenv("SECRET")
 
@@ -22,16 +21,15 @@ def add_bookmark():
 
 @app.route("/add", methods=["POST"])
 def add():
-    type = request.form["type"]
-    name = request.form["title"].strip()
+    book_type = request.form["type"]
     title = request.form["title"]
     description = request.form["description"]
     author = request.form["author"]
-    if type == "book":
+    if book_type == "book":
 
         isbn = request.form["ISBN"]
         db.insert_book(user_id, title, description, author, isbn)
-    elif type == "video":
+    elif book_type == "video":
         link = request.form["link"]
         db.insert_video(user_id, title, description, author, link)
 
