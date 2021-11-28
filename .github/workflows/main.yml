@@ -26,7 +26,7 @@ jobs:
           echo POSTGRES_HOSTNAME=lukuvinkkikirjasto-db >> .env
           echo POSTGRES_PORT=5432 >> .env
           echo SECRET=secret >> .env
-          echo DATABASE_URI=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOSTNAME}:${POSTGRES_PORT}/${POSTGRES_DB} >> .env
+          echo "DATABASE_URI=postgresql://\${POSTGRES_USER}:\${POSTGRES_PASSWORD}@\${POSTGRES_HOSTNAME}:\${POSTGRES_PORT}/\${POSTGRES_DB}" >> .env
 
       - name: Build Docker development container
         run: docker-compose --profile test build
