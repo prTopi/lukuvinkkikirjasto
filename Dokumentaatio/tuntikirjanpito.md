@@ -15,4 +15,5 @@
 | 24.-25.11.2021 | 1,5    | Kehitysympäristön bugikorjailuja, konsultointia                                 | Tuomas   |
 |   25.11.2021   | 2      | Uuden tietokantarakenteen päivitys sovellukseen + yksisivuinen bookmarkin lisäys | Tuomas    |
 |   25.11.2021   | 1,5    | GitHub actions CI + pylint lisäys                                                          | Topi      |
+|   28.11.2021   | 4      | Uuden docker -kontin luominen testejä varten                                     | Lauri     |
 |      yht       | 20.2   | h                                                                                |           |
