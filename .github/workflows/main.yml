@@ -29,16 +29,10 @@ jobs:
           echo DATABASE_URI=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOSTNAME}:${POSTGRES_PORT}/${POSTGRES_DB} >> .env
 
       - name: Build Docker development container
-        run: docker-compose build
+        run: docker-compose --profile test build
 
       - name: Run pylint on src
         run: docker-compose run --no-deps --rm app poetry run invoke pylint
 
-      - name: Start Docker container in background
-        run: docker-compose up -d
-
-      # We may need to wait for a few seconds for the app to be up
       - name: Run Selenium tests in Docker
-        run: |
-          sleep 5
-          docker-compose --profile test up --exit-code-from test
+        run: docker-compose --profile test up --exit-code-from test
