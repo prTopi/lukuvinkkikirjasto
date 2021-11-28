@@ -5,6 +5,10 @@ Suite Teardown  Close Browser
 Test Setup  Go To Main Page
 
 *** Test Cases ***
-Testi 123
-    Go to Main Page
+Click Home Page Link
+    Click Link  Home page
     Main Page Should Be Open
+
+Click Add Bookmark Link
+    Click Link  Add bookmark
+    Add Bookmark Page Should Be Open
