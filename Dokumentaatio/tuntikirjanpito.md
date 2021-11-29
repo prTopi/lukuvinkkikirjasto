@@ -12,10 +12,12 @@
 |   25.11.2021   | 2      | Kehitysympäristön käyttöönottaminen                                              | Lauri     |
 |   25.11.2021   | 1      | Kirjojen selaaminen/listaus etusivulle                                           | Lauri     |
 |   25.11.2021   | 1      | Palaveri                                                                         | Antti     |
+|   25.11.2021   | 3      | Docker asennus                                                                   | Samuli    |
 | 24.-25.11.2021 | 1,5    | Kehitysympäristön bugikorjailuja, konsultointia                                  | Tuomas    |
 |   25.11.2021   | 2      | Uuden tietokantarakenteen päivitys sovellukseen + yksisivuinen bookmarkin lisäys | Tuomas    |
 |   25.11.2021   | 1,5    | GitHub actions CI + pylint lisäys                                                | Topi      |
+|   26.22.2021   | 2      | Testien tekemistä                                                                | Samuli    |
 |   28.11.2021   | 4      | Uuden docker -kontin luominen testejä varten                                     | Lauri     |
 |   28.11.2021   | 2      | Tietokannan alustava suunnitelma ja diagrammi                                    | Jenni     |
 |   28.11.2021   | 3      | Testien kirjoittamista, GitHub actions muokkausta, lint korjaamista              | Topi      |
-|      yht       | 26,2   | h                                                                                |           |
+|      yht       | 31,2   | h                                                                                |           |
