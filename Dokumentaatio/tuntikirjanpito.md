@@ -20,4 +20,5 @@
 |   28.11.2021   | 4      | Uuden docker -kontin luominen testejä varten                                     | Lauri     |
 |   28.11.2021   | 2      | Tietokannan alustava suunnitelma ja diagrammi                                    | Jenni     |
 |   28.11.2021   | 3      | Testien kirjoittamista, GitHub actions muokkausta, lint korjaamista              | Topi      |
-|      yht       | 31,2   | h                                                                                |           |
+|   01.12.2021   | 5      | Käyttäjän luonti ja kirjautuminen + ISBN validointi + testejä                    | Topi+Antti|
+|      yht       | 36,2   | h                                                                                |           |
