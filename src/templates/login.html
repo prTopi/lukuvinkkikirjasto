@@ -12,12 +12,13 @@ Username: <br>
 Password: <br>
 <input type="password" name="password">
 <br><br>
-<input type="submit" value="Log In">
+<input type="submit" id="submitLogin" value="Log In">
 </form>
 <br>
 <a href="/create">Create Account</a>
 <br>
 {% endif %}
-<br>
-<br>
+{% if error %}
+{{ error }}
+{% endif %}
 {% endblock %}
