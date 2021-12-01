@@ -20,7 +20,6 @@ def index():
             tags_dict[tag.bookmark_id] = [tag.tag_name]
         else:
             tags_dict[tag.bookmark_id].append(tag.tag_name)
-    print(books[0].bookmark_id)
     return render_template("index.html", books=books, tags=tags_dict)
 
 @app.route("/add_bookmark")
@@ -55,7 +54,6 @@ def tags():
         return redirect("/add_bookmark")
     elif request.method == "GET":
         tags = tag_repository.get_user_tags()
-        print(tags)
         return redirect("/")
 
 
@@ -68,5 +66,4 @@ def bookmark_tag():
         return redirect("/")
     elif request.method == "GET":
         bookmark_tags = tag_repository.get_all_users_marked_tags()
-        print(bookmark_tags)
         return redirect("/")
