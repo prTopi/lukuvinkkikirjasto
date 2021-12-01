@@ -36,13 +36,17 @@ def log():
     if hash_value is not None:
         if check_password_hash(hash_value[0],password):
             return update_session(username)
-    return redirect("/login")
+    return render_template("login.html",
+                           error="Username and password not matching")
 
 @app.route("/logout")
 def logout():
-    del session["user_id"]
-    del session["username"]
-    del session["csrf_token"]
+    try:
+        del session["user_id"]
+        del session["username"]
+        del session["csrf_token"]
+    except KeyError:
+        pass
     return redirect("/")
 
 @app.route("/create")
