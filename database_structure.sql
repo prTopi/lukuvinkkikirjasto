@@ -9,5 +9,3 @@ CREATE TABLE Videos (id SERIAL PRIMARY KEY, bookmark_id INTEGER NOT NULL REFEREN
 CREATE TABLE Blogs (id SERIAL PRIMARY KEY, bookmark_id INTEGER NOT NULL REFERENCES Bookmarks, title TEXT, creator TEXT, link TEXT);
 
 CREATE TABLE Podcasts (id SERIAL PRIMARY KEY, bookmark_id INTEGER NOT NULL REFERENCES Bookmarks, title TEXT, creator TEXT, link TEXT);
-
-INSERT INTO Users (username) VALUES ('kayttaja');
