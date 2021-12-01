@@ -170,6 +170,25 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "isbnlib"
+version = "3.10.9"
+description = "Extract, clean, transform, hyphenate and metadata for ISBNs (International Standard Book Number)."
+category = "main"
+optional = false
+python-versions = "*"
+
+[[package]]
+name = "isbntools"
+version = "4.3.28"
+description = "app and framework for 'all things ISBN' (International Standard Book Number) including metadata, descriptions, covers... ."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+isbnlib = ">=3.10.9,<3.11.0"
+
+[[package]]
 name = "isort"
 version = "5.10.1"
 description = "A Python utility / library to sort Python imports."
@@ -508,7 +527,7 @@ h11 = ">=0.9.0,<1"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "28bafec2108063c68a9de4f229e7aeb242980044eed18998d81323ac0b33f93b"
+content-hash = "18590882b4adbd16e3a0b832e6d88f02c7edc247d94231b00469c5acbde86b5c"
 
 [metadata.files]
 astroid = [
@@ -686,6 +705,14 @@ invoke = [
     {file = "invoke-1.6.0-py2-none-any.whl", hash = "sha256:e6c9917a1e3e73e7ea91fdf82d5f151ccfe85bf30cc65cdb892444c02dbb5f74"},
     {file = "invoke-1.6.0-py3-none-any.whl", hash = "sha256:769e90caeb1bd07d484821732f931f1ad8916a38e3f3e618644687fc09cb6317"},
     {file = "invoke-1.6.0.tar.gz", hash = "sha256:374d1e2ecf78981da94bfaf95366216aaec27c2d6a7b7d5818d92da55aa258d3"},
+]
+isbnlib = [
+    {file = "isbnlib-3.10.9-py2.py3-none-any.whl", hash = "sha256:2189cb075be73582bc1308a559af1c7fc42ee5d276c85ab7cced48628137df20"},
+    {file = "isbnlib-3.10.9.tar.gz", hash = "sha256:3f8187eb8eb6fa027d26ff0775f2abd420e29ce332794bf552a86a6bdba470b8"},
+]
+isbntools = [
+    {file = "isbntools-4.3.28-py2.py3-none-any.whl", hash = "sha256:270ebf02f379fe52fd0af7564e167d05834119f1756f3086085e6270d68e6474"},
+    {file = "isbntools-4.3.28.tar.gz", hash = "sha256:385ac886b3e9abb59bbffe5bad5489456fae416819f3453d8a9048e40eef9813"},
 ]
 isort = [
     {file = "isort-5.10.1-py3-none-any.whl", hash = "sha256:6f62d78e2f89b4500b080fe3a81690850cd254227f27f75c3a0c491a1f351ba7"},

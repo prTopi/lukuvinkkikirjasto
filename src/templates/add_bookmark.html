@@ -31,17 +31,17 @@
 <form action="/add" method="POST">
     
     <p id="titleText">Title:</p> 
-    <input type="text" name="title" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" required />
+    <input type="text" name="title" value="{{title}}" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" required />
     <br><br>
     <p id="descriptionText">Description:</p> 
-    <input type="text" name="description" required />
+    <input type="text" name="description" value="{{description}}" required />
     <br><br>
     <p id="authorText">Author:</p>
-    <input type="text" name="author" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" required />
+    <input type="text" name="author" value="{{author}}" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" required />
     <br><br>
     <div id="isbnDiv">
         <p id="isbnText">ISBN:</p>
-        <input type="text" name="ISBN" oninvalid="alert('Code must be between 1-50 characters');" pattern=".{1,50}" />
+        <input type="text" name="ISBN" value="{{isbn}}" oninvalid="alert('Code must be between 10-25 characters');" pattern=".{10,25}" />
         <br><br>
     </div>
     <div id="linkDiv" hidden>
@@ -54,6 +54,9 @@
     <input type="hidden" id="selectedType" name="type" value="book">
     <input type="submit" id="submitBookmark" value="Add bookmark">
 </form>
+{% if error %}
+{{ error }}
+{% endif %}
 {% else %}
 <p>You must log in to add bookmarks</p>
 {% endif %}

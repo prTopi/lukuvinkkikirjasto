@@ -2,12 +2,19 @@
 from app import app
 from flask import redirect, render_template, request, session, abort
 from werkzeug.security import check_password_hash, generate_password_hash
+from isbnlib import is_isbn10, is_isbn13
 from os import getenv
 from secrets import token_hex
 import db
 
 app.secret_key = getenv("SECRET")
 
+
+def update_session(username, route="/"):
+    session["user_id"] = db.find_user_id(username)
+    session["username"] = username
+    session["csrf_token"] = token_hex(16)
+    return redirect(route)
 
 @app.route("/")
 def index():
@@ -28,10 +35,7 @@ def log():
     hash_value = db.find_password(username)
     if hash_value is not None:
         if check_password_hash(hash_value[0],password):
-            session["user_id"] = db.find_user_id(username)
-            session["username"] = username
-            session["csrf_token"] = token_hex(16)
-            return redirect("/")
+            return update_session(username)
     return redirect("/login")
 
 @app.route("/logout")
@@ -43,7 +47,7 @@ def logout():
 
 @app.route("/create")
 def create():
-    return render_template("create.html",error=False)
+    return render_template("create.html")
 
 @app.route("/create_account", methods=["POST"])
 def create_account():
@@ -60,8 +64,8 @@ def create_account():
                                user=username)
 
     password = generate_password_hash(password2)
-    db.insert_user(username,password)
-    return redirect("/log")
+    db.insert_user(username, password)
+    return update_session(username)
 
 @app.route("/add_bookmark")
 def add_bookmark():
@@ -78,7 +82,12 @@ def add():
     author = request.form["author"]
     if book_type == "book":
         isbn = request.form["ISBN"]
-        db.insert_book(session["user_id"], title, description, author, isbn)
+        if is_isbn10(isbn) or is_isbn13(isbn):
+            db.insert_book(session["user_id"], title, description, author, isbn)
+        else:
+            return render_template("add_bookmark.html", title=title,
+                                   description=description, author=author,
+                                   isbn=isbn, error="Invalid ISBN")
     elif book_type == "video":
         link = request.form["link"]
         db.insert_video(session["user_id"], title, description, author, link)

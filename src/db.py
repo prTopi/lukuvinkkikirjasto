@@ -13,7 +13,7 @@ def find_user_id(username):
     sql = "SELECT id FROM Users WHERE username=:username"
     try:
         return db.session.execute(sql, {"username":username}).fetchone()[0]
-    except IndexError:
+    except (IndexError, TypeError):
         return None
 
 def find_password(username):
