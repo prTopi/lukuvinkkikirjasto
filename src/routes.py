@@ -12,8 +12,16 @@ tag_repository = TagRepository(1)
 
 @app.route("/")
 def index():
-    return render_template("index.html", books=db.get_all_books(1))
-
+    books = db.get_all_books(1)
+    tags = tag_repository.get_all_users_marked_tags()
+    tags_dict = {}
+    for tag in tags:
+        if tag.bookmark_id not in tags_dict:
+            tags_dict[tag.bookmark_id] = [tag.tag_name]
+        else:
+            tags_dict[tag.bookmark_id].append(tag.tag_name)
+    print(books[0].bookmark_id)
+    return render_template("index.html", books=books, tags=tags_dict)
 
 @app.route("/add_bookmark")
 def add_bookmark():

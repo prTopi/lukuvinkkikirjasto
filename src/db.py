@@ -62,7 +62,7 @@ def insert_video(user_id, title, description, creator, link):
 
 def get_all_books(user_id):
     sql = """
-    SELECT B.title, B.author, BM.description, B.isbn, BM.unread, BM.date
+    SELECT B.bookmark_id, B.title, B.author, BM.description, B.isbn, BM.unread, BM.date
     FROM Books B
     JOIN Bookmarks BM ON BM.id = B.bookmark_id
     WHERE BM.user_id=:id
@@ -113,9 +113,11 @@ def get_all_user_tags(user_id):
 
 def get_all_users_marked_tags(user_id):
     sql = """
-    SELECT tag_id, user_id, bookmark_id
-    FROM Bookmarks_tags
-    WHERE user_id=:user_id
+    SELECT BT.tag_id, BT.user_id, BT.bookmark_id, T.tag_name
+    FROM Bookmarks_tags BT
+    JOIN Tags T ON T.id = BT.tag_id
+    WHERE BT.user_id=:user_id
+
     """
     values = {
         'user_id':user_id
