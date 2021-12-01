@@ -53,8 +53,15 @@
         <input type="checkbox" id="{{tag.id}}" name="tag" value="{{tag.id}}">{{tag.tag_name}}<br>
     {% endfor %}
     
+    
     <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
     <input type="hidden" id="selectedType" name="type" value="book">
     <input type="submit" id="submitBookmark" value="Add bookmark">
+</form>
+<br>
+<form action="/tag" method="POST">
+    <p>Uusi tagi:</p>
+    <input type="text" name="new_tag_name">
+    <input type="submit">
 </form>
 {% endblock %}

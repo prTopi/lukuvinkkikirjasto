@@ -50,9 +50,9 @@ def add():
 @app.route("/tag",methods=["POST","GET"])
 def tags():
     if request.method == "POST":
-        tag_name = request.form["tag_name"]
+        tag_name = request.form["new_tag_name"]
         tag_repository.create_new_tag(tag_name)
-        return redirect("/")
+        return redirect("/add_bookmark")
     elif request.method == "GET":
         tags = tag_repository.get_user_tags()
         print(tags)
