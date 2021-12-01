@@ -39,6 +39,7 @@ def insert_book(user_id, title, description, author, isbn):
     }
     db.session.execute(sql, values)
     db.session.commit()
+    return bookmark_id
 
 
 def insert_video(user_id, title, description, creator, link):
@@ -56,6 +57,7 @@ def insert_video(user_id, title, description, creator, link):
     }
     db.session.execute(sql, values)
     db.session.commit()
+    return bookmark_id
 
 
 def get_all_books(user_id):
@@ -99,7 +101,7 @@ def mark_tag_to_bookmark(tag_id,user_id,bookmark_id):
 
 def get_all_user_tags(user_id):
     sql = """
-    SELECT user_id, tag_name
+    SELECT id, user_id, tag_name
     FROM Tags
     WHERE user_id =:user_id
     """

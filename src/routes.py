@@ -17,7 +17,7 @@ def index():
 
 @app.route("/add_bookmark")
 def add_bookmark():
-    return render_template("add_bookmark.html")
+    return render_template("add_bookmark.html",tags=tag_repository.get_user_tags())
 
 
 @app.route("/add", methods=["POST"])
@@ -26,14 +26,17 @@ def add():
     title = request.form["title"]
     description = request.form["description"]
     author = request.form["author"]
+    tags = request.form.getlist('tag')
     if book_type == "book":
 
         isbn = request.form["ISBN"]
-        db.insert_book(user_id, title, description, author, isbn)
+        new_bookmark_id = db.insert_book(user_id, title, description, author, isbn)
     elif book_type == "video":
         link = request.form["link"]
-        db.insert_video(user_id, title, description, author, link)
-
+        new_bookmark_id = db.insert_video(user_id, title, description, author, link)
+    if tags:
+        for tag in tags:
+            tag_repository.mark_tag_to_bookmark(int(tag),new_bookmark_id)
     return redirect("/")
 
 @app.route("/tag",methods=["POST","GET"])
