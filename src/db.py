@@ -67,3 +67,56 @@ def get_all_books(user_id):
     """
     books = db.session.execute(sql, {"id": user_id}).fetchall()
     return books
+
+def add_new_tag(user_id,tag_name):
+    sql = """
+    INSERT INTO Tags
+    (user_id, tag_name)
+    VALUES
+    (:user_id,:tag_name)
+    """
+    values = {
+        'user_id':user_id,
+        'tag_name':tag_name
+    }
+    db.session.execute(sql,values)
+    db.session.commit()
+
+def mark_tag_to_bookmark(tag_id,user_id,bookmark_id):
+    sql = """
+    INSERT INTO Bookmarks_tags
+    (tag_id, user_id, bookmark_id)
+    VALUES
+    (:tag_id, :user_id, :bookmark_id)
+    """
+    values = {
+        'tag_id':tag_id,
+        'user_id':user_id,
+        'bookmark_id':bookmark_id
+    }
+    db.session.execute(sql,values)
+    db.session.commit()
+
+def get_all_user_tags(user_id):
+    sql = """
+    SELECT user_id, tag_name
+    FROM Tags
+    WHERE user_id =:user_id
+    """
+    values = {
+        'user_id':user_id
+    }
+    tags = db.session.execute(sql,values).fetchall()
+    return tags
+
+def get_all_users_marked_tags(user_id):
+    sql = """
+    SELECT tag_id, user_id, bookmark_id
+    FROM Bookmarks_tags
+    WHERE user_id=:user_id
+    """
+    values = {
+        'user_id':user_id
+    }
+    marked_tags = db.session.execute(sql,values).fetchall()
+    return marked_tags
