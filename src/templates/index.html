@@ -23,7 +23,7 @@
             <td>{{book.description}}</td>
             <td>{{book.isbn}}</td>
             <td>{{"Read" if book.unread else "Unread"}}</td>
-            <td>{{book.date}}</td>
+            <td>{{book.date.strftime("%d.%m.%Y")}}</td>
         </tr>
         {% endfor %}
     </tbody>
