@@ -10,5 +10,5 @@ Click Home Page Link
     Main Page Should Be Open
 
 Click Add Bookmark Link
-    Click Link  Add bookmark
+    Click Link  addBookmark
     Add Bookmark Page Should Be Open

@@ -13,7 +13,7 @@ Add Valid Book Bookmark
     Set Title  test book
     Set Description  test
     Set Author  test
-    Set ISBN  test
+    Set ISBN  9783161484100
     Submit Bookmark
     Main Page Should Be Open
     Page Should Contain  test book
@@ -21,7 +21,7 @@ Add Valid Book Bookmark
 Add Book Bookmark Without Valid Title
     Set Description  test book2
     Set Author  test
-    Set ISBN  test
+    Set ISBN  9783161484100
     Submit Bookmark
     Alert Should Be Present  Name must be between 1-50 characters
     Verify Invalid Bookmark Not Added  test book2
@@ -29,17 +29,26 @@ Add Book Bookmark Without Valid Title
 Add Book Bookmark Without Valid Description
     Set Title  test book3
     Set Author  test
-    Set ISBN  test
+    Set ISBN  9783161484100
     Submit Bookmark
     Verify Invalid Bookmark Not Added  test book3
 
 Add Book Bookmark Without Valid Author
     Set Title  test book4
     Set Description  test
-    Set ISBN  test
+    Set ISBN  9783161484100
     Submit Bookmark
     Alert Should Be Present  Name must be between 1-50 characters
     Verify Invalid Bookmark Not Added  test book4
+
+Add Book Bookmark Without Valid ISBN
+    Set Title  test book5
+    Set Description  test
+    Set Author  test
+    Set ISBN  testitestitesti
+    Submit Bookmark
+    Page Should Contain  Invalid ISBN
+    Verify Invalid Bookmark Not Added  test book5
 
 *** Keywords ***
 Submit Bookmark
