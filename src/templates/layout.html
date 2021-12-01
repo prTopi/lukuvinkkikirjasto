@@ -6,11 +6,19 @@
 <a class="navbar-brand" href="/">Home page</a>
 <ul class="navbar-nav">
 
+{% if session.username %}
 <li class="nav-item">
 <a class="nav-link" href="/add_bookmark">Add bookmark</a>
 </li>
+<li class="nav-item">
+<a class="nav-link" href="/logout">Log out</a>
+</li>
 
-
+{% else %}
+<li class="nav-item">
+<a class="nav-link" href="/login">Log in</a>
+</li>
+{% endif %}
 </ul>
 </nav>
 {% block content %}{% endblock %}

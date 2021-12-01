@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 <title>Add bookmark</title>
+{% if session.username %}
 <form id="typeSelector">
     <input type="radio" id="typeBook" name="type" value="book" checked="checked"/>
     <label for="typeBook">Book</label>
@@ -53,4 +54,7 @@
     <input type="hidden" id="selectedType" name="type" value="book">
     <input type="submit" id="submitBookmark" value="Add bookmark">
 </form>
+{% else %}
+<p>You must log in to add bookmarks</p>
+{% endif %}
 {% endblock %}
