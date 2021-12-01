@@ -26,7 +26,7 @@ def log():
     username = request.form["username"]
     password = request.form["password"]
     hash_value = db.find_password(username)
-    if hash_value != None:
+    if hash_value is not None:
         if check_password_hash(hash_value[0],password):
             session["user_id"] = db.find_user_id(username)
             session["username"] = username
@@ -52,10 +52,12 @@ def create_account():
     password2 = request.form["password2"]
 
     user_id = db.find_user_id(username)
-    if user_id != None:
-        return render_template("create.html", error="Username taken", user=username)
+    if user_id is not None:
+        return render_template("create.html", error="Username taken",
+                               user=username)
     if password != password2:
-        return render_template("create.html", error="Passwords not identical", user=username)
+        return render_template("create.html", error="Passwords not identical",
+                               user=username)
 
     password = generate_password_hash(password2)
     db.insert_user(username,password)

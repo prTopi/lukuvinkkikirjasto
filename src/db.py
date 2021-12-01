@@ -13,7 +13,7 @@ def find_user_id(username):
     sql = "SELECT id FROM Users WHERE username=:username"
     try:
         return db.session.execute(sql, {"username":username}).fetchone()[0]
-    except:
+    except IndexError:
         return None
 
 def find_password(username):
@@ -21,7 +21,11 @@ def find_password(username):
     return db.session.execute(sql, {"username":username}).fetchone()
 
 def insert_user(username,password):
-    db.session.execute("INSERT INTO Users (username, password) VALUES (:username, :password)", {"username":username,"password":password})
+    sql = """
+    INSERT INTO Users (username, password)
+    VALUES (:username, :password)
+    """
+    db.session.execute(sql, {"username":username,"password":password})
     db.session.commit()
 
 
