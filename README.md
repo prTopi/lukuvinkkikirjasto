@@ -1,5 +1,7 @@
 # lukuvinkkikirjasto
 
+[The app can be found in here](https://ohtu-lukuvinkkiapp.herokuapp.com)
+
 ## Backlogs
 [Product Backlog](https://github.com/prTopi/lukuvinkkikirjasto/projects/2)
 
