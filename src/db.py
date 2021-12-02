@@ -54,8 +54,10 @@ def insert_bookmark(user_id: int, description: str) -> int:
     return bookmark_id
 
 
-def insert_book(user_id: int, title: str, description: str, author: str, isbn: str) -> int:
-    """insert_book is used to add bookmark, which is type of book into the database
+def insert_book(user_id: int, title: str, description: str,
+                author: str, isbn: str) -> int:
+    """insert_book is used to add bookmark, which is type of
+       book into the database
 
     Args:
         user_id (int): id of the bookmark's owner
@@ -84,8 +86,10 @@ def insert_book(user_id: int, title: str, description: str, author: str, isbn: s
     return bookmark_id
 
 
-def insert_video(user_id: int, title: str, description: str, creator: str, link: str) -> int:
-    """insert_video is used to add bookmark, which is type of video into the database
+def insert_video(user_id: int, title: str, description: str,
+                 creator: str, link: str) -> int:
+    """insert_video is used to add bookmark, which is type of
+       video into the database
 
     Args:
         user_id (int): id of the bookmark's owner
@@ -114,8 +118,10 @@ def insert_video(user_id: int, title: str, description: str, creator: str, link:
     return bookmark_id
 
 
-def insert_blog(user_id: int, title: str, description: str, creator: str, link: str) -> int:
-    """insert_blog is used to add bookmark, which is type of blog into the database
+def insert_blog(user_id: int, title: str, description: str,
+                creator: str, link: str) -> int:
+    """insert_blog is used to add bookmark, which is type of
+       blog into the database
 
     Args:
         user_id (int): id of the bookmark's owner
@@ -144,8 +150,10 @@ def insert_blog(user_id: int, title: str, description: str, creator: str, link: 
     return bookmark_id
 
 
-def insert_podcast(user_id: int, episode_name: str, podcast_name: str, description: str, creator: str, link: str) -> int:
-    """insert_podcast is used to add bookmark, which is type of podcast into the database
+def insert_podcast(user_id: int, episode_name: str, podcast_name: str,
+                   description: str, creator: str, link: str) -> int:
+    """insert_podcast is used to add bookmark, which is type of
+       podcast into the database
 
     Args:
         user_id (int): id of the bookmark's owner
@@ -176,13 +184,17 @@ def insert_podcast(user_id: int, episode_name: str, podcast_name: str, descripti
     return bookmark_id
 
 
-def insert_scientific_article(user_id: int, title: str, publication_title: str, description: str, authors: str, doi: str, year: int, publisher: str) -> int:
-    """insert_scientific_article is used to add bookmark, which is type of scientific article into the database
+def insert_scientific_article(user_id: int, title: str, publication_title: str,
+                              description: str, authors: str, doi: str,
+                              year: int, publisher: str) -> int:
+    """insert_scientific_article is used to add bookmark, which is type of
+       scientific article into the database
 
     Args:
         user_id (int): id of the bookmark's owner
         title (str): title of the article
-        publication_title (str): name of the publication, where article is published
+        publication_title (str): name of the publication, where
+                                 article is published
         description (str): description of the article
         authors (str): authors of the article
         doi (str): doi of the article
