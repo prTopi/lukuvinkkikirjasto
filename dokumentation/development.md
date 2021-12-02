@@ -16,7 +16,7 @@
 - Running Poetry commands: `docker-compose run --no-deps --rm app poetry ...`
 
   - For example add Flask to dependencies: `docker-compose run --no-deps --rm app poetry add flask`
-  - Running commands in Poetry's virtual environment: `docker-compose run --no-deps --rm app poetry run pytest src`
+  - Running commands in Poetry's virtual environment (HOX! Don't add `--no-deps` or database is not initialized for pytest usage): `docker-compose run --rm app poetry run pytest src`
 
 - Accessing database inside the container for gaining access to PostgreSQL CLI when running the database container: `docker exec -it lukuvinkkikirjasto-db psql --user user --password lukuvinkkikirjasto`.
   - After entering the command, it should ask for password - that is same as in the .env-file (in example `password`). Attributes for user (`user`) and database (`lukuvinkkikirjasto`) are same as in the .env-file.
