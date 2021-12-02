@@ -1,1 +1,1 @@
-web: gunicorn --preload tasks:start
+web: gunicorn --preload app:app
