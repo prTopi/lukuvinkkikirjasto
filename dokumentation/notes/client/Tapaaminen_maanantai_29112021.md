@@ -46,7 +46,7 @@
         - Coverage kattavuus (testikattavuus, github action) - prio 2 - ? (?)
 
 ## Tapaamiset:
-    - Seuraava ryhmän kanssa tapaaminen, torstaina 02.12.2021, kello 16:00 (daily)
+    - Seuraava ryhmän kanssa tapaaminen, torstaina 02.12.2021, kello 16:15 (daily)
     - Seuraava asiakastapaaminen, tiistaina 07.12.2021, kello 12:00-12:30
 
 ## Muuta:
