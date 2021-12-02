@@ -9,3 +9,7 @@ def start(ctx):
 @task
 def pylint(ctx):
     ctx.run('pylint src')
+
+@task
+def test(ctx):
+    ctx.run('pytest src')
