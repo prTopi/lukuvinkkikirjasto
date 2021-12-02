@@ -1,1 +1,1 @@
-web: poetry run flask run --host=0.0.0.0
+web: gunicorn --preload tasks:start
