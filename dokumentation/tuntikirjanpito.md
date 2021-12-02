@@ -22,4 +22,5 @@
 |   28.11.2021   | 3      | Testien kirjoittamista, GitHub actions muokkausta, lint korjaamista              | Topi      |
 |   01.12.2021   | 5      | Käyttäjän luonti ja kirjautuminen + ISBN validointi + testejä                    | Topi+Antti|
 |   01.12.2021   | 4      | Tagit                                                                            | Samuli    |
-|      yht       | 40,2   | h                                                                                |           |
+|   01.12.2021   | 5      | Herokun pystyttäminen ja actioneiden päivitys deployta varten                    | Lauri     |
+|      yht       | 45,2   | h                                                                                |           |
