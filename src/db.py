@@ -54,6 +54,30 @@ def insert_bookmark(user_id: int, description: str) -> int:
     return bookmark_id
 
 
+def get_bookmark(bookmark_id: int) -> dict:
+    """get_bookmark returns bookmark related to given bookmark id
+
+    Args:
+        bookmark_id (int): id of the bookmark
+
+    Returns:
+        dict: bookmark
+    """
+    sql = """
+    SELECT id, user_id, description, unread, date 
+    FROM Bookmarks 
+    WHERE id=:id
+    """
+    bookmark = db.session.execute(sql, {"id": bookmark_id}).fetchone()
+    return {
+        "bookmark_id": bookmark[0],
+        "user_id": bookmark[1],
+        "description": bookmark[2],
+        "unread": bookmark[3],
+        "date": bookmark[4]
+    }
+
+
 def insert_book(user_id: int, title: str, description: str,
                 author: str, isbn: str) -> int:
     """insert_book is used to add bookmark, which is type of
@@ -84,6 +108,35 @@ def insert_book(user_id: int, title: str, description: str,
     db.session.execute(sql, values)
     db.session.commit()
     return bookmark_id
+
+
+def get_book(bookmark_id: int) -> dict:
+    """get_book returns book related to given bookmark id
+
+    Args:
+        bookmark_id (int): id of the bookmark
+
+    Returns:
+        dict: searched bookmark
+    """
+    sql = """
+    SELECT BM.id, B.id, BM.user_id, B.title, BM.description, B.author, B.isbn, BM.unread, BM.date 
+    FROM Bookmarks BM
+    JOIN Books B ON BM.id = B.bookmark_id
+    WHERE BM.id=:id
+    """
+    bookmark = db.session.execute(sql, {"id": bookmark_id}).fetchone()
+    return {
+        "bookmark_id": bookmark[0],
+        "book_id": bookmark[1],
+        "user_id": bookmark[2],
+        "title": bookmark[3],
+        "description": bookmark[4],
+        "author": bookmark[5],
+        "isbn": bookmark[6],
+        "unread": bookmark[7],
+        "date": bookmark[8]
+    }
 
 
 def insert_video(user_id: int, title: str, description: str,
@@ -118,6 +171,35 @@ def insert_video(user_id: int, title: str, description: str,
     return bookmark_id
 
 
+def get_video(bookmark_id: int) -> dict:
+    """get_video returns video related to given bookmark id
+
+    Args:
+        bookmark_id (int): id of the bookmark
+
+    Returns:
+        dict: searched bookmark
+    """
+    sql = """
+    SELECT BM.id, V.id, BM.user_id, V.title, BM.description, V.creator, V.link, BM.unread, BM.date 
+    FROM Bookmarks BM
+    JOIN Videos V ON BM.id = V.bookmark_id
+    WHERE BM.id=:id
+    """
+    bookmark = db.session.execute(sql, {"id": bookmark_id}).fetchone()
+    return {
+        "bookmark_id": bookmark[0],
+        "video_id": bookmark[1],
+        "user_id": bookmark[2],
+        "title": bookmark[3],
+        "description": bookmark[4],
+        "creator": bookmark[5],
+        "link": bookmark[6],
+        "unread": bookmark[7],
+        "date": bookmark[8]
+    }
+
+
 def insert_blog(user_id: int, title: str, description: str,
                 creator: str, link: str) -> int:
     """insert_blog is used to add bookmark, which is type of
@@ -148,6 +230,35 @@ def insert_blog(user_id: int, title: str, description: str,
     db.session.execute(sql, values)
     db.session.commit()
     return bookmark_id
+
+
+def get_blog(bookmark_id: int) -> dict:
+    """get_blog returns blog related to given bookmark id
+
+    Args:
+        bookmark_id (int): id of the bookmark
+
+    Returns:
+        dict: searched bookmark
+    """
+    sql = """
+    SELECT BM.id, B.id, BM.user_id, B.title, BM.description, B.creator, Bs.link, BM.unread, BM.date 
+    FROM Bookmarks BM
+    JOIN Blogs B ON BM.id = B.bookmark_id
+    WHERE BM.id=:id
+    """
+    bookmark = db.session.execute(sql, {"id": bookmark_id}).fetchone()
+    return {
+        "bookmark_id": bookmark[0],
+        "blog_id": bookmark[1],
+        "user_id": bookmark[2],
+        "title": bookmark[3],
+        "description": bookmark[4],
+        "creator": bookmark[5],
+        "link": bookmark[6],
+        "unread": bookmark[7],
+        "date": bookmark[8]
+    }
 
 
 def insert_podcast(user_id: int, episode_name: str, podcast_name: str,
@@ -182,6 +293,36 @@ def insert_podcast(user_id: int, episode_name: str, podcast_name: str,
     db.session.execute(sql, values)
     db.session.commit()
     return bookmark_id
+
+
+def get_podcast(bookmark_id: int) -> dict:
+    """get_podcast returns podcast related to given bookmark id
+
+    Args:
+        bookmark_id (int): id of the bookmark
+
+    Returns:
+        dict: searched bookmark
+    """
+    sql = """
+    SELECT BM.id, P.id, BM.user_id, P.episode_name, P.podcast_name, BM.description, P.creator, P.link, BM.unread, BM.date 
+    FROM Bookmarks BM
+    JOIN Podcasts P ON BM.id = P.bookmark_id
+    WHERE BM.id=:id
+    """
+    bookmark = db.session.execute(sql, {"id": bookmark_id}).fetchone()
+    return {
+        "bookmark_id": bookmark[0],
+        "video_id": bookmark[1],
+        "user_id": bookmark[2],
+        "episode_name": bookmark[3],
+        "podcast_name": bookmark[4],
+        "description": bookmark[5],
+        "creator": bookmark[6],
+        "link": bookmark[7],
+        "unread": bookmark[8],
+        "date": bookmark[9]
+    }
 
 
 def insert_scientific_article(user_id: int, title: str, publication_title: str,
@@ -222,6 +363,39 @@ def insert_scientific_article(user_id: int, title: str, publication_title: str,
     db.session.execute(sql, values)
     db.session.commit()
     return bookmark_id
+
+
+def get_scientific_article(bookmark_id: int) -> dict:
+    """get_scientific_article returns scientific article related to
+       given bookmark id
+
+    Args:
+        bookmark_id (int): id of the bookmark
+
+    Returns:
+        dict: searched bookmark
+    """
+    sql = """
+    SELECT BM.id, SA.id, BM.user_id, SA.title, SA.publication_title, BM.description, SA.authors, SA.doi, SA.year, SA.publisher, BM.unread, BM.date 
+    FROM Bookmarks BM
+    JOIN Scientific_articles SA ON BM.id = SA.bookmark_id
+    WHERE BM.id=:id
+    """
+    bookmark = db.session.execute(sql, {"id": bookmark_id}).fetchone()
+    return {
+        "bookmark_id": bookmark[0],
+        "scientific_article_id": bookmark[1],
+        "user_id": bookmark[2],
+        "title": bookmark[3],
+        "publication_title": bookmark[4],
+        "description": bookmark[5],
+        "authors": bookmark[6],
+        "doi": bookmark[7],
+        "year": bookmark[8],
+        "publisher": bookmark[9],
+        "unread": bookmark[10],
+        "date": bookmark[11]
+    }
 
 
 def get_all_books(user_id):
