@@ -98,8 +98,8 @@ def add_new_tag(user_id,tag_name):
     (:user_id,:tag_name)
     """
     values = {
-        'user_id':user_id,
-        'tag_name':tag_name
+        "user_id":user_id,
+        "tag_name":tag_name
     }
     db.session.execute(sql,values)
     db.session.commit()
@@ -112,9 +112,9 @@ def mark_tag_to_bookmark(tag_id,user_id,bookmark_id):
     (:tag_id, :user_id, :bookmark_id)
     """
     values = {
-        'tag_id':tag_id,
-        'user_id':user_id,
-        'bookmark_id':bookmark_id
+        "tag_id":tag_id,
+        "user_id":user_id,
+        "bookmark_id":bookmark_id
     }
     db.session.execute(sql,values)
     db.session.commit()
@@ -126,7 +126,7 @@ def get_all_user_tags(user_id):
     WHERE user_id =:user_id
     """
     values = {
-        'user_id':user_id
+        "user_id":user_id
     }
     tags = db.session.execute(sql,values).fetchall()
     return tags
@@ -140,7 +140,7 @@ def get_all_users_marked_tags(user_id):
 
     """
     values = {
-        'user_id':user_id
+        "user_id":user_id
     }
     marked_tags = db.session.execute(sql,values).fetchall()
     return marked_tags
