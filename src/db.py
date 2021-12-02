@@ -12,20 +12,22 @@ db = SQLAlchemy(app)
 def find_user_id(username):
     sql = "SELECT id FROM Users WHERE username=:username"
     try:
-        return db.session.execute(sql, {"username":username}).fetchone()[0]
+        return db.session.execute(sql, {"username": username}).fetchone()[0]
     except (IndexError, TypeError):
         return None
 
+
 def find_password(username):
     sql = "SELECT password FROM Users WHERE username=:username"
-    return db.session.execute(sql, {"username":username}).fetchone()
+    return db.session.execute(sql, {"username": username}).fetchone()
 
-def insert_user(username,password):
+
+def insert_user(username, password):
     sql = """
     INSERT INTO Users (username, password)
     VALUES (:username, :password)
     """
-    db.session.execute(sql, {"username":username,"password":password})
+    db.session.execute(sql, {"username": username, "password": password})
     db.session.commit()
 
 
@@ -73,6 +75,61 @@ def insert_video(user_id, title, description, creator, link):
         "title": title,
         "creator": creator,
         "link": link
+    }
+    db.session.execute(sql, values)
+    db.session.commit()
+
+
+def insert_blog(user_id, title, description, creator, link):
+    bookmark_id = insert_bookmark(user_id, description)
+    sql = """
+    INSERT INTO Blogs
+    (bookmark_id, title, creator, link)
+    VALUES (:bookmark_id, :title, :creator, :link)
+    """
+    values = {
+        "bookmark_id": bookmark_id,
+        "title": title,
+        "creator": creator,
+        "link": link
+    }
+    db.session.execute(sql, values)
+    db.session.commit()
+
+
+def insert_podcast(user_id, episode_name, podcast_name, description, creator, link):
+    bookmark_id = insert_bookmark(user_id, description)
+    sql = """
+    INSERT INTO Podcasts
+    (bookmark_id, episode_name, podcast_name, creator, link)
+    VALUES (:bookmark_id, :episode_name, :podcast_name, :creator, :link)
+    """
+    values = {
+        "bookmark_id": bookmark_id,
+        "episode_name": episode_name,
+        "podcast_name": podcast_name,
+        "creator": creator,
+        "link": link
+    }
+    db.session.execute(sql, values)
+    db.session.commit()
+
+
+def insert_scientific_article(user_id, title, publication_title, description, authors, doi, year, publisher):
+    bookmark_id = insert_bookmark(user_id, description)
+    sql = """
+    INSERT INTO ScientificArticles
+    (bookmark_id, title, publication_title, authors, doi, year, publisher)
+    VALUES (:bookmark_id, :title, :publication_title, :authors, :doi, :year, :publisher)
+    """
+    values = {
+        "bookmark_id": bookmark_id,
+        "title": title,
+        "publication_title": publication_title,
+        "authors": authors,
+        "doi": doi,
+        "year": year,
+        "publisher": publisher
     }
     db.session.execute(sql, values)
     db.session.commit()
