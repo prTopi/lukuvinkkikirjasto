@@ -14,4 +14,4 @@ CREATE TABLE Tags (id SERIAL PRIMARY KEY, user_id INTEGER REFERENCES Users, tag_
 
 CREATE TABLE Bookmarks_tags (id SERIAL PRIMARY KEY, tag_id INTEGER NOT NULL REFERENCES Tags, user_id INTEGER REFERENCES Users, bookmark_id INTEGER NOT NULL REFERENCES Bookmarks);
 
-INSERT INTO Users (username) VALUES ('kayttaja');
+INSERT INTO Users (username, password) VALUES ('testi', 'pbkdf2:sha256:260000$A4StfLh8tPdGZXYF$c78a1cad4deccf8ae031456bfa443d2dcb92d3b03021b9cfe1fb71be08615619');

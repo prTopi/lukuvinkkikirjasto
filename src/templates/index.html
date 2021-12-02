@@ -2,17 +2,16 @@
 {% block content %}
 <title>Lukuvinkkikirjasto</title>
 <br><h1>Lukuvinkkikirjasto</h1><br>
-<a href="/add_bookmark">Add bookmark</a><br>
-
+{% if session.username %}
 <h2>Lukuvinkit</h2>
   <table class="table table-light">
     <thead>
         <tr>
             <th>Title</th>
-            <th>Author</th>'
+            <th>Author</th>
             <th>Description</th>
             <th>ISBN</th>
-            <th>Unread</th>
+            <th>Read</th>
             <th>Added on</th>
             <th>Tags</th>
         </tr>
@@ -24,8 +23,8 @@
             <td>{{book.author}}</td>
             <td>{{book.description}}</td>
             <td>{{book.isbn}}</td>
-            <td>{{book.unread}}</td>
-            <td>{{book.date}}</td>
+            <td>{{"Read" if book.unread else "Unread"}}</td>
+            <td>{{book.date.strftime("%d.%m.%Y")}}</td>
             <td>
                 {% if book.bookmark_id in tags %}
                 {{ tags[book.bookmark_id] }}
@@ -35,4 +34,5 @@
         {% endfor %}
     </tbody>
 </table>
+{% endif %}
 {% endblock %}
