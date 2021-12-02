@@ -35,7 +35,7 @@
     - Käyttäjä voi kirjautua (parityönä) - 1 prio - Antti. Topi (~5h)
     - Käyttäjä voi luoda profiilin (parityönä) - 1 prio - Antti, Topi (~5h)
     - Käyttäjä voi lisätä tagin - prio 1 - Joel (~4h)
-    - Voin muuttaa erilaisia lukuvinkki tyyppejä (tällä hetkellä vain kaksi, voisi laittaa enemmän) - prio 1 - Jenni, Tuomas, Samuli (~5h)
+    - Voin muuttaa erilaisia lukuvinkki tyyppejä - prio 1 - Jenni, Tuomas, Samuli (~5h)
         - valmiit pohjat? Pudotusvalikon kautta valitaan lukuvinkki tyyppi lisäyksessä, joka avaa oman tyylisen lisäys pohjan?
         - Oikea isbn
         - dropdown valikon kautta?
