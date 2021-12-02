@@ -313,7 +313,7 @@ def get_podcast(bookmark_id: int) -> dict:
     bookmark = db.session.execute(sql, {"id": bookmark_id}).fetchone()
     return {
         "bookmark_id": bookmark[0],
-        "video_id": bookmark[1],
+        "podcast_id": bookmark[1],
         "user_id": bookmark[2],
         "episode_name": bookmark[3],
         "podcast_name": bookmark[4],
