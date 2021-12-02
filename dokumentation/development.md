@@ -3,7 +3,7 @@
 ## Instructions for development
 
 - Start development server: `docker-compose up`
-  - Start development server after editing files related Docker or pyproject.toml: `docker-compose up --build`
+  - Start development server after editing files related Docker, database_structure.sql or pyproject.toml: `docker-compose up --build`
   - Start development server without outputting logs (as detached): `docker-compose up -d`
   - View container output from detached container _(`app` = dev-server, `db` = database, both can be given in format `app db`)_: `docker-compose logs -f app`
 - Stop development server: `docker-compose down`
@@ -61,4 +61,4 @@ PostgreSQL CLI can be accessed with `docker exec -it lukuvinkkikirjasto-db psql 
 - After entering the command, it should ask for password - that is same as in the .env-file (in example `password`). Attributes for user (`user`) and database (`lukuvinkkikirjasto`) are same as in the .env-file.
 - PostgreSQL CLI can be closed with command `exit;`
 
-File named as `database_structure.sql` is injected into database container and can be used to initialize database with normal SQL commands. Content of the file will be runned in database container, when first time creating the container or the database's volume is removed with `docker-compose down -v`.
+File named as `database_structure.sql` is injected into database container and can be used to initialize database with normal SQL commands. Content of the file will be runned in database container, when first time creating the container or the database's volume is removed with `docker-compose down -v` and then running again with `docker-compose up --build`.
