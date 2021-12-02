@@ -6,8 +6,10 @@ from isbnlib import is_isbn10, is_isbn13
 from os import getenv
 from secrets import token_hex
 import db
+from repositories.tag_repository import TagRepository
 
 app.secret_key = getenv("SECRET")
+tag_repository = TagRepository(1)
 
 
 def update_session(username, route="/"):
@@ -22,7 +24,14 @@ def index():
         books = db.get_all_books(session["user_id"])
     except KeyError:
         books = None
-    return render_template("index.html", books=books)
+    bookmark_tags = tag_repository.get_all_users_marked_tags()
+    tags_dict = {}
+    for tag in bookmark_tags:
+        if tag.bookmark_id not in tags_dict:
+            tags_dict[tag.bookmark_id] = [tag.tag_name]
+        else:
+            tags_dict[tag.bookmark_id].append(tag.tag_name)
+    return render_template("index.html", books=books, tags=tags_dict)
 
 @app.route("/login")
 def login():
@@ -73,7 +82,8 @@ def create_account():
 
 @app.route("/add_bookmark")
 def add_bookmark():
-    return render_template("add_bookmark.html")
+    return render_template("add_bookmark.html",
+    tags=tag_repository.get_user_tags())
 
 
 @app.route("/add", methods=["POST"])
@@ -84,16 +94,43 @@ def add():
     title = request.form["title"]
     description = request.form["description"]
     author = request.form["author"]
+    tags_to_add = request.form.getlist("tag")
     if book_type == "book":
         isbn = request.form["ISBN"]
         if is_isbn10(isbn) or is_isbn13(isbn):
-            db.insert_book(session["user_id"], title, description, author, isbn)
+            new_bookmark_id = db.insert_book(
+                session["user_id"],
+                title,
+                description,
+                author,
+                isbn
+            )
         else:
             return render_template("add_bookmark.html", title=title,
                                    description=description, author=author,
                                    isbn=isbn, error="Invalid ISBN")
     elif book_type == "video":
         link = request.form["link"]
-        db.insert_video(session["user_id"], title, description, author, link)
+        new_bookmark_id = db.insert_video(
+            session["user_id"],
+            title,
+            description,
+            author,
+            link)
+    if tags_to_add:
+        for tag in tags_to_add:
+            tag_repository.mark_tag_to_bookmark(int(tag),new_bookmark_id)
+    return redirect("/")
 
+@app.route("/tag",methods=["POST"])
+def tags():
+    tag_name = request.form["new_tag_name"]
+    tag_repository.create_new_tag(tag_name)
+    return redirect("/add_bookmark")
+
+@app.route("/bookmark_tag", methods=["POST"])
+def bookmark_tag():
+    tag_id = request.form["tag_id"]
+    bookmark_id = request.form["bookmark_id"]
+    tag_repository.mark_tag_to_bookmark(tag_id,bookmark_id)
     return redirect("/")
