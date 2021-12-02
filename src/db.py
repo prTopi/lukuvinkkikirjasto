@@ -120,7 +120,7 @@ def insert_podcast(user_id, episode_name, podcast_name, description, creator, li
 def insert_scientific_article(user_id, title, publication_title, description, authors, doi, year, publisher):
     bookmark_id = insert_bookmark(user_id, description)
     sql = """
-    INSERT INTO ScientificArticles
+    INSERT INTO Scientific_articles
     (bookmark_id, title, publication_title, authors, doi, year, publisher)
     VALUES (:bookmark_id, :title, :publication_title, :authors, :doi, :year, :publisher)
     """
@@ -147,7 +147,8 @@ def get_all_books(user_id):
     books = db.session.execute(sql, {"id": user_id}).fetchall()
     return books
 
-def add_new_tag(user_id,tag_name):
+
+def add_new_tag(user_id, tag_name):
     sql = """
     INSERT INTO Tags
     (user_id, tag_name)
@@ -155,13 +156,14 @@ def add_new_tag(user_id,tag_name):
     (:user_id,:tag_name)
     """
     values = {
-        "user_id":user_id,
-        "tag_name":tag_name
+        "user_id": user_id,
+        "tag_name": tag_name
     }
-    db.session.execute(sql,values)
+    db.session.execute(sql, values)
     db.session.commit()
 
-def mark_tag_to_bookmark(tag_id,user_id,bookmark_id):
+
+def mark_tag_to_bookmark(tag_id, user_id, bookmark_id):
     sql = """
     INSERT INTO Bookmarks_tags
     (tag_id, user_id, bookmark_id)
@@ -169,12 +171,13 @@ def mark_tag_to_bookmark(tag_id,user_id,bookmark_id):
     (:tag_id, :user_id, :bookmark_id)
     """
     values = {
-        "tag_id":tag_id,
-        "user_id":user_id,
-        "bookmark_id":bookmark_id
+        "tag_id": tag_id,
+        "user_id": user_id,
+        "bookmark_id": bookmark_id
     }
-    db.session.execute(sql,values)
+    db.session.execute(sql, values)
     db.session.commit()
+
 
 def get_all_user_tags(user_id):
     sql = """
@@ -183,10 +186,11 @@ def get_all_user_tags(user_id):
     WHERE user_id =:user_id
     """
     values = {
-        "user_id":user_id
+        "user_id": user_id
     }
-    tags = db.session.execute(sql,values).fetchall()
+    tags = db.session.execute(sql, values).fetchall()
     return tags
+
 
 def get_all_users_marked_tags(user_id):
     sql = """
@@ -197,7 +201,7 @@ def get_all_users_marked_tags(user_id):
 
     """
     values = {
-        "user_id":user_id
+        "user_id": user_id
     }
-    marked_tags = db.session.execute(sql,values).fetchall()
+    marked_tags = db.session.execute(sql, values).fetchall()
     return marked_tags

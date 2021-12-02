@@ -10,7 +10,7 @@ CREATE TABLE Blogs (id SERIAL PRIMARY KEY, bookmark_id INTEGER NOT NULL REFERENC
 
 CREATE TABLE Podcasts (id SERIAL PRIMARY KEY, bookmark_id INTEGER NOT NULL REFERENCES Bookmarks, episode_name TEXT, podcast_name TEXT, creator TEXT, link TEXT);
 
-CREATE TABLE ScientificArticles (id SERIAL PRIMARY KEY, bookmark_id INTEGER NOT NULL REFERENCES Bookmarks, title TEXT, publication_title TEXT, authors TEXT, doi TEXT, year INTEGER, publisher TEXT);
+CREATE TABLE Scientific_articles (id SERIAL PRIMARY KEY, bookmark_id INTEGER NOT NULL REFERENCES Bookmarks, title TEXT, publication_title TEXT, authors TEXT, doi TEXT, year INTEGER, publisher TEXT);
 
 CREATE TABLE Tags (id SERIAL PRIMARY KEY, user_id INTEGER REFERENCES Users, tag_name TEXT);
 
