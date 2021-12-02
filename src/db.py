@@ -31,7 +31,15 @@ def insert_user(username, password):
     db.session.commit()
 
 
-def insert_bookmark(user_id, description):
+def insert_bookmark(user_id: int, description: str) -> int:
+    """insert_bookmark is used to add basic info of any type into the database
+    Args:
+        user_id (int): id of the bookmark's owner
+        description (str): description of the bookmark
+
+    Returns:
+        int: id of created bookmark
+    """
     sql = """
     INSERT INTO Bookmarks
     (user_id, description)
@@ -46,7 +54,19 @@ def insert_bookmark(user_id, description):
     return bookmark_id
 
 
-def insert_book(user_id, title, description, author, isbn):
+def insert_book(user_id: int, title: str, description: str, author: str, isbn: str) -> int:
+    """insert_book is used to add bookmark, which is type of book into the database
+
+    Args:
+        user_id (int): id of the bookmark's owner
+        title (str): title of the book
+        description (str): description of the book
+        author (str): author(s) of the book
+        isbn (str): isbn code of the book
+
+    Returns:
+        int: id of the bookmark (references into bookmarks table)
+    """
     bookmark_id = insert_bookmark(user_id, description)
     sql = """
     INSERT INTO Books
@@ -64,7 +84,19 @@ def insert_book(user_id, title, description, author, isbn):
     return bookmark_id
 
 
-def insert_video(user_id, title, description, creator, link):
+def insert_video(user_id: int, title: str, description: str, creator: str, link: str) -> int:
+    """insert_video is used to add bookmark, which is type of video into the database
+
+    Args:
+        user_id (int): id of the bookmark's owner
+        title (str): title of the video
+        description (str): description of the video
+        creator (str): creator of the video
+        link (str): url referencing into the video
+
+    Returns:
+        int: id of the bookmark (references into bookmarks table)
+    """
     bookmark_id = insert_bookmark(user_id, description)
     sql = """
     INSERT INTO Videos
@@ -82,7 +114,19 @@ def insert_video(user_id, title, description, creator, link):
     return bookmark_id
 
 
-def insert_blog(user_id, title, description, creator, link):
+def insert_blog(user_id: int, title: str, description: str, creator: str, link: str) -> int:
+    """insert_blog is used to add bookmark, which is type of blog into the database
+
+    Args:
+        user_id (int): id of the bookmark's owner
+        title (str): title of the blog
+        description (str): description of the blog
+        creator (str): creator of the blog
+        link (str): url referencing into the blog
+
+    Returns:
+        int: id of the bookmark (references into bookmarks table)
+    """
     bookmark_id = insert_bookmark(user_id, description)
     sql = """
     INSERT INTO Blogs
@@ -97,9 +141,23 @@ def insert_blog(user_id, title, description, creator, link):
     }
     db.session.execute(sql, values)
     db.session.commit()
+    return bookmark_id
 
 
-def insert_podcast(user_id, episode_name, podcast_name, description, creator, link):
+def insert_podcast(user_id: int, episode_name: str, podcast_name: str, description: str, creator: str, link: str) -> int:
+    """insert_podcast is used to add bookmark, which is type of podcast into the database
+
+    Args:
+        user_id (int): id of the bookmark's owner
+        episode_name (str): name of the podcast episode
+        podcast_name (str): name of the podcast serie
+        description (str): description of the podcast
+        creator (str): creator of the podcast
+        link (str): url referencing into the podcast
+
+    Returns:
+        int: id of the bookmark (references into bookmarks table)
+    """
     bookmark_id = insert_bookmark(user_id, description)
     sql = """
     INSERT INTO Podcasts
@@ -115,9 +173,25 @@ def insert_podcast(user_id, episode_name, podcast_name, description, creator, li
     }
     db.session.execute(sql, values)
     db.session.commit()
+    return bookmark_id
 
 
-def insert_scientific_article(user_id, title, publication_title, description, authors, doi, year, publisher):
+def insert_scientific_article(user_id: int, title: str, publication_title: str, description: str, authors: str, doi: str, year: int, publisher: str) -> int:
+    """insert_scientific_article is used to add bookmark, which is type of scientific article into the database
+
+    Args:
+        user_id (int): id of the bookmark's owner
+        title (str): title of the article
+        publication_title (str): name of the publication, where article is published
+        description (str): description of the article
+        authors (str): authors of the article
+        doi (str): doi of the article
+        year (int): publication year of the article
+        publisher (str): publisher of the article
+
+    Returns:
+        int: id of the bookmark (references into bookmarks table)
+    """
     bookmark_id = insert_bookmark(user_id, description)
     sql = """
     INSERT INTO Scientific_articles
@@ -135,6 +209,7 @@ def insert_scientific_article(user_id, title, publication_title, description, au
     }
     db.session.execute(sql, values)
     db.session.commit()
+    return bookmark_id
 
 
 def get_all_books(user_id):
