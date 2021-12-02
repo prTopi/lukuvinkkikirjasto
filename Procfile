@@ -1,1 +1,1 @@
-web: poetry run invoke start
+web: poetry run flask run --host=0.0.0.0
