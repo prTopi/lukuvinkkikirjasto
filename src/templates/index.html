@@ -13,6 +13,7 @@
             <th>ISBN</th>
             <th>Read</th>
             <th>Added on</th>
+            <th>Tags</th>
         </tr>
     </thead>
     <tbody>
@@ -24,6 +25,11 @@
             <td>{{book.isbn}}</td>
             <td>{{"Read" if book.unread else "Unread"}}</td>
             <td>{{book.date.strftime("%d.%m.%Y")}}</td>
+            <td>
+                {% if book.bookmark_id in tags %}
+                {{ tags[book.bookmark_id] }}
+                {% endif %}
+            </td>
         </tr>
         {% endfor %}
     </tbody>
