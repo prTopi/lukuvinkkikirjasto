@@ -7,8 +7,6 @@ app = Flask(__name__)
 import routes
 
 
-
-
 @app.route("/health")
 def health():
     return "Health check: ✅"
