@@ -117,6 +117,42 @@ def add():
             description,
             author,
             link)
+    
+    elif book_type == "blog":
+        link = request.form["link"]
+        new_bookmark_id = db.insert_blog(
+            session["user_id"],
+            title,
+            description,
+            author,
+            link)
+
+    elif book_type == "podcast":
+        link = request.form["link"]
+        episode_name = request.form["episode"]
+        new_bookmark_id = db.insert_podcast(
+            session["user_id"],
+            episode_name,
+            title,
+            description,
+            author,
+            link)
+
+    elif book_type == "scientific_article":
+        pt = request.form["publication_title"]
+        doi = request.form["doi"]
+        publisher = request.form["publisher"]
+        year = request.form["year"]
+        new_bookmark_id = db.insert_scientific_article(
+            session["user_id"],
+            title,
+            pt,
+            description,
+            author,
+            doi,
+            year,
+            publisher)
+
     if tags_to_add:
         for tag in tags_to_add:
             tag_repository.mark_tag_to_bookmark(int(tag),new_bookmark_id)
