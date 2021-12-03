@@ -11,7 +11,8 @@
 - Stop development server and remove database's volume: `docker-compose down -v`
 - Build development container (and not starting server): `docker-compose build`
 - Reset development server: `docker-compose down -v && docker-compose build && docker-compose up`
-- Run tests in container: `docker-compose --profile test up`
+- Run Robot tests in container: `docker-compose --profile test up`
+- Run unit tests in container against test database: `docker-compose -f docker-compose.test.yml up --abort-on-container-exit && docker-compose -f docker-compose.test.yml down -v`
 
 - Running Poetry commands: `docker-compose run --no-deps --rm app poetry ...`
 
