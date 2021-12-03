@@ -78,6 +78,14 @@ def get_bookmark(bookmark_id: int) -> dict:
     }
 
 
+def count_bookmarks() -> int:
+    sql = """
+    SELECT COUNT(id) FROM Bookmarks
+    """
+    count = db.session.execute(sql).fetchone()[0]
+    return count
+
+
 def insert_book(user_id: int, title: str, description: str,
                 author: str, isbn: str) -> int:
     """insert_book is used to add bookmark, which is type of
@@ -242,7 +250,7 @@ def get_blog(bookmark_id: int) -> dict:
         dict: searched bookmark
     """
     sql = """
-    SELECT BM.id, B.id, BM.user_id, B.title, BM.description, B.creator, Bs.link, BM.unread, BM.date 
+    SELECT BM.id, B.id, BM.user_id, B.title, BM.description, B.creator, B.link, BM.unread, BM.date 
     FROM Bookmarks BM
     JOIN Blogs B ON BM.id = B.bookmark_id
     WHERE BM.id=:id
