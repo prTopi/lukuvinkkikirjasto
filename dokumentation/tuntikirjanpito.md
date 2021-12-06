@@ -23,5 +23,5 @@
 |   01.12.2021   | 5     | Käyttäjän luonti ja kirjautuminen + ISBN validointi + testejä                    | Topi+Antti |
 |   01.12.2021   | 4     | Tagit                                                                            | Samuli     |
 |   02.12.2021   | 3     | Bäkkipuoli uusista tyypeistä + pytest säätöä                                     | Tuomas     |
-|   3.12.2021    | 1     | Yksikkötestit kuntoon                                                            |
+|   3.12.2021    | 1     | Yksikkötestit kuntoon                                                            | Tuomas     |
 |      yht       | 43,2  | h                                                                                |            |
