@@ -1,6 +1,6 @@
 # Asiakastapaaminen/sprint-review/Sprintin suunnittelu; maanantai, 22.11.2021
 
-## Luennon agenda:
+## Agenda:
     - Mini-projektin esittely: missä mennään, mitä ollaan saatu aikaiseksi
     - Valmiiden funktioiden toiminnan esitys
     - Asiakkaan kanssa seuraavien taskien sopiminen
