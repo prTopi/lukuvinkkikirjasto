@@ -1,4 +1,4 @@
-# lukuvinkkikirjasto(Bookmark)
+# Lukuvinkkikirjasto(Bookmark)
 
 [The app can be found in here](https://ohtu-lukuvinkkiapp.herokuapp.com)
 
