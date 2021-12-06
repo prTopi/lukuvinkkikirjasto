@@ -1,13 +1,19 @@
-# lukuvinkkikirjasto
+# lukuvinkkikirjasto(Bookmark)
 
 [The app can be found in here](https://ohtu-lukuvinkkiapp.herokuapp.com)
 
 ## Backlogs
-[Product Backlog](https://github.com/prTopi/lukuvinkkikirjasto/projects/2)
 
-[Backlog2.0](https://docs.google.com/spreadsheets/d/1c8zrpIsmhYAiB1Vc7fqDrFib2jI-ZHxGmAtz3zVkCcM/edit?usp=sharing)
+[Product Backlog](https://docs.google.com/spreadsheets/d/1ftJLNxb8feMG_z_KNAsDa7UJa7GhjID_H2xnk9kyYmI/edit#gid=322137742)
 
-[First Sprint Backlog](https://github.com/prTopi/lukuvinkkikirjasto/projects/1)
+[First Sprint Backlog + Burndown](https://docs.google.com/spreadsheets/d/1ftJLNxb8feMG_z_KNAsDa7UJa7GhjID_H2xnk9kyYmI/edit#gid=73558073)
+[Second Sprint Backlog + Burndown](https://docs.google.com/spreadsheets/d/1ftJLNxb8feMG_z_KNAsDa7UJa7GhjID_H2xnk9kyYmI/edit#gid=337422552)
+
+## Timesheet
+
+[Group's timesheet](https://docs.google.com/spreadsheets/d/1ftJLNxb8feMG_z_KNAsDa7UJa7GhjID_H2xnk9kyYmI/edit#gid=1271329701)
+
+
 
 ## CI
 
