@@ -4,9 +4,11 @@
 
 ## Backlogs
 
-[Product Backlog](https://docs.google.com/spreadsheets/d/1ftJLNxb8feMG_z_KNAsDa7UJa7GhjID_H2xnk9kyYmI/edit#gid=322137742)
+[Product Backlog](https://docs.google.com/spreadsheets/d/1ftJLNxb8feMG_z_KNAsDa7UJa7GhjID_H2xnk9kyYmI/edit?usp=sharing)
 
-[First Sprint Backlog + Burndown](https://docs.google.com/spreadsheets/d/1ftJLNxb8feMG_z_KNAsDa7UJa7GhjID_H2xnk9kyYmI/edit#gid=73558073)
+
+[First Sprint Backlog + Burndown](https://docs.google.com/spreadsheets/d/1ftJLNxb8feMG_z_KNAsDa7UJa7GhjID_H2xnk9kyYmI/edit?skip_itp2_check=true#gid=73558073)
+
 [Second Sprint Backlog + Burndown](https://docs.google.com/spreadsheets/d/1ftJLNxb8feMG_z_KNAsDa7UJa7GhjID_H2xnk9kyYmI/edit#gid=337422552)
 
 ## Timesheet
