@@ -18,9 +18,10 @@
 |   25.11.2021   | 1,5    | GitHub actions CI + pylint lisäys                                                | Topi      |
 |   26.22.2021   | 2      | Testien tekemistä                                                                | Samuli    |
 |   28.11.2021   | 4      | Uuden docker -kontin luominen testejä varten                                     | Lauri     |
-|   28.11.2021   | 2      | Tietokannan alustava suunnitelma ja diagrammi                                    | Jenni     |
+|   28.11.2021   | 5      | Tietokannan alustava suunnitelma ja diagrammi  + dockeriin tutustumista +asennus | Jenni     |
 |   28.11.2021   | 3      | Testien kirjoittamista, GitHub actions muokkausta, lint korjaamista              | Topi      |
 |   01.12.2021   | 5      | Käyttäjän luonti ja kirjautuminen + ISBN validointi + testejä                    | Topi+Antti|
 |   01.12.2021   | 4      | Tagit                                                                            | Samuli    |
 |   01.12.2021   | 5      | Herokun pystyttäminen ja actioneiden päivitys deployta varten                    | Lauri     |
-|      yht       | 45,2   | h                                                                                |           |
+|   03.12.2021   | 5      | Pudotusvalikko sekä loput lukuvinkkityypit                                       | Jenni     |
+|      yht       | 55,2   | h                                                                                |           |
