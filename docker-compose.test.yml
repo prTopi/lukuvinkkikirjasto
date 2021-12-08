@@ -12,6 +12,7 @@ services:
     ports:
       - 5000:5000
     environment:
+      - MODE=test
       - SECRET=test
       - DATABASE_URI=postgresql://test:test@lukuvinkkikirjasto-test-db:5432/lukuvinkkikirjasto-test
     volumes:
