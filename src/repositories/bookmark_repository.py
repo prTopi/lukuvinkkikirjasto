@@ -10,7 +10,9 @@ class BookmarkRepository:
         self.db = db
 
     def insert_bookmark(self, user_id: int, description: str) -> int:
-        """insert_bookmark is used to add basic info of any type into the database
+        """insert_bookmark is used to add basic info of any type
+        into the database
+
         Args:
             user_id (int): id of the bookmark's owner
             description (str): description of the bookmark
@@ -300,9 +302,11 @@ class BookmarkRepository:
             "date": bookmark[9]
         }
 
-    def insert_scientific_article(self, user_id: int, title: str, publication_title: str,
-                                  description: str, authors: str, doi: str,
-                                  year: int, publisher: str) -> int:
+    def insert_scientific_article(self, user_id: int, title: str,
+                                  publication_title: str,
+                                  description: str, authors: str,
+                                  doi: str, year: int,
+                                  publisher: str) -> int:
         """insert_scientific_article is used to add bookmark, which is type of
         scientific article into the database
 

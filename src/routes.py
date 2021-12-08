@@ -83,7 +83,8 @@ if getenv("MODE") != "test":
             return render_template("create.html", error="Username taken",
                                    user=username)
         if password != password2:
-            return render_template("create.html", error="Passwords not identical",
+            return render_template("create.html",
+                                   error="Passwords not identical",
                                    user=username)
 
         password = generate_password_hash(password2)
@@ -92,8 +93,9 @@ if getenv("MODE") != "test":
 
     @app.route("/add_bookmark")
     def add_bookmark():
+        user_id = session["user_id"]
         return render_template("add_bookmark.html",
-                               tags=tag_repository.get_user_tags(session["user_id"]))
+                               tags=tag_repository.get_user_tags(user_id))
 
     @app.route("/add", methods=["POST"])
     def add():

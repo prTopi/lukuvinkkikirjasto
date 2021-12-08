@@ -11,8 +11,9 @@ class UserRepository:
 
     def find_user_id(self, username):
         sql = "SELECT id FROM Users WHERE username=:username"
+        values = {"username": username}
         try:
-            return self.db.session.execute(sql, {"username": username}).fetchone()[0]
+            return self.db.session.execute(sql, values).fetchone()[0]
         except (IndexError, TypeError):
             return None
 
