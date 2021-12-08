@@ -6,10 +6,8 @@ from isbnlib import is_isbn10, is_isbn13
 from os import getenv
 from secrets import token_hex
 import db
-from repositories.tag_repository import TagRepository
 
 app.secret_key = getenv("SECRET")
-tag_repository = TagRepository(1)
 
 
 def update_session(username, route="/"):
@@ -24,13 +22,16 @@ def index():
         books = db.get_all_books(session["user_id"])
     except KeyError:
         books = None
-    bookmark_tags = tag_repository.get_all_users_marked_tags()
-    tags_dict = {}
-    for tag in bookmark_tags:
-        if tag.bookmark_id not in tags_dict:
-            tags_dict[tag.bookmark_id] = [tag.tag_name]
-        else:
-            tags_dict[tag.bookmark_id].append(tag.tag_name)
+    try:
+        bookmark_tags = db.get_all_users_marked_tags(session["user_id"])
+        tags_dict = {}
+        for tag in bookmark_tags:
+            if tag.bookmark_id not in tags_dict:
+                tags_dict[tag.bookmark_id] = [tag.tag_name]
+            else:
+                tags_dict[tag.bookmark_id].append(tag.tag_name)
+    except KeyError:
+        tags_dict = None
     return render_template("index.html", books=books, tags=tags_dict)
 
 @app.route("/login")
@@ -83,7 +84,7 @@ def create_account():
 @app.route("/add_bookmark")
 def add_bookmark():
     return render_template("add_bookmark.html",
-    tags=tag_repository.get_user_tags())
+    tags=db.get_all_user_tags(session["user_id"]))
 
 
 @app.route("/add", methods=["POST"])
@@ -155,18 +156,18 @@ def add():
 
     if tags_to_add:
         for tag in tags_to_add:
-            tag_repository.mark_tag_to_bookmark(int(tag),new_bookmark_id)
+            db.mark_tag_to_bookmark(int(tag),session["user_id"],new_bookmark_id)
     return redirect("/")
 
 @app.route("/tag",methods=["POST"])
 def tags():
     tag_name = request.form["new_tag_name"]
-    tag_repository.create_new_tag(tag_name)
+    db.add_new_tag(session["user_id"],tag_name)
     return redirect("/add_bookmark")
 
 @app.route("/bookmark_tag", methods=["POST"])
 def bookmark_tag():
     tag_id = request.form["tag_id"]
     bookmark_id = request.form["bookmark_id"]
-    tag_repository.mark_tag_to_bookmark(tag_id,bookmark_id)
+    db.mark_tag_to_bookmark(tag_id,session["user_id"],bookmark_id)
     return redirect("/")
