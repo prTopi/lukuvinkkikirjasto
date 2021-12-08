@@ -1,4 +1,3 @@
-
 # Lukuvinkkikirjasto(Bookmark)
 
 [The app can be found in here](https://ohtu-lukuvinkkiapp.herokuapp.com)
@@ -29,3 +28,6 @@ CI is done through [GitHub Actions](https://github.com/prTopi/lukuvinkkikirjasto
     - Coverage at least 60 %
     - Code quality is assured (review
     - Pull request is done, and it is approved
+
+
+ohtu vk6 pr
