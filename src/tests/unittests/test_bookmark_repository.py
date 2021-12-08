@@ -102,22 +102,3 @@ class TestBookmarkRepository(unittest.TestCase):
         self.assertEqual(bookmark["publisher"], "Publisher of the article")
         self.assertEqual(bookmark["unread"], False)
         self.assertIsNotNone(bookmark["date"])
-    
-    def test_add_new_tag(self):
-        db.add_new_tag(1,"NewTag")
-        users_tags = db.get_all_user_tags(1)
-        added_tag = users_tags[0]
-
-        self.assertEqual(len(users_tags),1)
-        self.assertEqual(added_tag["user_id"],1)
-        self.assertEqual(added_tag["tag_name"],"NewTag")
-
-    def test_mark_tag_to_bookmark(self):
-        db.mark_tag_to_bookmark(1,1,1)
-        marked_tags = db.get_all_users_marked_tags(1)
-        new_marked_tag = marked_tags[0]
-
-        self.assertEqual(len(marked_tags),1)
-        self.assertEqual(new_marked_tag["tag_id"],1)
-        self.assertEqual(new_marked_tag["user_id"],1)
-        self.assertEqual(new_marked_tag["bookmark_id"],1)
