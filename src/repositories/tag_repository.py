@@ -1,4 +1,3 @@
-
 """Module containing tag function"""
 
 
