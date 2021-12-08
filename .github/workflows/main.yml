@@ -36,3 +36,12 @@ jobs:
 
       - name: Run Selenium tests in Docker
         run: docker-compose --profile test up --exit-code-from test
+
+      - name: Copy test reports to same folder
+        run: .
+      
+      - name: Deploy test reports to GH Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.7
+        with:
+          branch: gh-pages
+          folder: documentation/test_reports
