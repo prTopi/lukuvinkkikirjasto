@@ -76,7 +76,7 @@ if getenv("MODE") != "test":
     def create_account():
         username = request.form["username"]
         password = request.form["password"]
-        password2 = request.form["password2"]
+        password2 = request.form["passwordConfirm"]
 
         user_id = user_repository.find_user_id(username)
         if user_id is not None:

@@ -7,7 +7,7 @@ Test Setup  Go To Login Page And Log Out
 *** Test Cases ***
 Click Home Page Link
     Click Link  Home page
-    Main Page Should Be Open
+    Login Page Should Be Open
 
 Login With Invalid Username
     Set Username  testi_notfound
