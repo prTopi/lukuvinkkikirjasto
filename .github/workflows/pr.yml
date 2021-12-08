@@ -1,8 +1,8 @@
-name: CI
+name: CI-PR
 
 on:
   # Triggers the workflow on push or pull request events on the main branch
-  push:
+  pull_request:
     branches: [ main ]
 
   # Can be triggered manually through Actions tab
@@ -38,8 +38,15 @@ jobs:
       - name: Run unittests in Docker
         run: docker-compose -f docker-compose.test.yml up --abort-on-container-exit && docker-compose -f docker-compose.test.yml down -v
       
+      - name: Move folder to under PR-PR_NUMBER
+        env:
+          PR_NUMBER: ${{ github.event.number }}
+        run: cp documentation/test_reports documentation/test_reports/$PR_NUMBER
+
       - name: Deploy test reports to GH Pages
         uses: JamesIves/github-pages-deploy-action@4.1.7
+        env:
+          PR_NUMBER: ${{ github.event.number }}
         with:
           branch: gh-pages
-          folder: documentation/test_reports
+          folder: documentation/test_reports/$PR_NUMBER
