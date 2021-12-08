@@ -82,4 +82,4 @@ Set Password
 
 Set Password Confirmation
     [Arguments]  ${password}
-    Input Text  password2  ${password}
+    Input Text  passwordConfirm  ${password}
