@@ -221,24 +221,18 @@ if getenv("MODE") != "test":
             return render_template("view_article.html",article=article)
         return redirect("/")
 
-    # @app.route("/edit-bookmark/<id>",methods=["POST"])
-    # def edit_bookmark(id):
-    #     bookmark = bookmark_repository.get_bookmark(id)
-    #     if bookmark["user_id"] == session["user_id"]:
-    #         pass #edit bookmark
-    #     redirect("/")
-    
-    # @app.route("/delete/<id>",methods=["POST"])
-    # def delete_bookmark():
-    #     bookmark_type = request.form["bookmark_type"]
-    #     if bookmark_type == "book":
-    #         pass
-    #     elif bookmark_type == "video":
-    #         pass
-    #     elif bookmark_type == "blog":
-    #         pass
-    #     elif bookmark_type == "podcast":
-    #         pass
-    #     elif bookmark_type == "scientific_article":
-    #         pass
-    #     redirect("/")
+    @app.route("/delete",methods=["POST"])
+    def delete_bookmark():
+        bookmark_type = request.form["bookmark_type"]
+        id = request.form["id"]
+        if bookmark_type == "book":
+            pass
+        elif bookmark_type == "video":
+            pass
+        elif bookmark_type == "blog":
+            pass
+        elif bookmark_type == "podcast":
+            pass
+        elif bookmark_type == "scientific_article":
+            pass
+        return redirect("/")
