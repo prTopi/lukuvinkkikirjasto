@@ -53,5 +53,5 @@ services:
     volumes: [
         "$PWD/src/tests:/src/tests",
         "$PWD/scripts:/scripts",
-        "$PWD/reports:/reports"
+        "$PWD/documentation/test_reports/robot:/documentation/test_reports/robot"
     ]
