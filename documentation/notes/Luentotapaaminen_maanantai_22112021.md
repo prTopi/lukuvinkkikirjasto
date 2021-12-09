@@ -1,6 +1,6 @@
 # Luentotapaaminen; maanantai, 22.11.2021
 
-## Luennon agenda:
+## Agenda:
     - Mini-projektin esittely ja alustus
     - Pienryhmiin jako
     - Asiakkaan esittäytyminen

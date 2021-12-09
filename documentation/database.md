@@ -1,0 +1,3 @@
+![database](https://github.com/prTopi/lukuvinkkikirjasto/blob/main/documentaatio/media/database_diagram.png)
+
+...
