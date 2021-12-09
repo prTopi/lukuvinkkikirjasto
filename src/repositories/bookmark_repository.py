@@ -169,6 +169,8 @@ class BookmarkRepository:
         WHERE BM.id=:id
         """
         bookmark = self.db.session.execute(sql, {"id": bookmark_id}).fetchone()
+        if bookmark is None:
+            return None
         return {
             "bookmark_id": bookmark[0],
             "video_id": bookmark[1],
@@ -289,6 +291,8 @@ class BookmarkRepository:
         WHERE BM.id=:id
         """
         bookmark = self.db.session.execute(sql, {"id": bookmark_id}).fetchone()
+        if bookmark is None:
+            return None
         return {
             "bookmark_id": bookmark[0],
             "podcast_id": bookmark[1],
@@ -301,6 +305,33 @@ class BookmarkRepository:
             "unread": bookmark[8],
             "date": bookmark[9]
         }
+    
+    def edit_podcast(self,podcast_id,bookmark_id,podcast_name,creator,episode,link,description,unread):
+        podcast_sql = """
+        UPDATE Podcasts
+        SET episode_name=:episode, podcast_name=:podcast, creator=:creator, link=:link
+        WHERE id=:id
+        """
+        self.db.session.execute(podcast_sql, {
+            "episode": episode,
+            "podcast": podcast_name,
+            "creator": creator,
+            "link": link,
+            "id": podcast_id
+        })
+        bookmark_sql = """
+        UPDATE Bookmarks
+        SET description=:description, unread=:unread
+        WHERE id=:bookmark_id
+        """
+        self.db.session.execute(bookmark_sql, {
+            "description":description,
+            "unread":unread,
+            "bookmark_id":bookmark_id
+        })
+        self.db.session.commit()
+        
+
 
     def insert_scientific_article(self, user_id: int, title: str,
                                   publication_title: str,
