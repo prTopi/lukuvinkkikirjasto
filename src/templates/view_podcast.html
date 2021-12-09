@@ -4,25 +4,24 @@
 <br><h1>Lukuvinkkikirjasto</h1><br>
 {% if session.username %}
 Name of Podcast<br>
-{{ name }}
+{{ podcast.podcast_name }}
 <br><br>
-Added by<br>
-{{ username }}<br>
-{{ date }}<br>
+Added on<br>
+{{ podcast.date }}<br>
 Creator<br>
-{{ creator }}<br>
+{{ podcast.creator }}<br>
 Episode<br>
-{{ episode }}<br>
+{{ podcast.episode }}<br>
 Link<br>
-{{ link }}
+{{ podcast.link }}
 
 Description<br>
-{{ description }}<br><br>
+{{ podcast.description }}<br><br>
 
-{{ read }}<br><br>
+{{ podcast.read }}<br><br>
 
 Tags:
-{ for tag in tags }
+{% for tag in tags %}
 {{ tag }}<br>
 {% endfor %}
 
