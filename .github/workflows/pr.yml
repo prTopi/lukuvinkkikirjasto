@@ -48,5 +48,5 @@ jobs:
       - name: Comment test report links to PR
         uses: thollander/actions-comment-pull-request@v1
         with:
-          message: "#Test results: \n\n -[Unittest report](https://prtopi.github.io/lukuvinkkikirjasto/commit-${{ github.sha }}/unittests/index.html)\n - [Robot test report](https://prtopi.github.io/lukuvinkkikirjasto/commit-${{ github.sha }}/robot/report.html)"
+          message: "#Test results: \n\n - [Unittest report](https://prtopi.github.io/lukuvinkkikirjasto/commit-${{ github.sha }}/unittests/index.html)\n - [Robot test report](https://prtopi.github.io/lukuvinkkikirjasto/commit-${{ github.sha }}/robot/report.html)"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
