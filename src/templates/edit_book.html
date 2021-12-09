@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block content %}
+<title>Edit Book</title>
+{% if session.username %}
+<form action="/edit_book" method="POST">
+Delete Bookmark: <br>
+<input type="radio" name="delete" value="0" checked> No
+<input type="radio" name="delete" value="1"> Yes
+<br>
+
+{% if read %}<br>
+Mark unread: <br>
+<input type="radio" name="Read" value="0" checked> Yes
+<input type="radio" name="Unread" value="1"> No
+<br>
+{% else %}
+Mark read: <br>
+<input type="radio" name="Read" value="0" checked> No
+<input type="radio" name="Unread" value="1"> Yes
+<br>
+{% endif %}
+
+Current Name:<br>
+{{ name }}<br>
+New Name: <br>
+<input type="text" name="name" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" /><br>
+<br>
+
+Current Author:<br>
+{{ author }}<br>
+New Author: <br>
+<input type="text" name="author" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" /><br>
+
+Current ISBN<br>
+{{ ISBN }}
+New ISBN: <br>
+<input type="text" name="link" oninvalid="alert('Code must be between 10-25 characters');" pattern=".{10,25}" /><br>
+
+Current Description<br>
+{{ description }}<br><br>
+New Description: <br>
+<input type="text" name="description" /><br>
+
+
+<br>
+<br>
+<input type="hidden" name="book_id" value="{{ id }}">
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+<br><br>
+<input type="submit" value="Save changes">
+</form>
+{% endif %}
+{% endblock %}

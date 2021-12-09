@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block content %}
+<title>Edit Scientific Article</title>
+{% if session.username %}
+<form action="/edit_article" method="POST">
+Delete Bookmark: <br>
+<input type="radio" name="delete" value="0" checked> No
+<input type="radio" name="delete" value="1"> Yes
+<br>
+
+{% if read %}<br>
+Mark unread: <br>
+<input type="radio" name="Read" value="0" checked> Yes
+<input type="radio" name="Unread" value="1"> No
+<br>
+{% else %}
+Mark read: <br>
+<input type="radio" name="Read" value="0" checked> No
+<input type="radio" name="Unread" value="1"> Yes
+<br>
+{% endif %}
+
+Current Name:<br>
+{{ name }}<br>
+New Name: <br>
+<input type="text" name="name" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" /><br>
+<br>
+
+Current Authors:<br>
+{{ authors }}<br>
+New Authors: <br>
+<input type="text" name="author" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" /><br>
+
+Current Publication title<br>
+{{ publication_title }}
+New Publication title: <br>
+<input type="text" name="publication_title" /><br>
+
+Current DOI<br>
+{{ doi }}
+New DOI: <br>
+<input type="text" name="doi" /><br>
+
+Current Year<br>
+{{ year }}
+New Year: <br>
+<input type="text" name="year" /><br>
+
+Current Publisher<br>
+{{ publisher }}
+New Publisher: <br>
+<input type="text" name="publisher" /><br>
+
+Current Description<br>
+{{ description }}<br><br>
+New Description: <br>
+<input type="text" name="description" /><br>
+
+
+<br>
+<br>
+<input type="hidden" name="book_id" value="{{ id }}">
+<input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
+<br><br>
+<input type="submit" value="Save changes">
+</form>
+{% endif %}
+{% endblock %}
