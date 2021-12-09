@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block content %}
+<title>Lukuvinkkikirjasto</title>
+<br><h1>Lukuvinkkikirjasto</h1><br>
+{% if session.username %}
+Name of Scientific Article<br>
+{{ name }}
+<br><br>
+Added by<br>
+{{ username }}<br>
+{{ date }}<br>
+Authors<br>
+{{ authors }}<br>
+Publication title<br>
+{{ publication_title }}<br>
+DOI<br>
+{{ doi }}
+Year<br>
+{{ year }}<br>
+Publisher<br>
+{{ publisher }}<br>
+
+Description<br>
+{{ description }}<br><br>
+
+{{ read }}<br><br>
+
+Tags:
+{ for tag in tags }
+{{ tag }}<br>
+{% endfor %}
+
+{% endif %}
+{% endblock %}
