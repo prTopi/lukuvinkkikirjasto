@@ -1,0 +1,56 @@
+version: "3.8"
+
+services:
+  testapp:
+    build:
+      context: ./
+      dockerfile: ./test.Dockerfile
+    image: lukuvinkkikirjasto-test-dev
+    container_name: lukuvinkkikirjasto-test-dev
+    depends_on:
+      - testdb
+    ports:
+      - 5000:5000
+    environment:
+      - MODE=test
+      - SECRET=test
+      - DATABASE_URI=postgresql://test:test@lukuvinkkikirjasto-test-db:5432/lukuvinkkikirjasto-test
+    volumes:
+      - ./:/usr/src/lukuvinkkikirjasto
+    
+  testdb:
+    build:
+      context: ./
+      dockerfile: ./db.Dockerfile
+    image: lukuvinkkikirjasto-test-db
+    container_name: lukuvinkkikirjasto-test-db
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_DB=lukuvinkkikirjasto-test
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_HOSTNAME=lukuvinkkikirjasto-test-db
+      - POSTGRES_PORT=5432
+      - SECRET=test
+      - DATABASE_URI=postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOSTNAME}:${POSTGRES_PORT}/${POSTGRES_DB}
+    volumes:
+      - ./empty_database.sql:/docker-entrypoint-initdb.d/01-empty_database.sql
+ 
+  testtest:
+    build:
+      context: ./
+      dockerfile: ./devrobot.Dockerfile
+    network_mode: host
+    container_name: lukuvinkkikirjasto-test
+    depends_on:
+      - app
+    profiles:
+      - test
+    image: robot
+    shm_size: "256M"
+    environment:
+        USERNAME: Test
+    volumes: [
+        "$PWD/src/tests:/src/tests",
+        "$PWD/scripts:/scripts",
+        "$PWD/reports:/reports"
+    ]
