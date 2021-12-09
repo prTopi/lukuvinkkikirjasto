@@ -39,7 +39,7 @@ jobs:
         run: docker-compose -f docker-compose.test.yml up --abort-on-container-exit --exit-code-from testapp #&& docker-compose -f docker-compose.test.yml down -v
     
       - name: tell me something cool
-        run: echo "$(ls -la)""
+        run: echo "$(ls -la)"
 
       - name: Deploy test reports to GH Pages
         uses: peaceiris/actions-gh-pages@v3
