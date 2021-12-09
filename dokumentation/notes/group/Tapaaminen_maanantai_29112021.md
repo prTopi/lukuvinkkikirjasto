@@ -1,6 +1,6 @@
 # Pikatapaaminen; maanantai, 22.11.2021
 
-## Luennon agenda:
+## Agenda:
     - Roolien päätös (Puheenjohataja, sihteeri)
     - Onko tullut jotain ongelmia eteen
     - Pohjustetaan asiakastapaaminen
