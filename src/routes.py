@@ -183,3 +183,62 @@ if getenv("MODE") != "test":
         tag_repository.mark_tag_to_bookmark(
             session["user_id"], tag_id, bookmark_id)
         return redirect("/")
+
+    @app.route("/view/book/<id>")
+    def view_book(id):
+        book = bookmark_repository.get_book(id)
+        if book is None:
+            return redirect("/")
+        elif book["user_id"] == session["user_id"]:
+            return render_template("view_book.html",book=book)
+        return redirect("/")
+
+    @app.route("/view/video/<id>",methods=["GET"])
+    def view_video(id):
+        video = bookmark_repository.get_video(id)
+        if video["user_id"] == session["user_id"]:
+            return render_template("view_video.html",video=video)
+        return redirect("/")
+
+    @app.route("/view/blog/<id>",methods=["GET"])
+    def view_blog(id):
+        blog = bookmark_repository.get_blog(id)
+        if blog["user_id"] == session["user_id"]:
+            return render_template("view_blog.html",blog=blog)
+        return redirect("/")
+
+    @app.route("/view/podcast/<id>",methods=["GET"])
+    def view_podcast(id):
+        podcast = bookmark_repository.get_podcast(id)
+        if podcast["user_id"] == session["user_id"]:
+            return render_template("view_podcast.html",podcast=podcast)
+        return redirect("/")
+
+    @app.route("/view/article/<id>",methods=["GET"])
+    def view_article(id):
+        article = bookmark_repository.get_scientific_article(id)
+        if article["user_id"] == session["user_id"]:
+            return render_template("view_article.html",article=article)
+        return redirect("/")
+
+    # @app.route("/edit-bookmark/<id>",methods=["POST"])
+    # def edit_bookmark(id):
+    #     bookmark = bookmark_repository.get_bookmark(id)
+    #     if bookmark["user_id"] == session["user_id"]:
+    #         pass #edit bookmark
+    #     redirect("/")
+    
+    # @app.route("/delete/<id>",methods=["POST"])
+    # def delete_bookmark():
+    #     bookmark_type = request.form["bookmark_type"]
+    #     if bookmark_type == "book":
+    #         pass
+    #     elif bookmark_type == "video":
+    #         pass
+    #     elif bookmark_type == "blog":
+    #         pass
+    #     elif bookmark_type == "podcast":
+    #         pass
+    #     elif bookmark_type == "scientific_article":
+    #         pass
+    #     redirect("/")
