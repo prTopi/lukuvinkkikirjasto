@@ -8,6 +8,7 @@ Test Setup  Go To Register Page And Log Out
 Click Home Page Link
     Click Link  Home page
     Login Page Should Be Open
+    Page Should Contain  User not logged in
 
 Register With Already Existing Username
     Set Username  testi
