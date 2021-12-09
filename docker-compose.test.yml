@@ -15,9 +15,10 @@ services:
       - MODE=test
       - SECRET=test
       - DATABASE_URI=postgresql://test:test@lukuvinkkikirjasto-test-db:5432/lukuvinkkikirjasto-test
-    volumes:
-      - ./:/usr/src/lukuvinkkikirjasto
-    
+    volumes: [
+      "$PWD/:/usr/src/lukuvinkkikirjasto/",
+      "$PWD/documentation/test_reports/unittests:/documentation/test_reports/unittests"
+    ]
   testdb:
     build:
       context: ./
@@ -42,7 +43,7 @@ services:
     network_mode: host
     container_name: lukuvinkkikirjasto-test
     depends_on:
-      - app
+      - testapp
     profiles:
       - test
     image: robot
@@ -52,5 +53,5 @@ services:
     volumes: [
         "$PWD/src/tests:/src/tests",
         "$PWD/scripts:/scripts",
-        "$PWD/reports:/reports"
+        "$PWD/documentation/test_reports/robot:/documentation/test_reports/robot"
     ]
