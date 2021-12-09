@@ -210,17 +210,54 @@ if getenv("MODE") != "test":
     @app.route("/view/podcast/<id>",methods=["GET"])
     def view_podcast(id):
         podcast = bookmark_repository.get_podcast(id)
+        if podcast is None:
+            return redirect("/")
         if podcast["user_id"] == session["user_id"]:
             return render_template("view_podcast.html",podcast=podcast)
         return redirect("/")
 
+    @app.route("/edit/podcast/<id>",methods=["GET"])
+    def edit_podcast_view(id):
+        podcast = bookmark_repository.get_podcast(id)
+        if podcast is None:
+            return redirect("/")
+        elif podcast["user_id"] == session["user_id"]:
+            return render_template("edit_podcast.html",podcast=podcast)
+        return redirect("/")
+
+    @app.route("/edit/podcast",methods=["POST"])
+    def edit_podcast_function():
+        podcast_id = request.form["podcast_id"]
+        podcast_to_edit = bookmark_repository.get_podcast(podcast_id)
+        if podcast_to_edit is None:
+            return redirect("/")
+        elif podcast_to_edit["user_id"] == session["user_id"]:
+            unread = False if request.form["Unread"] == "0" else True
+            name = request.form["name"]
+            creator = request.form["creator"]
+            episode = request.form["episode"]
+            link = request.form["link"]
+            description = request.form["description"]
+            bookmark_id = podcast_to_edit["bookmark_id"]
+            print(name,creator,episode,link,description,podcast_id,bookmark_id)
+            bookmark_repository.edit_podcast(
+                podcast_id,
+                bookmark_id,
+                name,
+                creator,
+                episode,
+                link,
+                description,
+                unread)
+        return redirect("/")
+    
     @app.route("/view/article/<id>",methods=["GET"])
     def view_article(id):
         article = bookmark_repository.get_scientific_article(id)
         if article["user_id"] == session["user_id"]:
             return render_template("view_article.html",article=article)
         return redirect("/")
-
+    
     @app.route("/delete",methods=["POST"])
     def delete_bookmark():
         bookmark_type = request.form["bookmark_type"]
