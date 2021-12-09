@@ -22,5 +22,10 @@ def coverage(ctx):
 
 
 @task(coverage)
-def coverage_report(ctx):
+def covreport(ctx):
     ctx.run("coverage html -d documentation/test_reports/unittests")
+
+
+@task(covreport)
+def coverage_report(ctx):
+    ctx.run("rm documentation/test_reports/unittests/.gitignore")
