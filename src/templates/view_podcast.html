@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-<title>Lukuvinkkikirjasto</title>
-<br><h1>Lukuvinkkikirjasto</h1><br>
+<title>View Podcast</title>
 {% if session.username %}
 Name of Podcast<br>
 {{ name }}
@@ -22,7 +21,7 @@ Description<br>
 {{ read }}<br><br>
 
 Tags:
-{ for tag in tags }
+{% for tag in tags %}
 {{ tag }}<br>
 {% endfor %}
 
