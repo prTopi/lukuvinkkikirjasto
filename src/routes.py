@@ -76,18 +76,18 @@ if getenv("MODE") != "test":
     def create_account():
         username = request.form["username"]
         password = request.form["password"]
-        password2 = request.form["password2"]
+        password_confirm = request.form["passwordConfirm"]
 
         user_id = user_repository.find_user_id(username)
         if user_id is not None:
             return render_template("create.html", error="Username taken",
                                    user=username)
-        if password != password2:
+        if password != password_confirm:
             return render_template("create.html",
                                    error="Passwords not identical",
                                    user=username)
 
-        password = generate_password_hash(password2)
+        password = generate_password_hash(password_confirm)
         user_repository.insert_user(username, password)
         return update_session(username)
 
