@@ -16,7 +16,8 @@ services:
       - SECRET=test
       - DATABASE_URI=postgresql://test:test@lukuvinkkikirjasto-test-db:5432/lukuvinkkikirjasto-test
     volumes: [
-      "$PWD/:/usr/src/lukuvinkkikirjasto/"
+      "$PWD/:/usr/src/lukuvinkkikirjasto/",
+      "$PWD/documentation/test_reports/unittests:/documentation/test_reports/unittests"
     ]
   testdb:
     build:

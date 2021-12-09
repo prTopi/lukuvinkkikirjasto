@@ -2,14 +2,8 @@ name: CI-PR
 
 on:
   # Triggers the workflow on push or pull request events on the main branch
-  pull_request_target:
-    types: [assigned, opened, synchronize, reopened]
-    branches: [ main ]
   pull_request:
     branches: [ main ]
-  deployment:
-  create:
-  #push:
 
   # Can be triggered manually through Actions tab
   workflow_dispatch:
@@ -45,7 +39,7 @@ jobs:
         run: docker-compose -f docker-compose.test.yml up --abort-on-container-exit && docker-compose -f docker-compose.test.yml down -v
     
       - name: tell me something cool
-        run: echo ${{ github }}
+        run: echo "$(ls -la)""
 
       - name: Deploy test reports to GH Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -57,5 +51,5 @@ jobs:
       - name: Comment test report links to PR
         uses: thollander/actions-comment-pull-request@v1
         with:
-          message: "Test results: [Unittest report](https://prtopi.github.io/lukuvinkkikirjasto/commit-${{ github.sha }}/unittests/index.html) - [Robot test report](https://prtopi.github.io/lukuvinkkikirjasto/commit-${{ github.sha }}/robot/index.html)"
+          message: "Test results: [Unittest report](https://prtopi.github.io/lukuvinkkikirjasto/commit-${{ github.sha }}/unittests/index.html) - [Robot test report](https://prtopi.github.io/lukuvinkkikirjasto/commit-${{ github.sha }}/robot/report.html)"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
