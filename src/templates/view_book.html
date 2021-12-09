@@ -1,26 +1,25 @@
 {% extends "layout.html" %}
 {% block content %}
 <title>Lukuvinkkikirjasto</title>
-<br><h1>Lukuvinkkikirjasto</h1><br>
+<br><h1>Books</h1><br>
 {% if session.username %}
 Name of Book<br>
-{{ name }}
+{{ book.title }}
 <br><br>
-Added by<br>
-{{ username }}<br>
-{{ date }}<br>
+Added on<br>
+{{ book.date }}<br>
 Author<br>
-{{ author }}<br>
+{{ book.author }}<br>
 ISBN<br>
-{{ ISBN }}
+{{ book.isbn }}
 
 Description<br>
-{{ description }}<br><br>
+{{ book.description }}<br><br>
 
-{{ read }}<br><br>
+{{ book.unread }}<br><br>
 
 Tags:
-{ for tag in tags }
+{% for tag in tags %}
 {{ tag }}<br>
 {% endfor %}
 
