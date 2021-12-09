@@ -36,7 +36,7 @@ jobs:
         run: docker-compose --profile test up --exit-code-from test
 
       - name: Run unittests in Docker
-        run: docker-compose -f docker-compose.test.yml up --abort-on-container-exit && docker-compose -f docker-compose.test.yml down -v
+        run: docker-compose -f docker-compose.test.yml up --abort-on-container-exit --exit-code-from testapp #&& docker-compose -f docker-compose.test.yml down -v
     
       - name: tell me something cool
         run: echo "$(ls -la)""
