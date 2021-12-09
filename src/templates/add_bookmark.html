@@ -139,7 +139,9 @@
     
     <p id="tagText">Tags: </p>
     {% for tag in tags %}
-        <input type="checkbox" id="{{tag.id}}" name="tag" value="{{tag.id}}">{{tag.tag_name}}<br>
+        <input type="checkbox" id="{{tag.id}}" name="tag" value="{{tag.id}}">
+        <label for="{{tag.id}}">{{tag.tag_name}}</label>
+        <br>
     {% endfor %}
     
     
@@ -151,7 +153,7 @@
 <form action="/tag" method="POST">
     <p>Uusi tagi:</p>
     <input type="text" name="new_tag_name">
-    <input type="submit">
+    <input type="submit" id="submitTag" value="Add tag">
 </form>
 {% if error %}
 {{ error }}
