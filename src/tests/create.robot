@@ -7,7 +7,8 @@ Test Setup  Go To Register Page And Log Out
 *** Test Cases ***
 Click Home Page Link
     Click Link  Home page
-    Main Page Should Be Open
+    Login Page Should Be Open
+    Page Should Contain  User not logged in
 
 Register With Already Existing Username
     Set Username  testi
