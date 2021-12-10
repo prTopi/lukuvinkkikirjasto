@@ -2,7 +2,6 @@
 {% block content %}
 <title>View Video</title>
 {% if session.username %}
-<<<<<<< HEAD
 
 <br><br>
 <b>Video title:</b> {{ video.title }}<br>
@@ -11,22 +10,6 @@
 <b>Link:</b> {{ video.link }}<br>
 <b>Added on:</b> {{ video.date }}<br><br>
 <b>Unread:</b> {{ video.unread }}<br><br>
-=======
-Name of Video<br>
-{{ video.title }}
-<br><br>
-Added on<br>
-{{ video.date }}<br>
-Creator<br>
-{{ video.creator }}<br>
-Link<br>
-{{ video.link }}
-
-Description<br>
-{{ video.description }}<br><br>
-
-{{ video.unread }}<br><br>
->>>>>>> c2aad6cf32c97ca1b8b7e421b274ead745188f4f
 
 Tags:
 {% for tag in tags %}
