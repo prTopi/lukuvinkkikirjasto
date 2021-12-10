@@ -184,78 +184,201 @@ if getenv("MODE") != "test":
             session["user_id"], tag_id, bookmark_id)
         return redirect("/")
 
-    @app.route("/view/book/<id>")
-    def view_book(id):
-        book = bookmark_repository.get_book(id)
-        if book is None:
+    @app.route("/view/<bookmark_type>/<id>")
+    def bookmark_view_page(bookmark_type,id):
+        if bookmark_type == "book":
+            book = bookmark_repository.get_book(id)
+            if book is None:
+                return redirect("/")
+            elif book["user_id"] == session["user_id"]:
+                return render_template("view_book.html",book=book)
             return redirect("/")
-        elif book["user_id"] == session["user_id"]:
-            return render_template("view_book.html",book=book)
-        return redirect("/")
-
-    @app.route("/view/video/<id>",methods=["GET"])
-    def view_video(id):
-        video = bookmark_repository.get_video(id)
-        if video["user_id"] == session["user_id"]:
-            return render_template("view_video.html",video=video)
-        return redirect("/")
-
-    @app.route("/view/blog/<id>",methods=["GET"])
-    def view_blog(id):
-        blog = bookmark_repository.get_blog(id)
-        if blog["user_id"] == session["user_id"]:
-            return render_template("view_blog.html",blog=blog)
-        return redirect("/")
-
-    @app.route("/view/podcast/<id>",methods=["GET"])
-    def view_podcast(id):
-        podcast = bookmark_repository.get_podcast(id)
-        if podcast is None:
+        elif bookmark_type == "video":
+            video = bookmark_repository.get_video(id)
+            if video is None:
+                return redirect("/")
+            if video["user_id"] == session["user_id"]:
+                return render_template("view_video.html",video=video)
             return redirect("/")
-        if podcast["user_id"] == session["user_id"]:
-            return render_template("view_podcast.html",podcast=podcast)
+        elif bookmark_type == "blog":
+            blog = bookmark_repository.get_blog(id)
+            if blog is None:
+                return redirect("/")
+            elif blog["user_id"] == session["user_id"]:
+                return render_template("view_blog.html",blog=blog)
+            return redirect("/")
+        elif bookmark_type == "podcast":
+            podcast = bookmark_repository.get_podcast(id)
+            if podcast is None:
+                return redirect("/")
+            if podcast["user_id"] == session["user_id"]:
+                return render_template("view_podcast.html",podcast=podcast)
+            return redirect("/")
+        elif bookmark_type == "article":
+            article = bookmark_repository.get_scientific_article(id)
+            if article is None:
+                return redirect("/")
+            if article["user_id"] == session["user_id"]:
+                return render_template("view_article.html",article=article)
+            return redirect("/")
+        else:
+            return redirect("/")
+
+    @app.route("/edit/<bookmark_type>/<id>",methods=["GET"])
+    def bookmark_edit_page(bookmark_type,id):
+        if bookmark_type == "book":
+            book = bookmark_repository.get_book(id)
+            if book is None:
+                return redirect("/")
+            elif book["user_id"] == session["user_id"]:
+                return render_template("edit_book.html",book=book)
+            return redirect("/")
+        elif bookmark_type == "video":
+            video = bookmark_repository.get_video(id)
+            if video is None:
+                return redirect("/")
+            elif video["user_id"] == session["user_id"]:
+                return render_template("edit_video.html",video=video)
+            return redirect("/")
+        elif bookmark_type == "blog":
+            blog = bookmark_repository.get_blog(id)
+            if blog is None:
+                return redirect("/")
+            elif blog["user_id"] == session["user_id"]:
+                return render_template("edit_blog.html",blog=blog)
+            return redirect("/")
+        elif bookmark_type == "podcast":
+            podcast = bookmark_repository.get_podcast(id)
+            if podcast is None:
+                return redirect("/")
+            elif podcast["user_id"] == session["user_id"]:
+                return render_template("edit_podcast.html",podcast=podcast)
+            return redirect("/")
+        elif bookmark_type == "article":
+            article = bookmark_repository.get_scientific_article(id)
+            if article is None:
+                return redirect("/")
+            elif article["user_id"] == session["user_id"]:
+                return render_template("edit_article.html",article=article)
+            return redirect("/")
         return redirect("/")
 
-    @app.route("/edit/podcast/<id>",methods=["GET"])
-    def edit_podcast_view(id):
-        podcast = bookmark_repository.get_podcast(id)
-        if podcast is None:
-            return redirect("/")
-        elif podcast["user_id"] == session["user_id"]:
-            return render_template("edit_podcast.html",podcast=podcast)
-        return redirect("/")
+    @app.route("/edit-bookmark",methods=["POST"])
+    def edit_bookmark():
+        if session["csrf_token"] != request.form["csrf_token"]:
+            abort(403)
+        bookmark_type = request.form["bookmark_type"]
+        if bookmark_type == "book":
+            book_id = request.form["book_id"]
+            bookmark_id = request.form["bookmark_id"]
+            book_to_edit = bookmark_repository.get_book(bookmark_id)
+            if book_to_edit is None:
+                return redirect("/")
+            elif book_to_edit["user_id"] == session["user_id"]:
+                unread = False if request.form["Unread"] == "0" else True
+                title = request.form["title"]
+                author = request.form["author"]
+                isbn = request.form["isbn"]
+                description = request.form["description"]
+                bookmark_repository.edit_book(
+                    book_id,
+                    bookmark_id,
+                    title,
+                    author,
+                    isbn,
+                    description,
+                    unread)
+        elif bookmark_type == "video":
+            video_id = request.form["video_id"]
+            bookmark_id = request.form["bookmark_id"]
+            video_to_edit = bookmark_repository.get_video(bookmark_id)
+            if video_to_edit is None:
+                return redirect("/")
+            elif video_to_edit["user_id"] == session["user_id"]:
+                unread = False if request.form["Unread"] == "0" else True
+                title = request.form["title"]
+                creator = request.form["creator"]
+                link = request.form["link"]
+                description = request.form["description"]
+                bookmark_repository.edit_video(
+                    video_id,
+                    bookmark_id,
+                    title,
+                    creator,
+                    link,
+                    description,
+                    unread)
 
-    @app.route("/edit/podcast",methods=["POST"])
-    def edit_podcast_function():
-        podcast_id = request.form["podcast_id"]
-        podcast_to_edit = bookmark_repository.get_podcast(podcast_id)
-        if podcast_to_edit is None:
-            return redirect("/")
-        elif podcast_to_edit["user_id"] == session["user_id"]:
-            unread = False if request.form["Unread"] == "0" else True
-            name = request.form["name"]
-            creator = request.form["creator"]
-            episode = request.form["episode"]
-            link = request.form["link"]
-            description = request.form["description"]
-            bookmark_id = podcast_to_edit["bookmark_id"]
-            print(name,creator,episode,link,description,podcast_id,bookmark_id)
-            bookmark_repository.edit_podcast(
-                podcast_id,
-                bookmark_id,
-                name,
-                creator,
-                episode,
-                link,
-                description,
-                unread)
-        return redirect("/")
-    
-    @app.route("/view/article/<id>",methods=["GET"])
-    def view_article(id):
-        article = bookmark_repository.get_scientific_article(id)
-        if article["user_id"] == session["user_id"]:
-            return render_template("view_article.html",article=article)
+        elif bookmark_type == "blog":
+            blog_id = request.form["blog_id"]
+            bookmark_id = request.form["bookmark_id"]
+            blog_to_edit = bookmark_repository.get_blog(bookmark_id)
+            if blog_to_edit is None:
+                return redirect("/")
+            elif blog_to_edit["user_id"] == session["user_id"]:
+                unread = False if request.form["Unread"] == "0" else True
+                title = request.form["title"]
+                creator = request.form["creator"]
+                link = request.form["link"]
+                description = request.form["description"]
+                bookmark_repository.edit_blog(
+                    blog_id,
+                    bookmark_id,
+                    title,
+                    creator,
+                    link,
+                    description,
+                    unread)
+
+        elif bookmark_type == "podcast":
+            podcast_id = request.form["podcast_id"]
+            bookmark_id = request.form["bookmark_id"]
+            podcast_to_edit = bookmark_repository.get_podcast(bookmark_id)
+            if podcast_to_edit is None:
+                return redirect("/")
+            elif podcast_to_edit["user_id"] == session["user_id"]:
+                unread = False if request.form["Unread"] == "0" else True
+                name = request.form["name"]
+                creator = request.form["creator"]
+                episode = request.form["episode"]
+                link = request.form["link"]
+                description = request.form["description"]
+                bookmark_repository.edit_podcast(
+                    podcast_id,
+                    bookmark_id,
+                    name,
+                    creator,
+                    episode,
+                    link,
+                    description,
+                    unread)
+        elif bookmark_type == "article":
+            scientific_article_id = request.form["scientific_article_id"]
+            bookmark_id = request.form["bookmark_id"]
+            article_to_edit = bookmark_repository.get_scientific_article(bookmark_id)
+            if article_to_edit is None:
+                return redirect("/")
+            elif article_to_edit["user_id"] == session["user_id"]:
+                unread = False if request.form["Unread"] == "0" else True
+                title = request.form["title"]
+                authors = request.form["authors"]
+                publication_title = request.form["publication_title"]
+                doi = request.form["doi"]
+                year = request.form["year"]
+                publisher = request.form["publisher"]
+                description = request.form["description"]
+                bookmark_id = article_to_edit["bookmark_id"]
+                bookmark_repository.edit_scientific_article(
+                    scientific_article_id,
+                    bookmark_id,
+                    title,
+                    authors,
+                    publication_title,
+                    doi,
+                    year,
+                    publisher,
+                    description,
+                    unread)
         return redirect("/")
     
     @app.route("/delete",methods=["POST"])
