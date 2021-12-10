@@ -144,3 +144,6 @@ cython_debug/
 
 # Test report files
 reports/
+
+# Visual Studio Code workspace
+*.code-workspace
