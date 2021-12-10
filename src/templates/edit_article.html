@@ -2,67 +2,55 @@
 {% block content %}
 <title>Edit Scientific Article</title>
 {% if session.username %}
-<form action="/edit_article" method="POST">
-Delete Bookmark: <br>
-<input type="radio" name="delete" value="0" checked> No
-<input type="radio" name="delete" value="1"> Yes
-<br>
+<form action="/edit-bookmark" method="POST">
 
-{% if read %}<br>
+{% if article.unread %}<br>
 Mark unread: <br>
-<input type="radio" name="Read" value="0" checked> Yes
+<input type="radio" name="Unread" value="0" checked> Yes
 <input type="radio" name="Unread" value="1"> No
 <br>
 {% else %}
 Mark read: <br>
-<input type="radio" name="Read" value="0" checked> No
+<input type="radio" name="Unread" value="0" checked> No
 <input type="radio" name="Unread" value="1"> Yes
 <br>
 {% endif %}
 
-Current Name:<br>
-{{ name }}<br>
-New Name: <br>
-<input type="text" name="name" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" /><br>
-<br>
+Title:
+<input type="text" name="title" value="{{ article.title }}" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" /><br>
 
-Current Authors:<br>
-{{ authors }}<br>
-New Authors: <br>
-<input type="text" name="author" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" /><br>
+Authors:
+<input type="text" name="authors" value="{{ article.authors }}" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" /><br>
 
-Current Publication title<br>
-{{ publication_title }}
-New Publication title: <br>
-<input type="text" name="publication_title" /><br>
+Publication title:
+<input type="text" name="publication_title" value="{{ article.publication_title }}"/><br>
 
-Current DOI<br>
-{{ doi }}
-New DOI: <br>
-<input type="text" name="doi" /><br>
+DOI:
+<input type="text" name="doi" value="{{ article.doi }}"/><br>
 
-Current Year<br>
-{{ year }}
-New Year: <br>
-<input type="text" name="year" /><br>
+Year:
+<input type="text" name="year" value="{{ article.year }}"/><br>
 
-Current Publisher<br>
-{{ publisher }}
-New Publisher: <br>
-<input type="text" name="publisher" /><br>
+Publisher:
+<input type="text" name="publisher" value="{{ article.publisher }}"/><br>
 
-Current Description<br>
-{{ description }}<br><br>
-New Description: <br>
-<input type="text" name="description" /><br>
+Description:
+<input type="text" name="description" value="{{ article.description }}"/><br>
 
 
 <br>
 <br>
-<input type="hidden" name="book_id" value="{{ id }}">
+<input type="hidden" name="bookmark_type" value="article">
+<input type="hidden" name="scientific_article_id" value="{{ article.scientific_article_id }}">
+<input type="hidden" name="bookmark_id" value="{{ article.bookmark_id }}">
 <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 <br><br>
 <input type="submit" value="Save changes">
+</form>
+<form action="/delete" method="POST">
+  <button name="delete" value="delete">Delete Scientific Article</button>
+  <input type="hidden" name="id" value="{{ article.scientific_article_id }}">
+  <input type="hidden" name="bookmark_type" value="article">
 </form>
 {% endif %}
 {% endblock %}

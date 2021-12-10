@@ -2,52 +2,46 @@
 {% block content %}
 <title>Edit Book</title>
 {% if session.username %}
-<form action="/edit_book" method="POST">
-Delete Bookmark: <br>
-<input type="radio" name="delete" value="0" checked> No
-<input type="radio" name="delete" value="1"> Yes
-<br>
+<form action="/edit-bookmark" method="POST">
 
-{% if read %}<br>
+{% if book.unread %}<br>
 Mark unread: <br>
-<input type="radio" name="Read" value="0" checked> Yes
+<input type="radio" name="Unread" value="0" checked> Yes
 <input type="radio" name="Unread" value="1"> No
 <br>
 {% else %}
 Mark read: <br>
-<input type="radio" name="Read" value="0" checked> No
+<input type="radio" name="Unread" value="0" checked> No
 <input type="radio" name="Unread" value="1"> Yes
 <br>
 {% endif %}
 
-Current Name:<br>
-{{ name }}<br>
-New Name: <br>
-<input type="text" name="name" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" /><br>
-<br>
+Title:
+<input type="text" name="title" value="{{ book.title }}" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" /><br>
 
-Current Author:<br>
-{{ author }}<br>
-New Author: <br>
-<input type="text" name="author" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" /><br>
+Author:
+<input type="text" name="author" value="{{ book.author }}" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" /><br>
 
-Current ISBN<br>
-{{ ISBN }}
-New ISBN: <br>
-<input type="text" name="link" oninvalid="alert('Code must be between 10-25 characters');" pattern=".{10,25}" /><br>
+ISBN:
+<input type="text" name="isbn" value="{{ book.isbn }}" oninvalid="alert('Code must be between 10-25 characters');" pattern=".{10,25}" /><br>
 
-Current Description<br>
-{{ description }}<br><br>
-New Description: <br>
-<input type="text" name="description" /><br>
+Description:
+<input type="text" name="description" value="{{ book.description }}"/><br>
 
 
 <br>
 <br>
-<input type="hidden" name="book_id" value="{{ id }}">
+<input type="hidden" name="bookmark_type" value="book">
+<input type="hidden" name="book_id" value="{{ book.book_id }}">
+<input type="hidden" name="bookmark_id" value="{{ book.bookmark_id }}">
 <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 <br><br>
 <input type="submit" value="Save changes">
+</form>
+<form action="/delete" method="POST">
+  <button name="delete" value="delete">Delete Book</button>
+  <input type="hidden" name="id" value="{{ book.book_id }}">
+  <input type="hidden" name="bookmark_type" value="book">
 </form>
 {% endif %}
 {% endblock %}

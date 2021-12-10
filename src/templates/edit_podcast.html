@@ -2,7 +2,7 @@
 {% block content %}
 <title>Edit Podcast</title>
 {% if session.username %}
-<form action="/edit/podcast" method="POST">
+<form action="/edit-bookmark" method="POST">
 {% if podcast.unread %}<br>
 Mark unread: <br>
 <input type="radio" name="Unread" value="0" checked> Yes
@@ -33,7 +33,9 @@ Description:
 
 
 <br>
+<input type="hidden" name="bookmark_type" value="podcast">
 <input type="hidden" name="podcast_id" value="{{ podcast.podcast_id }}">
+<input type="hidden" name="bookmark_id" value="{{ podcast.bookmark_id }}">
 <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 <br><br>
 <input type="submit" value="Save changes">

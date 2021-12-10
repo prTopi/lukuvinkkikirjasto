@@ -3,25 +3,26 @@
 <title>View Blog</title>
 {% if session.username %}
 Name of Blog<br>
-{{ name }}
+{{ blog.title }}
 <br><br>
-Added by<br>
-{{ username }}<br>
-{{ date }}<br>
+Added on<br>
+{{ blog.date }}<br>
 Creator<br>
-{{ creator }}<br>
+{{ blog.creator }}<br>
 Link<br>
-{{ link }}<br>
+{{ blog.link }}<br>
 
 Description<br>
-{{ description }}<br><br>
+{{ blog.description }}<br><br>
 
-{{ read }}<br><br>
+{{ blog.unread }}<br><br>
 
 Tags:
 {% for tag in tags %}
 {{ tag }}<br>
 {% endfor %}
 
+<br>
+<button onclick="document.location='/edit/blog/{{blog.bookmark_id}}'">Edit Blog</button>
 {% endif %}
 {% endblock %}

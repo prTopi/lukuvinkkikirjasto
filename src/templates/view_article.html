@@ -3,31 +3,32 @@
 <title>View Scientific Article</title>
 {% if session.username %}
 Name of Scientific Article<br>
-{{ name }}
+{{ article.title }}
 <br><br>
-Added by<br>
-{{ username }}<br>
-{{ date }}<br>
+Added on<br>
+{{ article.date }}<br>
 Authors<br>
-{{ authors }}<br>
+{{ article.authors }}<br>
 Publication title<br>
-{{ publication_title }}<br>
+{{ article.publication_title }}<br>
 DOI<br>
-{{ doi }}
+{{ article.doi }}
 Year<br>
-{{ year }}<br>
+{{ article.year }}<br>
 Publisher<br>
-{{ publisher }}<br>
+{{ article.publisher }}<br>
 
 Description<br>
 {{ description }}<br><br>
 
-{{ read }}<br><br>
+{{ article.unread }}<br><br>
 
 Tags:
 {% for tag in tags %}
 {{ tag }}<br>
 {% endfor %}
 
+<br>
+<button onclick="document.location='/edit/article/{{article.bookmark_id}}'">Edit Scientific Article</button>
 {% endif %}
 {% endblock %}

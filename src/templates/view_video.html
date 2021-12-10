@@ -3,25 +3,26 @@
 <title>View Video</title>
 {% if session.username %}
 Name of Video<br>
-{{ name }}
+{{ video.title }}
 <br><br>
-Added by<br>
-{{ username }}<br>
-{{ date }}<br>
+Added on<br>
+{{ video.date }}<br>
 Creator<br>
-{{ creator }}<br>
+{{ video.creator }}<br>
 Link<br>
-{{ link }}
+{{ video.link }}
 
 Description<br>
-{{ description }}<br><br>
+{{ video.description }}<br><br>
 
-{{ read }}<br><br>
+{{ video.unread }}<br><br>
 
 Tags:
 {% for tag in tags %}
 {{ tag }}<br>
 {% endfor %}
 
+<br>
+<button onclick="document.location='/edit/video/{{video.bookmark_id}}'">Edit Video</button>
 {% endif %}
 {% endblock %}

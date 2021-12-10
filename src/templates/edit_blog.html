@@ -2,52 +2,45 @@
 {% block content %}
 <title>Edit Blog</title>
 {% if session.username %}
-<form action="/edit_blog" method="POST">
-Delete Bookmark: <br>
-<input type="radio" name="delete" value="0" checked> No
-<input type="radio" name="delete" value="1"> Yes
-<br>
-
-{% if read %}<br>
+<form action="/edit-bookmark" method="POST">
+{% if blog.unread %}<br>
 Mark unread: <br>
-<input type="radio" name="Read" value="0" checked> Yes
+<input type="radio" name="Unread" value="0" checked> Yes
 <input type="radio" name="Unread" value="1"> No
 <br>
 {% else %}
 Mark read: <br>
-<input type="radio" name="Read" value="0" checked> No
+<input type="radio" name="Unread" value="0" checked> No
 <input type="radio" name="Unread" value="1"> Yes
 <br>
 {% endif %}
 
-Current Name:<br>
-{{ name }}<br>
-New Name: <br>
-<input type="text" name="name" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" /><br>
-<br>
+Title:
+<input type="text" name="title" value="{{ blog.title }}" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" /><br>
 
-Current Creator:<br>
-{{ creator }}<br>
-New Creator: <br>
-<input type="text" name="creator" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" /><br>
+Creator:
+<input type="text" name="creator" value="{{ blog.creator }}" oninvalid="alert('Name must be between 1-50 characters');" pattern=".{1,50}" /><br>
 
-Current Link<br>
-{{ link }}
-New Link: <br>
-<input type="text" name="link" /><br>
+Link:
+<input type="text" name="link" value="{{ blog.link }}"/><br>
 
-Current Description<br>
-{{ description }}<br><br>
-New Description: <br>
-<input type="text" name="description" /><br>
+Description:
+<input type="text" name="description" value="{{ blog.description }}"/><br>
 
 
 <br>
 <br>
-<input type="hidden" name="blog_id" value="{{ id }}">
+<input type="hidden" name="bookmark_type" value="blog">
+<input type="hidden" name="blog_id" value="{{ blog.blog_id }}">
+<input type="hidden" name="bookmark_id" value="{{ blog.bookmark_id }}">
 <input type="hidden" name="csrf_token" value="{{ session.csrf_token }}">
 <br><br>
 <input type="submit" value="Save changes">
+</form>
+<form action="/delete" method="POST">
+  <button name="delete" value="delete">Delete Blog</button>
+  <input type="hidden" name="id" value="{{ blog.blog_id }}">
+  <input type="hidden" name="bookmark_type" value="blog">
 </form>
 {% endif %}
 {% endblock %}
