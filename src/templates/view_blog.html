@@ -2,21 +2,14 @@
 {% block content %}
 <title>View Blog</title>
 {% if session.username %}
-Name of Blog<br>
-{{ name }}
+
 <br><br>
-Added by<br>
-{{ username }}<br>
-{{ date }}<br>
-Creator<br>
-{{ creator }}<br>
-Link<br>
-{{ link }}<br>
-
-Description<br>
-{{ description }}<br><br>
-
-{{ read }}<br><br>
+<b>Blog title:</b> {{ blog.title }}<br>
+<b>Creator:</b> {{ blog.creator }}<br>
+<b>Description:</b> {{ blog.description }}<br>
+<b>Link:</b> {{ blog.link }}<br>
+<b>Added on:</b> {{ blog.date }}<br><br>
+<b>Unread:</b> {{ blog.unread }}<br><br>
 
 Tags:
 {% for tag in tags %}

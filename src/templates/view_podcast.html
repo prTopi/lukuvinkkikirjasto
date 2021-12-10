@@ -2,22 +2,15 @@
 {% block content %}
 <title>View Podcast</title>
 {% if session.username %}
-Name of Podcast<br>
-{{ podcast.podcast_name }}
+
 <br><br>
-Added on<br>
-{{ podcast.date }}<br>
-Creator<br>
-{{ podcast.creator }}<br>
-Episode<br>
-{{ podcast.episode }}<br>
-Link<br>
-{{ podcast.link }}
-
-Description<br>
-{{ podcast.description }}<br><br>
-
-{{ podcast.read }}<br><br>
+<b>Podcast name:</b> {{ podcast.podcast_name }}<br>
+<b>Episode:</b> {{ podcast.episode_name }}<br>
+<b>Creator:</b> {{ podcast.creator }}<br>
+<b>Description:</b> {{ podcast.description }}<br>
+<b>Link:</b> {{ podcast.link }}<br>
+<b>Added on:</b> {{ podcast.date }}<br><br>
+<b>Unread:</b> {{ podcast.unread }}<br><br>
 
 Tags:
 {% for tag in tags %}

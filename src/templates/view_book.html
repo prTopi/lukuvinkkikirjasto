@@ -2,22 +2,16 @@
 {% block content %}
 <title>View Book</title>
 {% if session.username %}
-Name of Book<br>
-{{ book.title }}
+
 <br><br>
-Added on<br>
-{{ book.date }}<br>
-Author<br>
-{{ book.author }}<br>
-ISBN<br>
-{{ book.isbn }}
+<b>Book title:</b> {{ book.title }}<br>
+<b>Author:</b> {{ book.author }}<br>
+<b>Description:</b> {{ book.description }}<br>
+<b>ISBN:</b> {{ book.isbn }}<br>
+<b>Added on:</b> {{ book.date }}<br><br>
+<b>Unread:</b> {{ book.unread }}<br><br>
 
-Description<br>
-{{ book.description }}<br><br>
-
-{{ book.unread }}<br><br>
-
-Tags:
+<b>Tags:</b>
 {% for tag in tags %}
 {{ tag }}<br>
 {% endfor %}
