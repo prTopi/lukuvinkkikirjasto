@@ -25,7 +25,7 @@
     - Kaikkeen ei oltu keretty kirjoittaa testejä, joten olisi sääli, jos ei saada kaikkea valmiiksi psrintissä kolme *
 
 ## Muuta/huomioita:
-    - user storyjen dod robot framella, ja pois backarista!!!! /sobsobsob
+    - user storyjen dod robot framella oli päässyt huomaamatta ohi, tarkastetaan, mitä tehdään. Jos ei muuta, niin tulevissa sprinteissä voi ottaa taskiksi.
     - Samuli luo testit puuttuville *
 
 ## Tapaamiset:
