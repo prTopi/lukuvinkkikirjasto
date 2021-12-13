@@ -1,0 +1,3662 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.10.0a6 on linux)" generated="20211213 10:40:00.831" rpa="false" schemaversion="2">
+<suite id="s1" name="Tests" source="/src/tests">
+<suite id="s1-s1" name="Add Bookmark" source="/src/tests/add_bookmark.robot">
+<kw name="Open And Configure Browser" library="resource" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=${BROWSER}</arg>
+<arg>options= add_argument("--no-sandbox"); add_argument("--disable-dev-shm-usage")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211213 10:40:01.123" level="INFO">Opening browser 'headlesschrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20211213 10:40:01.122" endtime="20211213 10:40:01.836"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20211213 10:40:01.836" endtime="20211213 10:40:01.837"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGIN URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:01.837" level="INFO">Opening url 'http://localhost:5000/login'</msg>
+<status status="PASS" starttime="20211213 10:40:01.837" endtime="20211213 10:40:01.994"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>testi</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:01.995" level="INFO">Typing text 'testi' into text field 'username'.</msg>
+<status status="PASS" starttime="20211213 10:40:01.995" endtime="20211213 10:40:02.085"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>testi</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:02.085" level="INFO">Typing text 'testi' into text field 'password'.</msg>
+<status status="PASS" starttime="20211213 10:40:02.085" endtime="20211213 10:40:02.180"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitLogin</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:02.180" level="INFO">Clicking button 'submitLogin'.</msg>
+<status status="PASS" starttime="20211213 10:40:02.180" endtime="20211213 10:40:02.615"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:01.122" endtime="20211213 10:40:02.616"/>
+</kw>
+<test id="s1-s1-t1" name="Click Home Page Link">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:02.618" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:02.617" endtime="20211213 10:40:02.658"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:02.617" endtime="20211213 10:40:02.658"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>Home page</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:02.659" level="INFO">Clicking link 'Home page'.</msg>
+<status status="PASS" starttime="20211213 10:40:02.659" endtime="20211213 10:40:02.733"/>
+</kw>
+<kw name="Main Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Lukuvinkkikirjasto</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:02.739" level="INFO">Page title is 'Lukuvinkkikirjasto'.</msg>
+<status status="PASS" starttime="20211213 10:40:02.733" endtime="20211213 10:40:02.739"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:02.733" endtime="20211213 10:40:02.739"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:02.616" endtime="20211213 10:40:02.739"/>
+</test>
+<test id="s1-s1-t2" name="Select Book Updates Page">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:02.741" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:02.741" endtime="20211213 10:40:02.769"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:02.741" endtime="20211213 10:40:02.769"/>
+</kw>
+<kw name="Set Type">
+<arg>Book</arg>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>bookmark</arg>
+<arg>${name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20211213 10:40:02.770" level="INFO">Selecting options from selection list 'bookmark' by label Book.</msg>
+<status status="PASS" starttime="20211213 10:40:02.770" endtime="20211213 10:40:02.817"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:02.769" endtime="20211213 10:40:02.817"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>ISBN:</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211213 10:40:02.831" level="INFO">Current page contains text 'ISBN:'.</msg>
+<status status="PASS" starttime="20211213 10:40:02.817" endtime="20211213 10:40:02.831"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:02.740" endtime="20211213 10:40:02.832"/>
+</test>
+<test id="s1-s1-t3" name="Add Valid Book Bookmark">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:02.834" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:02.834" endtime="20211213 10:40:02.859"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:02.833" endtime="20211213 10:40:02.859"/>
+</kw>
+<kw name="Set Title">
+<arg>test book</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:02.860" level="INFO">Typing text 'test book' into text field 'title'.</msg>
+<status status="PASS" starttime="20211213 10:40:02.860" endtime="20211213 10:40:02.950"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:02.859" endtime="20211213 10:40:02.951"/>
+</kw>
+<kw name="Set Description">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>description</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:02.952" level="INFO">Typing text 'test' into text field 'description'.</msg>
+<status status="PASS" starttime="20211213 10:40:02.951" endtime="20211213 10:40:03.059"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:02.951" endtime="20211213 10:40:03.059"/>
+</kw>
+<kw name="Set Author">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>author</arg>
+<arg>${author}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:03.060" level="INFO">Typing text 'test' into text field 'author'.</msg>
+<status status="PASS" starttime="20211213 10:40:03.060" endtime="20211213 10:40:03.141"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:03.059" endtime="20211213 10:40:03.141"/>
+</kw>
+<kw name="Set ISBN">
+<arg>9783161484100</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>ISBN</arg>
+<arg>${isbn}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:03.142" level="INFO">Typing text '9783161484100' into text field 'ISBN'.</msg>
+<status status="PASS" starttime="20211213 10:40:03.141" endtime="20211213 10:40:03.232"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:03.141" endtime="20211213 10:40:03.232"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:03.233" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:03.233" endtime="20211213 10:40:03.335"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:03.232" endtime="20211213 10:40:03.335"/>
+</kw>
+<kw name="Main Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Lukuvinkkikirjasto</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:03.340" level="INFO">Page title is 'Lukuvinkkikirjasto'.</msg>
+<status status="PASS" starttime="20211213 10:40:03.336" endtime="20211213 10:40:03.340"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:03.335" endtime="20211213 10:40:03.340"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>test book</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211213 10:40:03.355" level="INFO">Current page contains text 'test book'.</msg>
+<status status="PASS" starttime="20211213 10:40:03.340" endtime="20211213 10:40:03.355"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:02.832" endtime="20211213 10:40:03.355"/>
+</test>
+<test id="s1-s1-t4" name="Add Book Bookmark Without Valid Title">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:03.358" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:03.357" endtime="20211213 10:40:03.385"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:03.357" endtime="20211213 10:40:03.385"/>
+</kw>
+<kw name="Set Description">
+<arg>test book2</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>description</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:03.387" level="INFO">Typing text 'test book2' into text field 'description'.</msg>
+<status status="PASS" starttime="20211213 10:40:03.386" endtime="20211213 10:40:03.480"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:03.385" endtime="20211213 10:40:03.480"/>
+</kw>
+<kw name="Set Author">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>author</arg>
+<arg>${author}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:03.481" level="INFO">Typing text 'test' into text field 'author'.</msg>
+<status status="PASS" starttime="20211213 10:40:03.481" endtime="20211213 10:40:03.566"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:03.480" endtime="20211213 10:40:03.566"/>
+</kw>
+<kw name="Set ISBN">
+<arg>9783161484100</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>ISBN</arg>
+<arg>${isbn}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:03.567" level="INFO">Typing text '9783161484100' into text field 'ISBN'.</msg>
+<status status="PASS" starttime="20211213 10:40:03.567" endtime="20211213 10:40:03.648"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:03.566" endtime="20211213 10:40:03.649"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:03.650" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:03.649" endtime="20211213 10:40:03.706"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:03.649" endtime="20211213 10:40:03.706"/>
+</kw>
+<kw name="Alert Should Be Present" library="SeleniumLibrary">
+<arg>Name must be between 1-50 characters</arg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<msg timestamp="20211213 10:40:03.707" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20211213 10:40:03.707" endtime="20211213 10:40:03.725"/>
+</kw>
+<kw name="Verify Invalid Bookmark Not Added">
+<arg>test book2</arg>
+<kw name="Add Bookmark Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Add bookmark</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:03.742" level="INFO">Page title is 'Add bookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:03.726" endtime="20211213 10:40:03.742"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:03.726" endtime="20211213 10:40:03.742"/>
+</kw>
+<kw name="Go to Main Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:03.743" level="INFO">Opening url 'http://localhost:5000'</msg>
+<status status="PASS" starttime="20211213 10:40:03.743" endtime="20211213 10:40:03.768"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:03.743" endtime="20211213 10:40:03.768"/>
+</kw>
+<kw name="Page Should Not Contain" library="SeleniumLibrary">
+<arg>${title}</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<msg timestamp="20211213 10:40:03.791" level="INFO">Current page does not contain text 'test book2'.</msg>
+<status status="PASS" starttime="20211213 10:40:03.768" endtime="20211213 10:40:03.792"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:03.725" endtime="20211213 10:40:03.792"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:03.356" endtime="20211213 10:40:03.792"/>
+</test>
+<test id="s1-s1-t5" name="Add Book Bookmark Without Valid Description">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:03.794" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:03.794" endtime="20211213 10:40:03.821"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:03.794" endtime="20211213 10:40:03.821"/>
+</kw>
+<kw name="Set Title">
+<arg>test book3</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:03.822" level="INFO">Typing text 'test book3' into text field 'title'.</msg>
+<status status="PASS" starttime="20211213 10:40:03.822" endtime="20211213 10:40:03.914"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:03.821" endtime="20211213 10:40:03.915"/>
+</kw>
+<kw name="Set Author">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>author</arg>
+<arg>${author}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:03.915" level="INFO">Typing text 'test' into text field 'author'.</msg>
+<status status="PASS" starttime="20211213 10:40:03.915" endtime="20211213 10:40:03.992"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:03.915" endtime="20211213 10:40:03.992"/>
+</kw>
+<kw name="Set ISBN">
+<arg>9783161484100</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>ISBN</arg>
+<arg>${isbn}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:03.993" level="INFO">Typing text '9783161484100' into text field 'ISBN'.</msg>
+<status status="PASS" starttime="20211213 10:40:03.993" endtime="20211213 10:40:04.078"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:03.993" endtime="20211213 10:40:04.078"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:04.079" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:04.079" endtime="20211213 10:40:04.131"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:04.078" endtime="20211213 10:40:04.131"/>
+</kw>
+<kw name="Verify Invalid Bookmark Not Added">
+<arg>test book3</arg>
+<kw name="Add Bookmark Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Add bookmark</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:04.137" level="INFO">Page title is 'Add bookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:04.132" endtime="20211213 10:40:04.137"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:04.132" endtime="20211213 10:40:04.137"/>
+</kw>
+<kw name="Go to Main Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:04.138" level="INFO">Opening url 'http://localhost:5000'</msg>
+<status status="PASS" starttime="20211213 10:40:04.138" endtime="20211213 10:40:04.168"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:04.138" endtime="20211213 10:40:04.168"/>
+</kw>
+<kw name="Page Should Not Contain" library="SeleniumLibrary">
+<arg>${title}</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<msg timestamp="20211213 10:40:04.192" level="INFO">Current page does not contain text 'test book3'.</msg>
+<status status="PASS" starttime="20211213 10:40:04.168" endtime="20211213 10:40:04.193"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:04.131" endtime="20211213 10:40:04.193"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:03.793" endtime="20211213 10:40:04.193"/>
+</test>
+<test id="s1-s1-t6" name="Add Book Bookmark Without Valid Author">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:04.196" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:04.196" endtime="20211213 10:40:04.220"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:04.195" endtime="20211213 10:40:04.221"/>
+</kw>
+<kw name="Set Title">
+<arg>test book4</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:04.222" level="INFO">Typing text 'test book4' into text field 'title'.</msg>
+<status status="PASS" starttime="20211213 10:40:04.221" endtime="20211213 10:40:04.306"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:04.221" endtime="20211213 10:40:04.306"/>
+</kw>
+<kw name="Set Description">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>description</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:04.307" level="INFO">Typing text 'test' into text field 'description'.</msg>
+<status status="PASS" starttime="20211213 10:40:04.307" endtime="20211213 10:40:04.385"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:04.306" endtime="20211213 10:40:04.385"/>
+</kw>
+<kw name="Set ISBN">
+<arg>9783161484100</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>ISBN</arg>
+<arg>${isbn}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:04.386" level="INFO">Typing text '9783161484100' into text field 'ISBN'.</msg>
+<status status="PASS" starttime="20211213 10:40:04.386" endtime="20211213 10:40:04.466"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:04.385" endtime="20211213 10:40:04.467"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:04.467" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:04.467" endtime="20211213 10:40:04.520"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:04.467" endtime="20211213 10:40:04.520"/>
+</kw>
+<kw name="Alert Should Be Present" library="SeleniumLibrary">
+<arg>Name must be between 1-50 characters</arg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<msg timestamp="20211213 10:40:04.520" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20211213 10:40:04.520" endtime="20211213 10:40:04.535"/>
+</kw>
+<kw name="Verify Invalid Bookmark Not Added">
+<arg>test book4</arg>
+<kw name="Add Bookmark Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Add bookmark</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:04.541" level="INFO">Page title is 'Add bookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:04.537" endtime="20211213 10:40:04.541"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:04.536" endtime="20211213 10:40:04.542"/>
+</kw>
+<kw name="Go to Main Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:04.542" level="INFO">Opening url 'http://localhost:5000'</msg>
+<status status="PASS" starttime="20211213 10:40:04.542" endtime="20211213 10:40:04.568"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:04.542" endtime="20211213 10:40:04.568"/>
+</kw>
+<kw name="Page Should Not Contain" library="SeleniumLibrary">
+<arg>${title}</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<msg timestamp="20211213 10:40:04.588" level="INFO">Current page does not contain text 'test book4'.</msg>
+<status status="PASS" starttime="20211213 10:40:04.568" endtime="20211213 10:40:04.589"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:04.536" endtime="20211213 10:40:04.589"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:04.195" endtime="20211213 10:40:04.589"/>
+</test>
+<test id="s1-s1-t7" name="Add Book Bookmark Without Valid ISBN">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:04.591" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:04.591" endtime="20211213 10:40:04.617"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:04.591" endtime="20211213 10:40:04.617"/>
+</kw>
+<kw name="Set Title">
+<arg>test book5</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:04.618" level="INFO">Typing text 'test book5' into text field 'title'.</msg>
+<status status="PASS" starttime="20211213 10:40:04.618" endtime="20211213 10:40:04.715"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:04.618" endtime="20211213 10:40:04.715"/>
+</kw>
+<kw name="Set Description">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>description</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:04.716" level="INFO">Typing text 'test' into text field 'description'.</msg>
+<status status="PASS" starttime="20211213 10:40:04.716" endtime="20211213 10:40:04.788"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:04.715" endtime="20211213 10:40:04.788"/>
+</kw>
+<kw name="Set Author">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>author</arg>
+<arg>${author}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:04.789" level="INFO">Typing text 'test' into text field 'author'.</msg>
+<status status="PASS" starttime="20211213 10:40:04.789" endtime="20211213 10:40:04.862"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:04.788" endtime="20211213 10:40:04.863"/>
+</kw>
+<kw name="Set ISBN">
+<arg>testitestitesti</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>ISBN</arg>
+<arg>${isbn}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:04.864" level="INFO">Typing text 'testitestitesti' into text field 'ISBN'.</msg>
+<status status="PASS" starttime="20211213 10:40:04.863" endtime="20211213 10:40:04.946"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:04.863" endtime="20211213 10:40:04.946"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:04.947" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:04.946" endtime="20211213 10:40:05.046"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:04.946" endtime="20211213 10:40:05.046"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Invalid ISBN</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211213 10:40:05.064" level="INFO">Current page contains text 'Invalid ISBN'.</msg>
+<status status="PASS" starttime="20211213 10:40:05.046" endtime="20211213 10:40:05.064"/>
+</kw>
+<kw name="Verify Invalid Bookmark Not Added">
+<arg>test book5</arg>
+<kw name="Add Bookmark Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Add bookmark</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:05.069" level="INFO">Page title is 'Add bookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:05.065" endtime="20211213 10:40:05.069"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:05.065" endtime="20211213 10:40:05.069"/>
+</kw>
+<kw name="Go to Main Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:05.070" level="INFO">Opening url 'http://localhost:5000'</msg>
+<status status="PASS" starttime="20211213 10:40:05.070" endtime="20211213 10:40:05.094"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:05.069" endtime="20211213 10:40:05.094"/>
+</kw>
+<kw name="Page Should Not Contain" library="SeleniumLibrary">
+<arg>${title}</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<msg timestamp="20211213 10:40:05.117" level="INFO">Current page does not contain text 'test book5'.</msg>
+<status status="PASS" starttime="20211213 10:40:05.094" endtime="20211213 10:40:05.117"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:05.064" endtime="20211213 10:40:05.117"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:04.590" endtime="20211213 10:40:05.117"/>
+</test>
+<test id="s1-s1-t8" name="Select Video Updates Page">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:05.120" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:05.120" endtime="20211213 10:40:05.143"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:05.119" endtime="20211213 10:40:05.143"/>
+</kw>
+<kw name="Set Type">
+<arg>Video</arg>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>bookmark</arg>
+<arg>${name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20211213 10:40:05.144" level="INFO">Selecting options from selection list 'bookmark' by label Video.</msg>
+<status status="PASS" starttime="20211213 10:40:05.144" endtime="20211213 10:40:05.205"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:05.143" endtime="20211213 10:40:05.205"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Link:</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211213 10:40:05.218" level="INFO">Current page contains text 'Link:'.</msg>
+<status status="PASS" starttime="20211213 10:40:05.205" endtime="20211213 10:40:05.218"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:05.118" endtime="20211213 10:40:05.218"/>
+</test>
+<test id="s1-s1-t9" name="Add Valid Video Bookmark">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:05.222" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:05.221" endtime="20211213 10:40:05.246"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:05.221" endtime="20211213 10:40:05.246"/>
+</kw>
+<kw name="Set Type">
+<arg>Video</arg>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>bookmark</arg>
+<arg>${name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20211213 10:40:05.247" level="INFO">Selecting options from selection list 'bookmark' by label Video.</msg>
+<status status="PASS" starttime="20211213 10:40:05.247" endtime="20211213 10:40:05.320"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:05.246" endtime="20211213 10:40:05.320"/>
+</kw>
+<kw name="Set Title">
+<arg>test video</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:05.321" level="INFO">Typing text 'test video' into text field 'title'.</msg>
+<status status="PASS" starttime="20211213 10:40:05.321" endtime="20211213 10:40:05.402"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:05.320" endtime="20211213 10:40:05.403"/>
+</kw>
+<kw name="Set Description">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>description</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:05.404" level="INFO">Typing text 'test' into text field 'description'.</msg>
+<status status="PASS" starttime="20211213 10:40:05.403" endtime="20211213 10:40:05.477"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:05.403" endtime="20211213 10:40:05.477"/>
+</kw>
+<kw name="Set Author">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>author</arg>
+<arg>${author}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:05.478" level="INFO">Typing text 'test' into text field 'author'.</msg>
+<status status="PASS" starttime="20211213 10:40:05.478" endtime="20211213 10:40:05.555"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:05.477" endtime="20211213 10:40:05.555"/>
+</kw>
+<kw name="Set Link">
+<arg>https://youtube.com/</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>link</arg>
+<arg>${link}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:05.556" level="INFO">Typing text 'https://youtube.com/' into text field 'link'.</msg>
+<status status="PASS" starttime="20211213 10:40:05.556" endtime="20211213 10:40:05.645"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:05.555" endtime="20211213 10:40:05.645"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:05.646" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:05.646" endtime="20211213 10:40:05.735"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:05.645" endtime="20211213 10:40:05.736"/>
+</kw>
+<kw name="Main Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Lukuvinkkikirjasto</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:05.741" level="INFO">Page title is 'Lukuvinkkikirjasto'.</msg>
+<status status="PASS" starttime="20211213 10:40:05.737" endtime="20211213 10:40:05.741"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:05.736" endtime="20211213 10:40:05.742"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:05.220" endtime="20211213 10:40:05.742"/>
+</test>
+<test id="s1-s1-t10" name="Add Video Bookmark Without Valid Title">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:05.745" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:05.745" endtime="20211213 10:40:05.771"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:05.745" endtime="20211213 10:40:05.771"/>
+</kw>
+<kw name="Set Type">
+<arg>Video</arg>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>bookmark</arg>
+<arg>${name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20211213 10:40:05.772" level="INFO">Selecting options from selection list 'bookmark' by label Video.</msg>
+<status status="PASS" starttime="20211213 10:40:05.771" endtime="20211213 10:40:05.834"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:05.771" endtime="20211213 10:40:05.835"/>
+</kw>
+<kw name="Set Description">
+<arg>test video2</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>description</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:05.836" level="INFO">Typing text 'test video2' into text field 'description'.</msg>
+<status status="PASS" starttime="20211213 10:40:05.835" endtime="20211213 10:40:05.917"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:05.835" endtime="20211213 10:40:05.917"/>
+</kw>
+<kw name="Set Author">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>author</arg>
+<arg>${author}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:05.918" level="INFO">Typing text 'test' into text field 'author'.</msg>
+<status status="PASS" starttime="20211213 10:40:05.918" endtime="20211213 10:40:05.992"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:05.917" endtime="20211213 10:40:05.992"/>
+</kw>
+<kw name="Set Link">
+<arg>https://youtube.com/</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>link</arg>
+<arg>${link}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:05.993" level="INFO">Typing text 'https://youtube.com/' into text field 'link'.</msg>
+<status status="PASS" starttime="20211213 10:40:05.993" endtime="20211213 10:40:06.085"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:05.992" endtime="20211213 10:40:06.085"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:06.086" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:06.085" endtime="20211213 10:40:06.141"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:06.085" endtime="20211213 10:40:06.141"/>
+</kw>
+<kw name="Alert Should Be Present" library="SeleniumLibrary">
+<arg>Name must be between 1-50 characters</arg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<msg timestamp="20211213 10:40:06.142" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20211213 10:40:06.141" endtime="20211213 10:40:06.157"/>
+</kw>
+<kw name="Verify Invalid Bookmark Not Added">
+<arg>test video2</arg>
+<kw name="Add Bookmark Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Add bookmark</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:06.164" level="INFO">Page title is 'Add bookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:06.158" endtime="20211213 10:40:06.165"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:06.157" endtime="20211213 10:40:06.165"/>
+</kw>
+<kw name="Go to Main Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:06.166" level="INFO">Opening url 'http://localhost:5000'</msg>
+<status status="PASS" starttime="20211213 10:40:06.165" endtime="20211213 10:40:06.211"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:06.165" endtime="20211213 10:40:06.212"/>
+</kw>
+<kw name="Page Should Not Contain" library="SeleniumLibrary">
+<arg>${title}</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<msg timestamp="20211213 10:40:06.239" level="INFO">Current page does not contain text 'test video2'.</msg>
+<status status="PASS" starttime="20211213 10:40:06.212" endtime="20211213 10:40:06.239"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:06.157" endtime="20211213 10:40:06.239"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:05.742" endtime="20211213 10:40:06.239"/>
+</test>
+<test id="s1-s1-t11" name="Add Video Bookmark Without Valid Description">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:06.242" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:06.241" endtime="20211213 10:40:06.270"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:06.241" endtime="20211213 10:40:06.270"/>
+</kw>
+<kw name="Set Type">
+<arg>Video</arg>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>bookmark</arg>
+<arg>${name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20211213 10:40:06.271" level="INFO">Selecting options from selection list 'bookmark' by label Video.</msg>
+<status status="PASS" starttime="20211213 10:40:06.271" endtime="20211213 10:40:06.329"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:06.270" endtime="20211213 10:40:06.329"/>
+</kw>
+<kw name="Set Title">
+<arg>test video3</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:06.330" level="INFO">Typing text 'test video3' into text field 'title'.</msg>
+<status status="PASS" starttime="20211213 10:40:06.330" endtime="20211213 10:40:06.410"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:06.329" endtime="20211213 10:40:06.410"/>
+</kw>
+<kw name="Set Author">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>author</arg>
+<arg>${author}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:06.411" level="INFO">Typing text 'test' into text field 'author'.</msg>
+<status status="PASS" starttime="20211213 10:40:06.411" endtime="20211213 10:40:06.488"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:06.410" endtime="20211213 10:40:06.488"/>
+</kw>
+<kw name="Set Link">
+<arg>https://youtube.com/</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>link</arg>
+<arg>${link}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:06.489" level="INFO">Typing text 'https://youtube.com/' into text field 'link'.</msg>
+<status status="PASS" starttime="20211213 10:40:06.489" endtime="20211213 10:40:06.579"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:06.488" endtime="20211213 10:40:06.579"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:06.580" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:06.579" endtime="20211213 10:40:06.632"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:06.579" endtime="20211213 10:40:06.632"/>
+</kw>
+<kw name="Verify Invalid Bookmark Not Added">
+<arg>test video3</arg>
+<kw name="Add Bookmark Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Add bookmark</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:06.638" level="INFO">Page title is 'Add bookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:06.633" endtime="20211213 10:40:06.638"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:06.633" endtime="20211213 10:40:06.638"/>
+</kw>
+<kw name="Go to Main Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:06.639" level="INFO">Opening url 'http://localhost:5000'</msg>
+<status status="PASS" starttime="20211213 10:40:06.639" endtime="20211213 10:40:06.671"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:06.638" endtime="20211213 10:40:06.671"/>
+</kw>
+<kw name="Page Should Not Contain" library="SeleniumLibrary">
+<arg>${title}</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<msg timestamp="20211213 10:40:06.692" level="INFO">Current page does not contain text 'test video3'.</msg>
+<status status="PASS" starttime="20211213 10:40:06.671" endtime="20211213 10:40:06.692"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:06.633" endtime="20211213 10:40:06.692"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:06.240" endtime="20211213 10:40:06.692"/>
+</test>
+<test id="s1-s1-t12" name="Add Video Bookmark Without Valid Author">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:06.695" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:06.694" endtime="20211213 10:40:06.718"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:06.694" endtime="20211213 10:40:06.719"/>
+</kw>
+<kw name="Set Type">
+<arg>Video</arg>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>bookmark</arg>
+<arg>${name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20211213 10:40:06.720" level="INFO">Selecting options from selection list 'bookmark' by label Video.</msg>
+<status status="PASS" starttime="20211213 10:40:06.719" endtime="20211213 10:40:06.786"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:06.719" endtime="20211213 10:40:06.786"/>
+</kw>
+<kw name="Set Title">
+<arg>test video4</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:06.787" level="INFO">Typing text 'test video4' into text field 'title'.</msg>
+<status status="PASS" starttime="20211213 10:40:06.786" endtime="20211213 10:40:06.867"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:06.786" endtime="20211213 10:40:06.867"/>
+</kw>
+<kw name="Set Description">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>description</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:06.868" level="INFO">Typing text 'test' into text field 'description'.</msg>
+<status status="PASS" starttime="20211213 10:40:06.868" endtime="20211213 10:40:06.943"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:06.867" endtime="20211213 10:40:06.943"/>
+</kw>
+<kw name="Set Link">
+<arg>https://youtube.com/</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>link</arg>
+<arg>${link}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:06.944" level="INFO">Typing text 'https://youtube.com/' into text field 'link'.</msg>
+<status status="PASS" starttime="20211213 10:40:06.944" endtime="20211213 10:40:07.035"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:06.944" endtime="20211213 10:40:07.035"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:07.036" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:07.035" endtime="20211213 10:40:07.090"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:07.035" endtime="20211213 10:40:07.090"/>
+</kw>
+<kw name="Alert Should Be Present" library="SeleniumLibrary">
+<arg>Name must be between 1-50 characters</arg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<msg timestamp="20211213 10:40:07.090" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20211213 10:40:07.090" endtime="20211213 10:40:07.101"/>
+</kw>
+<kw name="Verify Invalid Bookmark Not Added">
+<arg>test video4</arg>
+<kw name="Add Bookmark Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Add bookmark</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:07.141" level="INFO">Page title is 'Add bookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:07.102" endtime="20211213 10:40:07.141"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:07.102" endtime="20211213 10:40:07.141"/>
+</kw>
+<kw name="Go to Main Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:07.142" level="INFO">Opening url 'http://localhost:5000'</msg>
+<status status="PASS" starttime="20211213 10:40:07.141" endtime="20211213 10:40:07.173"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:07.141" endtime="20211213 10:40:07.174"/>
+</kw>
+<kw name="Page Should Not Contain" library="SeleniumLibrary">
+<arg>${title}</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<msg timestamp="20211213 10:40:07.194" level="INFO">Current page does not contain text 'test video4'.</msg>
+<status status="PASS" starttime="20211213 10:40:07.174" endtime="20211213 10:40:07.194"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:07.101" endtime="20211213 10:40:07.195"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:06.693" endtime="20211213 10:40:07.195"/>
+</test>
+<test id="s1-s1-t13" name="Select Blog Updates Page">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:07.198" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:07.197" endtime="20211213 10:40:07.225"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:07.197" endtime="20211213 10:40:07.225"/>
+</kw>
+<kw name="Set Type">
+<arg>Blog</arg>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>bookmark</arg>
+<arg>${name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20211213 10:40:07.226" level="INFO">Selecting options from selection list 'bookmark' by label Blog.</msg>
+<status status="PASS" starttime="20211213 10:40:07.226" endtime="20211213 10:40:07.285"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:07.225" endtime="20211213 10:40:07.285"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Link:</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211213 10:40:07.294" level="INFO">Current page contains text 'Link:'.</msg>
+<status status="PASS" starttime="20211213 10:40:07.286" endtime="20211213 10:40:07.295"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:07.195" endtime="20211213 10:40:07.295"/>
+</test>
+<test id="s1-s1-t14" name="Add Valid Blog Bookmark">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:07.298" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:07.297" endtime="20211213 10:40:07.320"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:07.296" endtime="20211213 10:40:07.320"/>
+</kw>
+<kw name="Set Type">
+<arg>Blog</arg>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>bookmark</arg>
+<arg>${name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20211213 10:40:07.321" level="INFO">Selecting options from selection list 'bookmark' by label Blog.</msg>
+<status status="PASS" starttime="20211213 10:40:07.321" endtime="20211213 10:40:07.379"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:07.320" endtime="20211213 10:40:07.379"/>
+</kw>
+<kw name="Set Title">
+<arg>test blog</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:07.380" level="INFO">Typing text 'test blog' into text field 'title'.</msg>
+<status status="PASS" starttime="20211213 10:40:07.380" endtime="20211213 10:40:07.457"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:07.379" endtime="20211213 10:40:07.457"/>
+</kw>
+<kw name="Set Description">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>description</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:07.458" level="INFO">Typing text 'test' into text field 'description'.</msg>
+<status status="PASS" starttime="20211213 10:40:07.458" endtime="20211213 10:40:07.532"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:07.458" endtime="20211213 10:40:07.533"/>
+</kw>
+<kw name="Set Author">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>author</arg>
+<arg>${author}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:07.534" level="INFO">Typing text 'test' into text field 'author'.</msg>
+<status status="PASS" starttime="20211213 10:40:07.533" endtime="20211213 10:40:07.605"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:07.533" endtime="20211213 10:40:07.606"/>
+</kw>
+<kw name="Set Link">
+<arg>https://wikipedia.org/</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>link</arg>
+<arg>${link}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:07.606" level="INFO">Typing text 'https://wikipedia.org/' into text field 'link'.</msg>
+<status status="PASS" starttime="20211213 10:40:07.606" endtime="20211213 10:40:07.694"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:07.606" endtime="20211213 10:40:07.694"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:07.695" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:07.695" endtime="20211213 10:40:07.777"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:07.695" endtime="20211213 10:40:07.777"/>
+</kw>
+<kw name="Main Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Lukuvinkkikirjasto</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:07.784" level="INFO">Page title is 'Lukuvinkkikirjasto'.</msg>
+<status status="PASS" starttime="20211213 10:40:07.778" endtime="20211213 10:40:07.784"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:07.778" endtime="20211213 10:40:07.785"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:07.296" endtime="20211213 10:40:07.785"/>
+</test>
+<test id="s1-s1-t15" name="Add Blog Bookmark Without Valid Title">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:07.787" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:07.787" endtime="20211213 10:40:07.811"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:07.787" endtime="20211213 10:40:07.811"/>
+</kw>
+<kw name="Set Type">
+<arg>Blog</arg>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>bookmark</arg>
+<arg>${name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20211213 10:40:07.812" level="INFO">Selecting options from selection list 'bookmark' by label Blog.</msg>
+<status status="PASS" starttime="20211213 10:40:07.811" endtime="20211213 10:40:07.874"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:07.811" endtime="20211213 10:40:07.874"/>
+</kw>
+<kw name="Set Description">
+<arg>test blog2</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>description</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:07.875" level="INFO">Typing text 'test blog2' into text field 'description'.</msg>
+<status status="PASS" starttime="20211213 10:40:07.874" endtime="20211213 10:40:07.954"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:07.874" endtime="20211213 10:40:07.954"/>
+</kw>
+<kw name="Set Author">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>author</arg>
+<arg>${author}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:07.955" level="INFO">Typing text 'test' into text field 'author'.</msg>
+<status status="PASS" starttime="20211213 10:40:07.955" endtime="20211213 10:40:08.026"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:07.954" endtime="20211213 10:40:08.027"/>
+</kw>
+<kw name="Set Link">
+<arg>https://wikipedia.org/</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>link</arg>
+<arg>${link}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:08.028" level="INFO">Typing text 'https://wikipedia.org/' into text field 'link'.</msg>
+<status status="PASS" starttime="20211213 10:40:08.027" endtime="20211213 10:40:08.123"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:08.027" endtime="20211213 10:40:08.123"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:08.124" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:08.123" endtime="20211213 10:40:08.175"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:08.123" endtime="20211213 10:40:08.175"/>
+</kw>
+<kw name="Alert Should Be Present" library="SeleniumLibrary">
+<arg>Name must be between 1-50 characters</arg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<msg timestamp="20211213 10:40:08.176" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20211213 10:40:08.176" endtime="20211213 10:40:08.188"/>
+</kw>
+<kw name="Verify Invalid Bookmark Not Added">
+<arg>test blog2</arg>
+<kw name="Add Bookmark Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Add bookmark</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:08.216" level="INFO">Page title is 'Add bookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:08.189" endtime="20211213 10:40:08.216"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:08.188" endtime="20211213 10:40:08.216"/>
+</kw>
+<kw name="Go to Main Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:08.218" level="INFO">Opening url 'http://localhost:5000'</msg>
+<status status="PASS" starttime="20211213 10:40:08.218" endtime="20211213 10:40:08.249"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:08.216" endtime="20211213 10:40:08.250"/>
+</kw>
+<kw name="Page Should Not Contain" library="SeleniumLibrary">
+<arg>${title}</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<msg timestamp="20211213 10:40:08.270" level="INFO">Current page does not contain text 'test blog2'.</msg>
+<status status="PASS" starttime="20211213 10:40:08.250" endtime="20211213 10:40:08.271"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:08.188" endtime="20211213 10:40:08.271"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:07.786" endtime="20211213 10:40:08.271"/>
+</test>
+<test id="s1-s1-t16" name="Add Blog Bookmark Without Valid Description">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:08.274" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:08.274" endtime="20211213 10:40:08.301"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:08.273" endtime="20211213 10:40:08.301"/>
+</kw>
+<kw name="Set Type">
+<arg>Blog</arg>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>bookmark</arg>
+<arg>${name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20211213 10:40:08.302" level="INFO">Selecting options from selection list 'bookmark' by label Blog.</msg>
+<status status="PASS" starttime="20211213 10:40:08.302" endtime="20211213 10:40:08.360"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:08.301" endtime="20211213 10:40:08.360"/>
+</kw>
+<kw name="Set Title">
+<arg>test blog3</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:08.361" level="INFO">Typing text 'test blog3' into text field 'title'.</msg>
+<status status="PASS" starttime="20211213 10:40:08.360" endtime="20211213 10:40:08.437"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:08.360" endtime="20211213 10:40:08.437"/>
+</kw>
+<kw name="Set Author">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>author</arg>
+<arg>${author}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:08.438" level="INFO">Typing text 'test' into text field 'author'.</msg>
+<status status="PASS" starttime="20211213 10:40:08.438" endtime="20211213 10:40:08.509"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:08.437" endtime="20211213 10:40:08.509"/>
+</kw>
+<kw name="Set Link">
+<arg>https://wikipedia.org/</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>link</arg>
+<arg>${link}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:08.510" level="INFO">Typing text 'https://wikipedia.org/' into text field 'link'.</msg>
+<status status="PASS" starttime="20211213 10:40:08.510" endtime="20211213 10:40:08.595"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:08.509" endtime="20211213 10:40:08.595"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:08.596" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:08.595" endtime="20211213 10:40:08.643"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:08.595" endtime="20211213 10:40:08.644"/>
+</kw>
+<kw name="Verify Invalid Bookmark Not Added">
+<arg>test blog3</arg>
+<kw name="Add Bookmark Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Add bookmark</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:08.652" level="INFO">Page title is 'Add bookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:08.645" endtime="20211213 10:40:08.652"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:08.644" endtime="20211213 10:40:08.653"/>
+</kw>
+<kw name="Go to Main Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:08.653" level="INFO">Opening url 'http://localhost:5000'</msg>
+<status status="PASS" starttime="20211213 10:40:08.653" endtime="20211213 10:40:08.678"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:08.653" endtime="20211213 10:40:08.678"/>
+</kw>
+<kw name="Page Should Not Contain" library="SeleniumLibrary">
+<arg>${title}</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<msg timestamp="20211213 10:40:08.699" level="INFO">Current page does not contain text 'test blog3'.</msg>
+<status status="PASS" starttime="20211213 10:40:08.678" endtime="20211213 10:40:08.699"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:08.644" endtime="20211213 10:40:08.700"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:08.272" endtime="20211213 10:40:08.700"/>
+</test>
+<test id="s1-s1-t17" name="Add Blog Bookmark Without Valid Author">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:08.702" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:08.702" endtime="20211213 10:40:08.726"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:08.702" endtime="20211213 10:40:08.726"/>
+</kw>
+<kw name="Set Type">
+<arg>Blog</arg>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>bookmark</arg>
+<arg>${name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20211213 10:40:08.727" level="INFO">Selecting options from selection list 'bookmark' by label Blog.</msg>
+<status status="PASS" starttime="20211213 10:40:08.727" endtime="20211213 10:40:08.793"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:08.726" endtime="20211213 10:40:08.793"/>
+</kw>
+<kw name="Set Title">
+<arg>test blog4</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:08.794" level="INFO">Typing text 'test blog4' into text field 'title'.</msg>
+<status status="PASS" starttime="20211213 10:40:08.793" endtime="20211213 10:40:08.871"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:08.793" endtime="20211213 10:40:08.872"/>
+</kw>
+<kw name="Set Description">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>description</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:08.873" level="INFO">Typing text 'test' into text field 'description'.</msg>
+<status status="PASS" starttime="20211213 10:40:08.872" endtime="20211213 10:40:08.950"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:08.872" endtime="20211213 10:40:08.951"/>
+</kw>
+<kw name="Set Link">
+<arg>https://wikipedia.org/</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>link</arg>
+<arg>${link}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:08.953" level="INFO">Typing text 'https://wikipedia.org/' into text field 'link'.</msg>
+<status status="PASS" starttime="20211213 10:40:08.951" endtime="20211213 10:40:09.040"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:08.951" endtime="20211213 10:40:09.040"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:09.041" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:09.041" endtime="20211213 10:40:09.092"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:09.040" endtime="20211213 10:40:09.093"/>
+</kw>
+<kw name="Alert Should Be Present" library="SeleniumLibrary">
+<arg>Name must be between 1-50 characters</arg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<msg timestamp="20211213 10:40:09.093" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20211213 10:40:09.093" endtime="20211213 10:40:09.104"/>
+</kw>
+<kw name="Verify Invalid Bookmark Not Added">
+<arg>test blog4</arg>
+<kw name="Add Bookmark Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Add bookmark</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:09.117" level="INFO">Page title is 'Add bookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:09.105" endtime="20211213 10:40:09.117"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:09.105" endtime="20211213 10:40:09.118"/>
+</kw>
+<kw name="Go to Main Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:09.118" level="INFO">Opening url 'http://localhost:5000'</msg>
+<status status="PASS" starttime="20211213 10:40:09.118" endtime="20211213 10:40:09.143"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:09.118" endtime="20211213 10:40:09.144"/>
+</kw>
+<kw name="Page Should Not Contain" library="SeleniumLibrary">
+<arg>${title}</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<msg timestamp="20211213 10:40:09.165" level="INFO">Current page does not contain text 'test blog4'.</msg>
+<status status="PASS" starttime="20211213 10:40:09.144" endtime="20211213 10:40:09.165"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:09.104" endtime="20211213 10:40:09.166"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:08.700" endtime="20211213 10:40:09.166"/>
+</test>
+<test id="s1-s1-t18" name="Select Podcast Updates Page">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:09.168" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:09.168" endtime="20211213 10:40:09.193"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:09.168" endtime="20211213 10:40:09.194"/>
+</kw>
+<kw name="Set Type">
+<arg>Podcast</arg>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>bookmark</arg>
+<arg>${name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20211213 10:40:09.195" level="INFO">Selecting options from selection list 'bookmark' by label Podcast.</msg>
+<status status="PASS" starttime="20211213 10:40:09.194" endtime="20211213 10:40:09.261"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:09.194" endtime="20211213 10:40:09.261"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Episode:</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211213 10:40:09.274" level="INFO">Current page contains text 'Episode:'.</msg>
+<status status="PASS" starttime="20211213 10:40:09.261" endtime="20211213 10:40:09.274"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:09.167" endtime="20211213 10:40:09.274"/>
+</test>
+<test id="s1-s1-t19" name="Add Valid Podcast Bookmark">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:09.277" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:09.277" endtime="20211213 10:40:09.306"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:09.276" endtime="20211213 10:40:09.306"/>
+</kw>
+<kw name="Set Type">
+<arg>Podcast</arg>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>bookmark</arg>
+<arg>${name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20211213 10:40:09.307" level="INFO">Selecting options from selection list 'bookmark' by label Podcast.</msg>
+<status status="PASS" starttime="20211213 10:40:09.307" endtime="20211213 10:40:09.369"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:09.306" endtime="20211213 10:40:09.370"/>
+</kw>
+<kw name="Set Title">
+<arg>test podcast</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:09.371" level="INFO">Typing text 'test podcast' into text field 'title'.</msg>
+<status status="PASS" starttime="20211213 10:40:09.370" endtime="20211213 10:40:09.454"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:09.370" endtime="20211213 10:40:09.454"/>
+</kw>
+<kw name="Set Episode">
+<arg>1</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>episode</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:09.455" level="INFO">Typing text '1' into text field 'episode'.</msg>
+<status status="PASS" starttime="20211213 10:40:09.455" endtime="20211213 10:40:09.532"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:09.454" endtime="20211213 10:40:09.533"/>
+</kw>
+<kw name="Set Description">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>description</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:09.540" level="INFO">Typing text 'test' into text field 'description'.</msg>
+<status status="PASS" starttime="20211213 10:40:09.540" endtime="20211213 10:40:09.617"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:09.533" endtime="20211213 10:40:09.617"/>
+</kw>
+<kw name="Set Author">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>author</arg>
+<arg>${author}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:09.618" level="INFO">Typing text 'test' into text field 'author'.</msg>
+<status status="PASS" starttime="20211213 10:40:09.618" endtime="20211213 10:40:09.691"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:09.617" endtime="20211213 10:40:09.691"/>
+</kw>
+<kw name="Set Link">
+<arg>https://youtube.com/</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>link</arg>
+<arg>${link}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:09.692" level="INFO">Typing text 'https://youtube.com/' into text field 'link'.</msg>
+<status status="PASS" starttime="20211213 10:40:09.692" endtime="20211213 10:40:09.791"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:09.691" endtime="20211213 10:40:09.791"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:09.792" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:09.792" endtime="20211213 10:40:09.895"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:09.791" endtime="20211213 10:40:09.895"/>
+</kw>
+<kw name="Main Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Lukuvinkkikirjasto</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:09.902" level="INFO">Page title is 'Lukuvinkkikirjasto'.</msg>
+<status status="PASS" starttime="20211213 10:40:09.895" endtime="20211213 10:40:09.902"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:09.895" endtime="20211213 10:40:09.902"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:09.276" endtime="20211213 10:40:09.902"/>
+</test>
+<test id="s1-s1-t20" name="Add Podcast Bookmark Without Valid Title">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:09.905" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:09.905" endtime="20211213 10:40:09.928"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:09.904" endtime="20211213 10:40:09.928"/>
+</kw>
+<kw name="Set Type">
+<arg>Podcast</arg>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>bookmark</arg>
+<arg>${name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20211213 10:40:09.929" level="INFO">Selecting options from selection list 'bookmark' by label Podcast.</msg>
+<status status="PASS" starttime="20211213 10:40:09.928" endtime="20211213 10:40:09.993"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:09.928" endtime="20211213 10:40:09.993"/>
+</kw>
+<kw name="Set Description">
+<arg>test podcast2</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>description</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:09.994" level="INFO">Typing text 'test podcast2' into text field 'description'.</msg>
+<status status="PASS" starttime="20211213 10:40:09.994" endtime="20211213 10:40:10.074"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:09.994" endtime="20211213 10:40:10.075"/>
+</kw>
+<kw name="Set Episode">
+<arg>1</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>episode</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:10.076" level="INFO">Typing text '1' into text field 'episode'.</msg>
+<status status="PASS" starttime="20211213 10:40:10.075" endtime="20211213 10:40:10.148"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:10.075" endtime="20211213 10:40:10.148"/>
+</kw>
+<kw name="Set Author">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>author</arg>
+<arg>${author}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:10.149" level="INFO">Typing text 'test' into text field 'author'.</msg>
+<status status="PASS" starttime="20211213 10:40:10.149" endtime="20211213 10:40:10.223"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:10.149" endtime="20211213 10:40:10.223"/>
+</kw>
+<kw name="Set Link">
+<arg>https://youtube.com/</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>link</arg>
+<arg>${link}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:10.224" level="INFO">Typing text 'https://youtube.com/' into text field 'link'.</msg>
+<status status="PASS" starttime="20211213 10:40:10.224" endtime="20211213 10:40:10.310"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:10.223" endtime="20211213 10:40:10.311"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:10.311" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:10.311" endtime="20211213 10:40:10.364"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:10.311" endtime="20211213 10:40:10.365"/>
+</kw>
+<kw name="Alert Should Be Present" library="SeleniumLibrary">
+<arg>Name must be between 1-50 characters</arg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<msg timestamp="20211213 10:40:10.365" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20211213 10:40:10.365" endtime="20211213 10:40:10.377"/>
+</kw>
+<kw name="Verify Invalid Bookmark Not Added">
+<arg>test podcast2</arg>
+<kw name="Add Bookmark Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Add bookmark</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:10.390" level="INFO">Page title is 'Add bookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:10.378" endtime="20211213 10:40:10.390"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:10.377" endtime="20211213 10:40:10.390"/>
+</kw>
+<kw name="Go to Main Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:10.391" level="INFO">Opening url 'http://localhost:5000'</msg>
+<status status="PASS" starttime="20211213 10:40:10.391" endtime="20211213 10:40:10.417"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:10.390" endtime="20211213 10:40:10.417"/>
+</kw>
+<kw name="Page Should Not Contain" library="SeleniumLibrary">
+<arg>${title}</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<msg timestamp="20211213 10:40:10.437" level="INFO">Current page does not contain text 'test podcast2'.</msg>
+<status status="PASS" starttime="20211213 10:40:10.417" endtime="20211213 10:40:10.437"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:10.377" endtime="20211213 10:40:10.437"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:09.903" endtime="20211213 10:40:10.437"/>
+</test>
+<test id="s1-s1-t21" name="Add Podcast Bookmark Without Valid Description">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:10.440" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:10.439" endtime="20211213 10:40:10.462"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:10.439" endtime="20211213 10:40:10.462"/>
+</kw>
+<kw name="Set Type">
+<arg>Podcast</arg>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>bookmark</arg>
+<arg>${name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20211213 10:40:10.463" level="INFO">Selecting options from selection list 'bookmark' by label Podcast.</msg>
+<status status="PASS" starttime="20211213 10:40:10.463" endtime="20211213 10:40:10.528"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:10.463" endtime="20211213 10:40:10.528"/>
+</kw>
+<kw name="Set Title">
+<arg>test podcast3</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:10.529" level="INFO">Typing text 'test podcast3' into text field 'title'.</msg>
+<status status="PASS" starttime="20211213 10:40:10.529" endtime="20211213 10:40:10.615"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:10.528" endtime="20211213 10:40:10.615"/>
+</kw>
+<kw name="Set Episode">
+<arg>1</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>episode</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:10.616" level="INFO">Typing text '1' into text field 'episode'.</msg>
+<status status="PASS" starttime="20211213 10:40:10.616" endtime="20211213 10:40:10.688"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:10.615" endtime="20211213 10:40:10.688"/>
+</kw>
+<kw name="Set Author">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>author</arg>
+<arg>${author}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:10.689" level="INFO">Typing text 'test' into text field 'author'.</msg>
+<status status="PASS" starttime="20211213 10:40:10.689" endtime="20211213 10:40:10.768"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:10.688" endtime="20211213 10:40:10.768"/>
+</kw>
+<kw name="Set Link">
+<arg>https://youtube.com/</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>link</arg>
+<arg>${link}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:10.769" level="INFO">Typing text 'https://youtube.com/' into text field 'link'.</msg>
+<status status="PASS" starttime="20211213 10:40:10.769" endtime="20211213 10:40:10.859"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:10.768" endtime="20211213 10:40:10.859"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:10.860" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:10.859" endtime="20211213 10:40:10.922"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:10.859" endtime="20211213 10:40:10.923"/>
+</kw>
+<kw name="Verify Invalid Bookmark Not Added">
+<arg>test podcast3</arg>
+<kw name="Add Bookmark Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Add bookmark</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:10.942" level="INFO">Page title is 'Add bookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:10.923" endtime="20211213 10:40:10.942"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:10.923" endtime="20211213 10:40:10.942"/>
+</kw>
+<kw name="Go to Main Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:10.943" level="INFO">Opening url 'http://localhost:5000'</msg>
+<status status="PASS" starttime="20211213 10:40:10.943" endtime="20211213 10:40:10.970"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:10.942" endtime="20211213 10:40:10.970"/>
+</kw>
+<kw name="Page Should Not Contain" library="SeleniumLibrary">
+<arg>${title}</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<msg timestamp="20211213 10:40:10.992" level="INFO">Current page does not contain text 'test podcast3'.</msg>
+<status status="PASS" starttime="20211213 10:40:10.970" endtime="20211213 10:40:10.993"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:10.923" endtime="20211213 10:40:10.993"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:10.438" endtime="20211213 10:40:10.993"/>
+</test>
+<test id="s1-s1-t22" name="Add Podcast Bookmark Without Valid Author">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:10.996" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:10.996" endtime="20211213 10:40:11.022"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:10.995" endtime="20211213 10:40:11.022"/>
+</kw>
+<kw name="Set Type">
+<arg>Podcast</arg>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>bookmark</arg>
+<arg>${name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20211213 10:40:11.023" level="INFO">Selecting options from selection list 'bookmark' by label Podcast.</msg>
+<status status="PASS" starttime="20211213 10:40:11.022" endtime="20211213 10:40:11.081"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:11.022" endtime="20211213 10:40:11.081"/>
+</kw>
+<kw name="Set Title">
+<arg>test podcast4</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:11.082" level="INFO">Typing text 'test podcast4' into text field 'title'.</msg>
+<status status="PASS" starttime="20211213 10:40:11.082" endtime="20211213 10:40:11.160"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:11.082" endtime="20211213 10:40:11.161"/>
+</kw>
+<kw name="Set Episode">
+<arg>1</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>episode</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:11.162" level="INFO">Typing text '1' into text field 'episode'.</msg>
+<status status="PASS" starttime="20211213 10:40:11.161" endtime="20211213 10:40:11.233"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:11.161" endtime="20211213 10:40:11.233"/>
+</kw>
+<kw name="Set Description">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>description</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:11.234" level="INFO">Typing text 'test' into text field 'description'.</msg>
+<status status="PASS" starttime="20211213 10:40:11.234" endtime="20211213 10:40:11.315"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:11.234" endtime="20211213 10:40:11.315"/>
+</kw>
+<kw name="Set Link">
+<arg>https://youtube.com/</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>link</arg>
+<arg>${link}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:11.316" level="INFO">Typing text 'https://youtube.com/' into text field 'link'.</msg>
+<status status="PASS" starttime="20211213 10:40:11.316" endtime="20211213 10:40:11.402"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:11.315" endtime="20211213 10:40:11.403"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:11.403" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:11.403" endtime="20211213 10:40:11.469"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:11.403" endtime="20211213 10:40:11.469"/>
+</kw>
+<kw name="Alert Should Be Present" library="SeleniumLibrary">
+<arg>Name must be between 1-50 characters</arg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<msg timestamp="20211213 10:40:11.469" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20211213 10:40:11.469" endtime="20211213 10:40:11.481"/>
+</kw>
+<kw name="Verify Invalid Bookmark Not Added">
+<arg>test podcast4</arg>
+<kw name="Add Bookmark Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Add bookmark</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:11.492" level="INFO">Page title is 'Add bookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:11.482" endtime="20211213 10:40:11.492"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:11.481" endtime="20211213 10:40:11.492"/>
+</kw>
+<kw name="Go to Main Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:11.493" level="INFO">Opening url 'http://localhost:5000'</msg>
+<status status="PASS" starttime="20211213 10:40:11.493" endtime="20211213 10:40:11.519"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:11.492" endtime="20211213 10:40:11.519"/>
+</kw>
+<kw name="Page Should Not Contain" library="SeleniumLibrary">
+<arg>${title}</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<msg timestamp="20211213 10:40:11.543" level="INFO">Current page does not contain text 'test podcast4'.</msg>
+<status status="PASS" starttime="20211213 10:40:11.519" endtime="20211213 10:40:11.543"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:11.481" endtime="20211213 10:40:11.543"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:10.994" endtime="20211213 10:40:11.543"/>
+</test>
+<test id="s1-s1-t23" name="Select Article Updates Page">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:11.546" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:11.546" endtime="20211213 10:40:11.571"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:11.545" endtime="20211213 10:40:11.571"/>
+</kw>
+<kw name="Set Type">
+<arg>Scientific Article</arg>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>bookmark</arg>
+<arg>${name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20211213 10:40:11.573" level="INFO">Selecting options from selection list 'bookmark' by label Scientific Article.</msg>
+<status status="PASS" starttime="20211213 10:40:11.572" endtime="20211213 10:40:11.634"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:11.571" endtime="20211213 10:40:11.634"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Publication Title:</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211213 10:40:11.647" level="INFO">Current page contains text 'Publication Title:'.</msg>
+<status status="PASS" starttime="20211213 10:40:11.635" endtime="20211213 10:40:11.647"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:11.544" endtime="20211213 10:40:11.647"/>
+</test>
+<test id="s1-s1-t24" name="Add Valid Article Bookmark">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:11.650" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:11.649" endtime="20211213 10:40:11.676"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:11.649" endtime="20211213 10:40:11.677"/>
+</kw>
+<kw name="Set Type">
+<arg>Scientific Article</arg>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>bookmark</arg>
+<arg>${name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20211213 10:40:11.678" level="INFO">Selecting options from selection list 'bookmark' by label Scientific Article.</msg>
+<status status="PASS" starttime="20211213 10:40:11.677" endtime="20211213 10:40:11.742"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:11.677" endtime="20211213 10:40:11.742"/>
+</kw>
+<kw name="Set Title">
+<arg>test article</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:11.743" level="INFO">Typing text 'test article' into text field 'title'.</msg>
+<status status="PASS" starttime="20211213 10:40:11.743" endtime="20211213 10:40:11.829"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:11.742" endtime="20211213 10:40:11.829"/>
+</kw>
+<kw name="Set Publication Title">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>publication_title</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:11.830" level="INFO">Typing text 'test' into text field 'publication_title'.</msg>
+<status status="PASS" starttime="20211213 10:40:11.829" endtime="20211213 10:40:11.915"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:11.829" endtime="20211213 10:40:11.915"/>
+</kw>
+<kw name="Set Year">
+<arg>2000</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>year</arg>
+<arg>${number}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:11.916" level="INFO">Typing text '2000' into text field 'year'.</msg>
+<status status="PASS" starttime="20211213 10:40:11.916" endtime="20211213 10:40:11.997"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:11.915" endtime="20211213 10:40:11.998"/>
+</kw>
+<kw name="Set Doi">
+<arg>10.1000/182</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>doi</arg>
+<arg>${doi}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:11.999" level="INFO">Typing text '10.1000/182' into text field 'doi'.</msg>
+<status status="PASS" starttime="20211213 10:40:11.998" endtime="20211213 10:40:12.086"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:11.998" endtime="20211213 10:40:12.086"/>
+</kw>
+<kw name="Set Publisher">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>publisher</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:12.087" level="INFO">Typing text 'test' into text field 'publisher'.</msg>
+<status status="PASS" starttime="20211213 10:40:12.086" endtime="20211213 10:40:12.169"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:12.086" endtime="20211213 10:40:12.169"/>
+</kw>
+<kw name="Set Description">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>description</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:12.170" level="INFO">Typing text 'test' into text field 'description'.</msg>
+<status status="PASS" starttime="20211213 10:40:12.170" endtime="20211213 10:40:12.245"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:12.169" endtime="20211213 10:40:12.245"/>
+</kw>
+<kw name="Set Author">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>author</arg>
+<arg>${author}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:12.246" level="INFO">Typing text 'test' into text field 'author'.</msg>
+<status status="PASS" starttime="20211213 10:40:12.246" endtime="20211213 10:40:12.322"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:12.246" endtime="20211213 10:40:12.323"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:12.323" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:12.323" endtime="20211213 10:40:12.423"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:12.323" endtime="20211213 10:40:12.423"/>
+</kw>
+<kw name="Main Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Lukuvinkkikirjasto</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:12.428" level="INFO">Page title is 'Lukuvinkkikirjasto'.</msg>
+<status status="PASS" starttime="20211213 10:40:12.424" endtime="20211213 10:40:12.428"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:12.424" endtime="20211213 10:40:12.428"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:11.648" endtime="20211213 10:40:12.428"/>
+</test>
+<test id="s1-s1-t25" name="Add Article Bookmark Without Valid Title">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:12.431" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:12.431" endtime="20211213 10:40:12.458"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:12.431" endtime="20211213 10:40:12.458"/>
+</kw>
+<kw name="Set Type">
+<arg>Scientific Article</arg>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>bookmark</arg>
+<arg>${name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20211213 10:40:12.459" level="INFO">Selecting options from selection list 'bookmark' by label Scientific Article.</msg>
+<status status="PASS" starttime="20211213 10:40:12.459" endtime="20211213 10:40:12.533"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:12.459" endtime="20211213 10:40:12.534"/>
+</kw>
+<kw name="Set Publication Title">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>publication_title</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:12.535" level="INFO">Typing text 'test' into text field 'publication_title'.</msg>
+<status status="PASS" starttime="20211213 10:40:12.534" endtime="20211213 10:40:12.609"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:12.534" endtime="20211213 10:40:12.609"/>
+</kw>
+<kw name="Set Year">
+<arg>2000</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>year</arg>
+<arg>${number}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:12.610" level="INFO">Typing text '2000' into text field 'year'.</msg>
+<status status="PASS" starttime="20211213 10:40:12.609" endtime="20211213 10:40:12.684"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:12.609" endtime="20211213 10:40:12.684"/>
+</kw>
+<kw name="Set Doi">
+<arg>10.1000/182</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>doi</arg>
+<arg>${doi}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:12.685" level="INFO">Typing text '10.1000/182' into text field 'doi'.</msg>
+<status status="PASS" starttime="20211213 10:40:12.685" endtime="20211213 10:40:12.766"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:12.684" endtime="20211213 10:40:12.766"/>
+</kw>
+<kw name="Set Publisher">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>publisher</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:12.767" level="INFO">Typing text 'test' into text field 'publisher'.</msg>
+<status status="PASS" starttime="20211213 10:40:12.767" endtime="20211213 10:40:12.841"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:12.766" endtime="20211213 10:40:12.841"/>
+</kw>
+<kw name="Set Description">
+<arg>test article2</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>description</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:12.842" level="INFO">Typing text 'test article2' into text field 'description'.</msg>
+<status status="PASS" starttime="20211213 10:40:12.842" endtime="20211213 10:40:12.924"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:12.842" endtime="20211213 10:40:12.924"/>
+</kw>
+<kw name="Set Author">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>author</arg>
+<arg>${author}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:12.925" level="INFO">Typing text 'test' into text field 'author'.</msg>
+<status status="PASS" starttime="20211213 10:40:12.925" endtime="20211213 10:40:13.000"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:12.925" endtime="20211213 10:40:13.000"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:13.001" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:13.001" endtime="20211213 10:40:13.054"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:13.000" endtime="20211213 10:40:13.054"/>
+</kw>
+<kw name="Alert Should Be Present" library="SeleniumLibrary">
+<arg>Name must be between 1-50 characters</arg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<msg timestamp="20211213 10:40:13.054" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20211213 10:40:13.054" endtime="20211213 10:40:13.065"/>
+</kw>
+<kw name="Verify Invalid Bookmark Not Added">
+<arg>test article2</arg>
+<kw name="Add Bookmark Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Add bookmark</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:13.103" level="INFO">Page title is 'Add bookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:13.066" endtime="20211213 10:40:13.103"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:13.066" endtime="20211213 10:40:13.103"/>
+</kw>
+<kw name="Go to Main Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:13.104" level="INFO">Opening url 'http://localhost:5000'</msg>
+<status status="PASS" starttime="20211213 10:40:13.104" endtime="20211213 10:40:13.127"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:13.103" endtime="20211213 10:40:13.127"/>
+</kw>
+<kw name="Page Should Not Contain" library="SeleniumLibrary">
+<arg>${title}</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<msg timestamp="20211213 10:40:13.151" level="INFO">Current page does not contain text 'test article2'.</msg>
+<status status="PASS" starttime="20211213 10:40:13.127" endtime="20211213 10:40:13.151"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:13.066" endtime="20211213 10:40:13.151"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:12.430" endtime="20211213 10:40:13.151"/>
+</test>
+<test id="s1-s1-t26" name="Add Article Bookmark Without Valid Description">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:13.153" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:13.153" endtime="20211213 10:40:13.177"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:13.153" endtime="20211213 10:40:13.177"/>
+</kw>
+<kw name="Set Type">
+<arg>Scientific Article</arg>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>bookmark</arg>
+<arg>${name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20211213 10:40:13.178" level="INFO">Selecting options from selection list 'bookmark' by label Scientific Article.</msg>
+<status status="PASS" starttime="20211213 10:40:13.177" endtime="20211213 10:40:13.240"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:13.177" endtime="20211213 10:40:13.241"/>
+</kw>
+<kw name="Set Title">
+<arg>test article3</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:13.241" level="INFO">Typing text 'test article3' into text field 'title'.</msg>
+<status status="PASS" starttime="20211213 10:40:13.241" endtime="20211213 10:40:13.323"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:13.241" endtime="20211213 10:40:13.323"/>
+</kw>
+<kw name="Set Publication Title">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>publication_title</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:13.324" level="INFO">Typing text 'test' into text field 'publication_title'.</msg>
+<status status="PASS" starttime="20211213 10:40:13.323" endtime="20211213 10:40:13.398"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:13.323" endtime="20211213 10:40:13.398"/>
+</kw>
+<kw name="Set Year">
+<arg>2000</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>year</arg>
+<arg>${number}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:13.399" level="INFO">Typing text '2000' into text field 'year'.</msg>
+<status status="PASS" starttime="20211213 10:40:13.398" endtime="20211213 10:40:13.473"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:13.398" endtime="20211213 10:40:13.473"/>
+</kw>
+<kw name="Set Doi">
+<arg>10.1000/182</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>doi</arg>
+<arg>${doi}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:13.474" level="INFO">Typing text '10.1000/182' into text field 'doi'.</msg>
+<status status="PASS" starttime="20211213 10:40:13.474" endtime="20211213 10:40:13.556"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:13.474" endtime="20211213 10:40:13.556"/>
+</kw>
+<kw name="Set Publisher">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>publisher</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:13.557" level="INFO">Typing text 'test' into text field 'publisher'.</msg>
+<status status="PASS" starttime="20211213 10:40:13.557" endtime="20211213 10:40:13.634"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:13.556" endtime="20211213 10:40:13.635"/>
+</kw>
+<kw name="Set Author">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>author</arg>
+<arg>${author}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:13.636" level="INFO">Typing text 'test' into text field 'author'.</msg>
+<status status="PASS" starttime="20211213 10:40:13.635" endtime="20211213 10:40:13.714"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:13.635" endtime="20211213 10:40:13.714"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:13.715" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:13.715" endtime="20211213 10:40:13.785"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:13.715" endtime="20211213 10:40:13.786"/>
+</kw>
+<kw name="Verify Invalid Bookmark Not Added">
+<arg>test article3</arg>
+<kw name="Add Bookmark Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Add bookmark</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:13.801" level="INFO">Page title is 'Add bookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:13.787" endtime="20211213 10:40:13.801"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:13.786" endtime="20211213 10:40:13.801"/>
+</kw>
+<kw name="Go to Main Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:13.802" level="INFO">Opening url 'http://localhost:5000'</msg>
+<status status="PASS" starttime="20211213 10:40:13.802" endtime="20211213 10:40:13.828"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:13.802" endtime="20211213 10:40:13.828"/>
+</kw>
+<kw name="Page Should Not Contain" library="SeleniumLibrary">
+<arg>${title}</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<msg timestamp="20211213 10:40:13.852" level="INFO">Current page does not contain text 'test article3'.</msg>
+<status status="PASS" starttime="20211213 10:40:13.828" endtime="20211213 10:40:13.852"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:13.786" endtime="20211213 10:40:13.852"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:13.152" endtime="20211213 10:40:13.852"/>
+</test>
+<test id="s1-s1-t27" name="Add Article Bookmark Without Valid Author">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:13.855" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:13.855" endtime="20211213 10:40:13.883"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:13.855" endtime="20211213 10:40:13.883"/>
+</kw>
+<kw name="Set Type">
+<arg>Scientific Article</arg>
+<kw name="Select From List By Label" library="SeleniumLibrary">
+<arg>bookmark</arg>
+<arg>${name}</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<msg timestamp="20211213 10:40:13.884" level="INFO">Selecting options from selection list 'bookmark' by label Scientific Article.</msg>
+<status status="PASS" starttime="20211213 10:40:13.884" endtime="20211213 10:40:13.942"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:13.883" endtime="20211213 10:40:13.942"/>
+</kw>
+<kw name="Set Title">
+<arg>test article4</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:13.943" level="INFO">Typing text 'test article4' into text field 'title'.</msg>
+<status status="PASS" starttime="20211213 10:40:13.943" endtime="20211213 10:40:14.023"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:13.942" endtime="20211213 10:40:14.023"/>
+</kw>
+<kw name="Set Publication Title">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>publication_title</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:14.024" level="INFO">Typing text 'test' into text field 'publication_title'.</msg>
+<status status="PASS" starttime="20211213 10:40:14.024" endtime="20211213 10:40:14.105"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:14.023" endtime="20211213 10:40:14.106"/>
+</kw>
+<kw name="Set Year">
+<arg>2000</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>year</arg>
+<arg>${number}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:14.107" level="INFO">Typing text '2000' into text field 'year'.</msg>
+<status status="PASS" starttime="20211213 10:40:14.106" endtime="20211213 10:40:14.182"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:14.106" endtime="20211213 10:40:14.183"/>
+</kw>
+<kw name="Set Doi">
+<arg>10.1000/182</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>doi</arg>
+<arg>${doi}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:14.183" level="INFO">Typing text '10.1000/182' into text field 'doi'.</msg>
+<status status="PASS" starttime="20211213 10:40:14.183" endtime="20211213 10:40:14.262"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:14.183" endtime="20211213 10:40:14.262"/>
+</kw>
+<kw name="Set Publisher">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>publisher</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:14.263" level="INFO">Typing text 'test' into text field 'publisher'.</msg>
+<status status="PASS" starttime="20211213 10:40:14.262" endtime="20211213 10:40:14.339"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:14.262" endtime="20211213 10:40:14.340"/>
+</kw>
+<kw name="Set Description">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>description</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:14.341" level="INFO">Typing text 'test' into text field 'description'.</msg>
+<status status="PASS" starttime="20211213 10:40:14.341" endtime="20211213 10:40:14.421"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:14.340" endtime="20211213 10:40:14.421"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:14.422" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:14.422" endtime="20211213 10:40:14.478"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:14.421" endtime="20211213 10:40:14.478"/>
+</kw>
+<kw name="Alert Should Be Present" library="SeleniumLibrary">
+<arg>Name must be between 1-50 characters</arg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<msg timestamp="20211213 10:40:14.479" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20211213 10:40:14.478" endtime="20211213 10:40:14.491"/>
+</kw>
+<kw name="Verify Invalid Bookmark Not Added">
+<arg>test article4</arg>
+<kw name="Add Bookmark Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Add bookmark</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:14.520" level="INFO">Page title is 'Add bookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:14.491" endtime="20211213 10:40:14.521"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:14.491" endtime="20211213 10:40:14.521"/>
+</kw>
+<kw name="Go to Main Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:14.522" level="INFO">Opening url 'http://localhost:5000'</msg>
+<status status="PASS" starttime="20211213 10:40:14.521" endtime="20211213 10:40:14.553"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:14.521" endtime="20211213 10:40:14.553"/>
+</kw>
+<kw name="Page Should Not Contain" library="SeleniumLibrary">
+<arg>${title}</arg>
+<doc>Verifies the current page does not contain ``text``.</doc>
+<msg timestamp="20211213 10:40:14.577" level="INFO">Current page does not contain text 'test article4'.</msg>
+<status status="PASS" starttime="20211213 10:40:14.553" endtime="20211213 10:40:14.577"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:14.491" endtime="20211213 10:40:14.577"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:13.853" endtime="20211213 10:40:14.577"/>
+</test>
+<test id="s1-s1-t28" name="Creating New Tags Makes Them Usable">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:14.581" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:14.580" endtime="20211213 10:40:14.610"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:14.580" endtime="20211213 10:40:14.610"/>
+</kw>
+<kw name="Add Tag">
+<arg>Test Tag1</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>new_tag_name</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:14.611" level="INFO">Typing text 'Test Tag1' into text field 'new_tag_name'.</msg>
+<status status="PASS" starttime="20211213 10:40:14.611" endtime="20211213 10:40:14.711"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitTag</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:14.712" level="INFO">Clicking button 'submitTag'.</msg>
+<status status="PASS" starttime="20211213 10:40:14.711" endtime="20211213 10:40:14.802"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:14.610" endtime="20211213 10:40:14.802"/>
+</kw>
+<kw name="Add Bookmark Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Add bookmark</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:14.807" level="INFO">Page title is 'Add bookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:14.803" endtime="20211213 10:40:14.807"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:14.802" endtime="20211213 10:40:14.807"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Test Tag1</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211213 10:40:14.821" level="INFO">Current page contains text 'Test Tag1'.</msg>
+<status status="PASS" starttime="20211213 10:40:14.807" endtime="20211213 10:40:14.822"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:14.579" endtime="20211213 10:40:14.822"/>
+</test>
+<test id="s1-s1-t29" name="Add Tags To Bookmark">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:14.825" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:14.825" endtime="20211213 10:40:14.852"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:14.824" endtime="20211213 10:40:14.853"/>
+</kw>
+<kw name="Add Tag">
+<arg>Test Tag2</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>new_tag_name</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:14.854" level="INFO">Typing text 'Test Tag2' into text field 'new_tag_name'.</msg>
+<status status="PASS" starttime="20211213 10:40:14.853" endtime="20211213 10:40:14.941"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitTag</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:14.941" level="INFO">Clicking button 'submitTag'.</msg>
+<status status="PASS" starttime="20211213 10:40:14.941" endtime="20211213 10:40:15.027"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:14.853" endtime="20211213 10:40:15.027"/>
+</kw>
+<kw name="Set Title">
+<arg>tag test1</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:15.028" level="INFO">Typing text 'tag test1' into text field 'title'.</msg>
+<status status="PASS" starttime="20211213 10:40:15.028" endtime="20211213 10:40:15.125"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:15.027" endtime="20211213 10:40:15.125"/>
+</kw>
+<kw name="Set Description">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>description</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:15.126" level="INFO">Typing text 'test' into text field 'description'.</msg>
+<status status="PASS" starttime="20211213 10:40:15.126" endtime="20211213 10:40:15.204"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:15.125" endtime="20211213 10:40:15.204"/>
+</kw>
+<kw name="Set Author">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>author</arg>
+<arg>${author}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:15.205" level="INFO">Typing text 'test' into text field 'author'.</msg>
+<status status="PASS" starttime="20211213 10:40:15.205" endtime="20211213 10:40:15.286"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:15.204" endtime="20211213 10:40:15.286"/>
+</kw>
+<kw name="Set ISBN">
+<arg>9783161484100</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>ISBN</arg>
+<arg>${isbn}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:15.287" level="INFO">Typing text '9783161484100' into text field 'ISBN'.</msg>
+<status status="PASS" starttime="20211213 10:40:15.286" endtime="20211213 10:40:15.377"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:15.286" endtime="20211213 10:40:15.377"/>
+</kw>
+<kw name="Set Tag">
+<arg>Test Tag2</arg>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>xpath=//input[@id=(//label[text()="${name}"]/@for)]</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:15.378" level="INFO">Selecting checkbox 'xpath=//input[@id=(//label[text()="Test Tag2"]/@for)]'.</msg>
+<status status="PASS" starttime="20211213 10:40:15.378" endtime="20211213 10:40:15.465"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:15.377" endtime="20211213 10:40:15.465"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:15.466" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:15.465" endtime="20211213 10:40:15.569"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:15.465" endtime="20211213 10:40:15.569"/>
+</kw>
+<kw name="Main Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Lukuvinkkikirjasto</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:15.573" level="INFO">Page title is 'Lukuvinkkikirjasto'.</msg>
+<status status="PASS" starttime="20211213 10:40:15.570" endtime="20211213 10:40:15.574"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:15.569" endtime="20211213 10:40:15.574"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>tag test1</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211213 10:40:15.590" level="INFO">Current page contains text 'tag test1'.</msg>
+<status status="PASS" starttime="20211213 10:40:15.574" endtime="20211213 10:40:15.590"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Test Tag2</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211213 10:40:15.603" level="INFO">Current page contains text 'Test Tag2'.</msg>
+<status status="PASS" starttime="20211213 10:40:15.591" endtime="20211213 10:40:15.603"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:14.824" endtime="20211213 10:40:15.604"/>
+</test>
+<test id="s1-s1-t30" name="Add Multiple Tags To Bookmark">
+<kw name="Go to Add Bookmark Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${ADD URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:15.607" level="INFO">Opening url 'http://localhost:5000/add_bookmark'</msg>
+<status status="PASS" starttime="20211213 10:40:15.606" endtime="20211213 10:40:15.639"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:15.606" endtime="20211213 10:40:15.640"/>
+</kw>
+<kw name="Add Tag">
+<arg>Test Tag3</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>new_tag_name</arg>
+<arg>${name}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:15.641" level="INFO">Typing text 'Test Tag3' into text field 'new_tag_name'.</msg>
+<status status="PASS" starttime="20211213 10:40:15.640" endtime="20211213 10:40:15.726"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitTag</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:15.727" level="INFO">Clicking button 'submitTag'.</msg>
+<status status="PASS" starttime="20211213 10:40:15.727" endtime="20211213 10:40:15.811"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:15.640" endtime="20211213 10:40:15.811"/>
+</kw>
+<kw name="Set Title">
+<arg>tag test2</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>title</arg>
+<arg>${title}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:15.812" level="INFO">Typing text 'tag test2' into text field 'title'.</msg>
+<status status="PASS" starttime="20211213 10:40:15.812" endtime="20211213 10:40:15.901"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:15.811" endtime="20211213 10:40:15.901"/>
+</kw>
+<kw name="Set Description">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>description</arg>
+<arg>${description}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:15.902" level="INFO">Typing text 'test' into text field 'description'.</msg>
+<status status="PASS" starttime="20211213 10:40:15.902" endtime="20211213 10:40:15.991"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:15.901" endtime="20211213 10:40:15.992"/>
+</kw>
+<kw name="Set Author">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>author</arg>
+<arg>${author}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:15.993" level="INFO">Typing text 'test' into text field 'author'.</msg>
+<status status="PASS" starttime="20211213 10:40:15.992" endtime="20211213 10:40:16.073"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:15.992" endtime="20211213 10:40:16.073"/>
+</kw>
+<kw name="Set ISBN">
+<arg>9783161484100</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>ISBN</arg>
+<arg>${isbn}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:16.074" level="INFO">Typing text '9783161484100' into text field 'ISBN'.</msg>
+<status status="PASS" starttime="20211213 10:40:16.074" endtime="20211213 10:40:16.159"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:16.073" endtime="20211213 10:40:16.159"/>
+</kw>
+<kw name="Set Tag">
+<arg>Test Tag1</arg>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>xpath=//input[@id=(//label[text()="${name}"]/@for)]</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:16.160" level="INFO">Selecting checkbox 'xpath=//input[@id=(//label[text()="Test Tag1"]/@for)]'.</msg>
+<status status="PASS" starttime="20211213 10:40:16.160" endtime="20211213 10:40:16.239"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:16.159" endtime="20211213 10:40:16.239"/>
+</kw>
+<kw name="Set Tag">
+<arg>Test Tag3</arg>
+<kw name="Select Checkbox" library="SeleniumLibrary">
+<arg>xpath=//input[@id=(//label[text()="${name}"]/@for)]</arg>
+<doc>Selects the checkbox identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:16.240" level="INFO">Selecting checkbox 'xpath=//input[@id=(//label[text()="Test Tag3"]/@for)]'.</msg>
+<status status="PASS" starttime="20211213 10:40:16.240" endtime="20211213 10:40:16.346"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:16.239" endtime="20211213 10:40:16.346"/>
+</kw>
+<kw name="Submit Bookmark">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitBookmark</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:16.347" level="INFO">Clicking button 'submitBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:16.346" endtime="20211213 10:40:16.442"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:16.346" endtime="20211213 10:40:16.442"/>
+</kw>
+<kw name="Main Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Lukuvinkkikirjasto</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:16.449" level="INFO">Page title is 'Lukuvinkkikirjasto'.</msg>
+<status status="PASS" starttime="20211213 10:40:16.443" endtime="20211213 10:40:16.449"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:16.443" endtime="20211213 10:40:16.449"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>tag test2</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211213 10:40:16.464" level="INFO">Current page contains text 'tag test2'.</msg>
+<status status="PASS" starttime="20211213 10:40:16.450" endtime="20211213 10:40:16.464"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Test Tag1</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211213 10:40:16.472" level="INFO">Current page contains text 'Test Tag1'.</msg>
+<status status="PASS" starttime="20211213 10:40:16.464" endtime="20211213 10:40:16.472"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Test Tag2</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211213 10:40:16.489" level="INFO">Current page contains text 'Test Tag2'.</msg>
+<status status="PASS" starttime="20211213 10:40:16.472" endtime="20211213 10:40:16.489"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:15.605" endtime="20211213 10:40:16.489"/>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20211213 10:40:16.491" endtime="20211213 10:40:16.551"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:00.856" endtime="20211213 10:40:16.551"/>
+</suite>
+<suite id="s1-s2" name="Create" source="/src/tests/create.robot">
+<kw name="Open And Configure Browser" library="resource" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=${BROWSER}</arg>
+<arg>options= add_argument("--no-sandbox"); add_argument("--disable-dev-shm-usage")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211213 10:40:16.562" level="INFO">Opening browser 'headlesschrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20211213 10:40:16.562" endtime="20211213 10:40:17.248"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20211213 10:40:17.249" endtime="20211213 10:40:17.249"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGIN URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:17.249" level="INFO">Opening url 'http://localhost:5000/login'</msg>
+<status status="PASS" starttime="20211213 10:40:17.249" endtime="20211213 10:40:17.341"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>testi</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:17.341" level="INFO">Typing text 'testi' into text field 'username'.</msg>
+<status status="PASS" starttime="20211213 10:40:17.341" endtime="20211213 10:40:17.427"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>testi</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:17.428" level="INFO">Typing text 'testi' into text field 'password'.</msg>
+<status status="PASS" starttime="20211213 10:40:17.428" endtime="20211213 10:40:17.523"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitLogin</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:17.524" level="INFO">Clicking button 'submitLogin'.</msg>
+<status status="PASS" starttime="20211213 10:40:17.524" endtime="20211213 10:40:17.827"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:16.562" endtime="20211213 10:40:17.827"/>
+</kw>
+<test id="s1-s2-t1" name="Click Home Page Link">
+<kw name="Go To Register Page And Log Out" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGOUT URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:17.829" level="INFO">Opening url 'http://localhost:5000/logout'</msg>
+<status status="PASS" starttime="20211213 10:40:17.829" endtime="20211213 10:40:17.856"/>
+</kw>
+<kw name="Go to Register Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${CREATE URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:17.857" level="INFO">Opening url 'http://localhost:5000/create'</msg>
+<status status="PASS" starttime="20211213 10:40:17.857" endtime="20211213 10:40:17.883"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:17.857" endtime="20211213 10:40:17.884"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:17.828" endtime="20211213 10:40:17.884"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>Home page</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:17.884" level="INFO">Clicking link 'Home page'.</msg>
+<status status="PASS" starttime="20211213 10:40:17.884" endtime="20211213 10:40:17.956"/>
+</kw>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Log In</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:17.962" level="INFO">Page title is 'Log In'.</msg>
+<status status="PASS" starttime="20211213 10:40:17.957" endtime="20211213 10:40:17.962"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:17.956" endtime="20211213 10:40:17.962"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>User not logged in</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211213 10:40:17.977" level="INFO">Current page contains text 'User not logged in'.</msg>
+<status status="PASS" starttime="20211213 10:40:17.963" endtime="20211213 10:40:17.977"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:17.827" endtime="20211213 10:40:17.977"/>
+</test>
+<test id="s1-s2-t2" name="Register With Already Existing Username">
+<kw name="Go To Register Page And Log Out" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGOUT URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:17.980" level="INFO">Opening url 'http://localhost:5000/logout'</msg>
+<status status="PASS" starttime="20211213 10:40:17.979" endtime="20211213 10:40:18.005"/>
+</kw>
+<kw name="Go to Register Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${CREATE URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:18.005" level="INFO">Opening url 'http://localhost:5000/create'</msg>
+<status status="PASS" starttime="20211213 10:40:18.005" endtime="20211213 10:40:18.027"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:18.005" endtime="20211213 10:40:18.027"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:17.979" endtime="20211213 10:40:18.027"/>
+</kw>
+<kw name="Set Username">
+<arg>testi</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:18.029" level="INFO">Typing text 'testi' into text field 'username'.</msg>
+<status status="PASS" starttime="20211213 10:40:18.028" endtime="20211213 10:40:18.112"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:18.028" endtime="20211213 10:40:18.112"/>
+</kw>
+<kw name="Set Password">
+<arg>testi</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:18.113" level="INFO">Typing text 'testi' into text field 'password'.</msg>
+<status status="PASS" starttime="20211213 10:40:18.113" endtime="20211213 10:40:18.191"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:18.112" endtime="20211213 10:40:18.191"/>
+</kw>
+<kw name="Set Password Confirmation">
+<arg>testi</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>passwordConfirm</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:18.192" level="INFO">Typing text 'testi' into text field 'passwordConfirm'.</msg>
+<status status="PASS" starttime="20211213 10:40:18.191" endtime="20211213 10:40:18.273"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:18.191" endtime="20211213 10:40:18.273"/>
+</kw>
+<kw name="Submit Register">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitCreate</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:18.274" level="INFO">Clicking button 'submitCreate'.</msg>
+<status status="PASS" starttime="20211213 10:40:18.274" endtime="20211213 10:40:18.349"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:18.274" endtime="20211213 10:40:18.350"/>
+</kw>
+<kw name="Register Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Create Account</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:18.354" level="INFO">Page title is 'Create Account'.</msg>
+<status status="PASS" starttime="20211213 10:40:18.350" endtime="20211213 10:40:18.354"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:18.350" endtime="20211213 10:40:18.354"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Username taken</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211213 10:40:18.369" level="INFO">Current page contains text 'Username taken'.</msg>
+<status status="PASS" starttime="20211213 10:40:18.354" endtime="20211213 10:40:18.370"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:17.978" endtime="20211213 10:40:18.370"/>
+</test>
+<test id="s1-s2-t3" name="Register With Username Too Short">
+<kw name="Go To Register Page And Log Out" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGOUT URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:18.372" level="INFO">Opening url 'http://localhost:5000/logout'</msg>
+<status status="PASS" starttime="20211213 10:40:18.372" endtime="20211213 10:40:18.398"/>
+</kw>
+<kw name="Go to Register Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${CREATE URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:18.399" level="INFO">Opening url 'http://localhost:5000/create'</msg>
+<status status="PASS" starttime="20211213 10:40:18.399" endtime="20211213 10:40:18.421"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:18.398" endtime="20211213 10:40:18.421"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:18.372" endtime="20211213 10:40:18.421"/>
+</kw>
+<kw name="Set Username">
+<arg>t</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:18.422" level="INFO">Typing text 't' into text field 'username'.</msg>
+<status status="PASS" starttime="20211213 10:40:18.422" endtime="20211213 10:40:18.499"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:18.422" endtime="20211213 10:40:18.500"/>
+</kw>
+<kw name="Set Password">
+<arg>testi</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:18.501" level="INFO">Typing text 'testi' into text field 'password'.</msg>
+<status status="PASS" starttime="20211213 10:40:18.500" endtime="20211213 10:40:18.573"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:18.500" endtime="20211213 10:40:18.574"/>
+</kw>
+<kw name="Set Password Confirmation">
+<arg>testi</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>passwordConfirm</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:18.575" level="INFO">Typing text 'testi' into text field 'passwordConfirm'.</msg>
+<status status="PASS" starttime="20211213 10:40:18.574" endtime="20211213 10:40:18.657"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:18.574" endtime="20211213 10:40:18.657"/>
+</kw>
+<kw name="Submit Register">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitCreate</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:18.658" level="INFO">Clicking button 'submitCreate'.</msg>
+<status status="PASS" starttime="20211213 10:40:18.658" endtime="20211213 10:40:18.718"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:18.657" endtime="20211213 10:40:18.719"/>
+</kw>
+<kw name="Alert Should Be Present" library="SeleniumLibrary">
+<arg>Username must be between 2-20 characters.</arg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<msg timestamp="20211213 10:40:18.719" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20211213 10:40:18.719" endtime="20211213 10:40:18.731"/>
+</kw>
+<kw name="Register Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Create Account</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:18.752" level="INFO">Page title is 'Create Account'.</msg>
+<status status="PASS" starttime="20211213 10:40:18.732" endtime="20211213 10:40:18.752"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:18.732" endtime="20211213 10:40:18.752"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:18.371" endtime="20211213 10:40:18.752"/>
+</test>
+<test id="s1-s2-t4" name="Register With Username Too Long">
+<kw name="Go To Register Page And Log Out" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGOUT URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:18.758" level="INFO">Opening url 'http://localhost:5000/logout'</msg>
+<status status="PASS" starttime="20211213 10:40:18.757" endtime="20211213 10:40:18.783"/>
+</kw>
+<kw name="Go to Register Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${CREATE URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:18.784" level="INFO">Opening url 'http://localhost:5000/create'</msg>
+<status status="PASS" starttime="20211213 10:40:18.784" endtime="20211213 10:40:18.806"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:18.784" endtime="20211213 10:40:18.806"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:18.757" endtime="20211213 10:40:18.806"/>
+</kw>
+<kw name="Set Username">
+<arg>123456789012345678901</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:18.807" level="INFO">Typing text '123456789012345678901' into text field 'username'.</msg>
+<status status="PASS" starttime="20211213 10:40:18.807" endtime="20211213 10:40:18.924"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:18.806" endtime="20211213 10:40:18.924"/>
+</kw>
+<kw name="Set Password">
+<arg>testi</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:18.926" level="INFO">Typing text 'testi' into text field 'password'.</msg>
+<status status="PASS" starttime="20211213 10:40:18.925" endtime="20211213 10:40:19.007"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:18.925" endtime="20211213 10:40:19.007"/>
+</kw>
+<kw name="Set Password Confirmation">
+<arg>testi</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>passwordConfirm</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:19.008" level="INFO">Typing text 'testi' into text field 'passwordConfirm'.</msg>
+<status status="PASS" starttime="20211213 10:40:19.008" endtime="20211213 10:40:19.093"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:19.007" endtime="20211213 10:40:19.093"/>
+</kw>
+<kw name="Submit Register">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitCreate</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:19.094" level="INFO">Clicking button 'submitCreate'.</msg>
+<status status="PASS" starttime="20211213 10:40:19.093" endtime="20211213 10:40:19.148"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:19.093" endtime="20211213 10:40:19.148"/>
+</kw>
+<kw name="Alert Should Be Present" library="SeleniumLibrary">
+<arg>Username must be between 2-20 characters.</arg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<msg timestamp="20211213 10:40:19.149" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20211213 10:40:19.149" endtime="20211213 10:40:19.160"/>
+</kw>
+<kw name="Register Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Create Account</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:19.171" level="INFO">Page title is 'Create Account'.</msg>
+<status status="PASS" starttime="20211213 10:40:19.161" endtime="20211213 10:40:19.171"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:19.160" endtime="20211213 10:40:19.171"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:18.754" endtime="20211213 10:40:19.171"/>
+</test>
+<test id="s1-s2-t5" name="Register With Non Matching Password">
+<kw name="Go To Register Page And Log Out" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGOUT URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:19.174" level="INFO">Opening url 'http://localhost:5000/logout'</msg>
+<status status="PASS" starttime="20211213 10:40:19.174" endtime="20211213 10:40:19.203"/>
+</kw>
+<kw name="Go to Register Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${CREATE URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:19.204" level="INFO">Opening url 'http://localhost:5000/create'</msg>
+<status status="PASS" starttime="20211213 10:40:19.203" endtime="20211213 10:40:19.225"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:19.203" endtime="20211213 10:40:19.226"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:19.173" endtime="20211213 10:40:19.226"/>
+</kw>
+<kw name="Set Username">
+<arg>testi3</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:19.227" level="INFO">Typing text 'testi3' into text field 'username'.</msg>
+<status status="PASS" starttime="20211213 10:40:19.226" endtime="20211213 10:40:19.310"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:19.226" endtime="20211213 10:40:19.311"/>
+</kw>
+<kw name="Set Password">
+<arg>testi2</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:19.312" level="INFO">Typing text 'testi2' into text field 'password'.</msg>
+<status status="PASS" starttime="20211213 10:40:19.311" endtime="20211213 10:40:19.394"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:19.311" endtime="20211213 10:40:19.394"/>
+</kw>
+<kw name="Set Password Confirmation">
+<arg>testi</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>passwordConfirm</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:19.395" level="INFO">Typing text 'testi' into text field 'passwordConfirm'.</msg>
+<status status="PASS" starttime="20211213 10:40:19.395" endtime="20211213 10:40:19.474"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:19.394" endtime="20211213 10:40:19.474"/>
+</kw>
+<kw name="Submit Register">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitCreate</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:19.475" level="INFO">Clicking button 'submitCreate'.</msg>
+<status status="PASS" starttime="20211213 10:40:19.474" endtime="20211213 10:40:19.545"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:19.474" endtime="20211213 10:40:19.545"/>
+</kw>
+<kw name="Register Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Create Account</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:19.551" level="INFO">Page title is 'Create Account'.</msg>
+<status status="PASS" starttime="20211213 10:40:19.546" endtime="20211213 10:40:19.551"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:19.545" endtime="20211213 10:40:19.551"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Passwords not identical</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211213 10:40:19.568" level="INFO">Current page contains text 'Passwords not identical'.</msg>
+<status status="PASS" starttime="20211213 10:40:19.551" endtime="20211213 10:40:19.568"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:19.172" endtime="20211213 10:40:19.569"/>
+</test>
+<test id="s1-s2-t6" name="Register With Password Too Short">
+<kw name="Go To Register Page And Log Out" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGOUT URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:19.571" level="INFO">Opening url 'http://localhost:5000/logout'</msg>
+<status status="PASS" starttime="20211213 10:40:19.571" endtime="20211213 10:40:19.598"/>
+</kw>
+<kw name="Go to Register Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${CREATE URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:19.599" level="INFO">Opening url 'http://localhost:5000/create'</msg>
+<status status="PASS" starttime="20211213 10:40:19.598" endtime="20211213 10:40:19.620"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:19.598" endtime="20211213 10:40:19.620"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:19.571" endtime="20211213 10:40:19.621"/>
+</kw>
+<kw name="Set Username">
+<arg>testi3</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:19.621" level="INFO">Typing text 'testi3' into text field 'username'.</msg>
+<status status="PASS" starttime="20211213 10:40:19.621" endtime="20211213 10:40:19.704"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:19.621" endtime="20211213 10:40:19.705"/>
+</kw>
+<kw name="Set Password">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:19.706" level="INFO">Typing text 'test' into text field 'password'.</msg>
+<status status="PASS" starttime="20211213 10:40:19.705" endtime="20211213 10:40:19.784"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:19.705" endtime="20211213 10:40:19.785"/>
+</kw>
+<kw name="Set Password Confirmation">
+<arg>test</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>passwordConfirm</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:19.785" level="INFO">Typing text 'test' into text field 'passwordConfirm'.</msg>
+<status status="PASS" starttime="20211213 10:40:19.785" endtime="20211213 10:40:19.870"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:19.785" endtime="20211213 10:40:19.870"/>
+</kw>
+<kw name="Submit Register">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitCreate</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:19.871" level="INFO">Clicking button 'submitCreate'.</msg>
+<status status="PASS" starttime="20211213 10:40:19.871" endtime="20211213 10:40:19.925"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:19.871" endtime="20211213 10:40:19.925"/>
+</kw>
+<kw name="Alert Should Be Present" library="SeleniumLibrary">
+<arg>Password must be between 5-50 characters.</arg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<msg timestamp="20211213 10:40:19.926" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20211213 10:40:19.925" endtime="20211213 10:40:19.941"/>
+</kw>
+<kw name="Register Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Create Account</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:19.979" level="INFO">Page title is 'Create Account'.</msg>
+<status status="PASS" starttime="20211213 10:40:19.941" endtime="20211213 10:40:19.979"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:19.941" endtime="20211213 10:40:19.979"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:19.569" endtime="20211213 10:40:19.979"/>
+</test>
+<test id="s1-s2-t7" name="Register With Password Too Long">
+<kw name="Go To Register Page And Log Out" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGOUT URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:19.982" level="INFO">Opening url 'http://localhost:5000/logout'</msg>
+<status status="PASS" starttime="20211213 10:40:19.981" endtime="20211213 10:40:20.012"/>
+</kw>
+<kw name="Go to Register Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${CREATE URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:20.013" level="INFO">Opening url 'http://localhost:5000/create'</msg>
+<status status="PASS" starttime="20211213 10:40:20.012" endtime="20211213 10:40:20.036"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:20.012" endtime="20211213 10:40:20.037"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:19.981" endtime="20211213 10:40:20.037"/>
+</kw>
+<kw name="Set Username">
+<arg>testi3</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:20.038" level="INFO">Typing text 'testi3' into text field 'username'.</msg>
+<status status="PASS" starttime="20211213 10:40:20.037" endtime="20211213 10:40:20.119"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:20.037" endtime="20211213 10:40:20.119"/>
+</kw>
+<kw name="Set Password">
+<arg>123456789012345678901234567890123456789012345678901</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:20.120" level="INFO">Typing text '123456789012345678901234567890123456789012345678901' into text field 'password'.</msg>
+<status status="PASS" starttime="20211213 10:40:20.120" endtime="20211213 10:40:20.237"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:20.119" endtime="20211213 10:40:20.238"/>
+</kw>
+<kw name="Set Password Confirmation">
+<arg>123456789012345678901234567890123456789012345678901</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>passwordConfirm</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:20.239" level="INFO">Typing text '123456789012345678901234567890123456789012345678901' into text field 'passwordConfirm'.</msg>
+<status status="PASS" starttime="20211213 10:40:20.238" endtime="20211213 10:40:20.352"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:20.238" endtime="20211213 10:40:20.352"/>
+</kw>
+<kw name="Submit Register">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitCreate</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:20.353" level="INFO">Clicking button 'submitCreate'.</msg>
+<status status="PASS" starttime="20211213 10:40:20.353" endtime="20211213 10:40:20.407"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:20.352" endtime="20211213 10:40:20.407"/>
+</kw>
+<kw name="Alert Should Be Present" library="SeleniumLibrary">
+<arg>Password must be between 5-50 characters.</arg>
+<doc>Verifies that an alert is present and by default, accepts it.</doc>
+<msg timestamp="20211213 10:40:20.408" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20211213 10:40:20.408" endtime="20211213 10:40:20.422"/>
+</kw>
+<kw name="Register Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Create Account</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:20.433" level="INFO">Page title is 'Create Account'.</msg>
+<status status="PASS" starttime="20211213 10:40:20.422" endtime="20211213 10:40:20.433"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:20.422" endtime="20211213 10:40:20.434"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:19.980" endtime="20211213 10:40:20.434"/>
+</test>
+<test id="s1-s2-t8" name="Register With Valid Credentials">
+<kw name="Go To Register Page And Log Out" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGOUT URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:20.437" level="INFO">Opening url 'http://localhost:5000/logout'</msg>
+<status status="PASS" starttime="20211213 10:40:20.437" endtime="20211213 10:40:20.463"/>
+</kw>
+<kw name="Go to Register Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${CREATE URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:20.464" level="INFO">Opening url 'http://localhost:5000/create'</msg>
+<status status="PASS" starttime="20211213 10:40:20.463" endtime="20211213 10:40:20.485"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:20.463" endtime="20211213 10:40:20.485"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:20.436" endtime="20211213 10:40:20.485"/>
+</kw>
+<kw name="Set Username">
+<arg>testi2</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:20.486" level="INFO">Typing text 'testi2' into text field 'username'.</msg>
+<status status="PASS" starttime="20211213 10:40:20.486" endtime="20211213 10:40:20.576"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:20.485" endtime="20211213 10:40:20.576"/>
+</kw>
+<kw name="Set Password">
+<arg>testi</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:20.577" level="INFO">Typing text 'testi' into text field 'password'.</msg>
+<status status="PASS" starttime="20211213 10:40:20.576" endtime="20211213 10:40:20.655"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:20.576" endtime="20211213 10:40:20.655"/>
+</kw>
+<kw name="Set Password Confirmation">
+<arg>testi</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>passwordConfirm</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:20.656" level="INFO">Typing text 'testi' into text field 'passwordConfirm'.</msg>
+<status status="PASS" starttime="20211213 10:40:20.656" endtime="20211213 10:40:20.736"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:20.655" endtime="20211213 10:40:20.736"/>
+</kw>
+<kw name="Submit Register">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitCreate</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:20.737" level="INFO">Clicking button 'submitCreate'.</msg>
+<status status="PASS" starttime="20211213 10:40:20.736" endtime="20211213 10:40:21.025"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:20.736" endtime="20211213 10:40:21.025"/>
+</kw>
+<kw name="Main Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Lukuvinkkikirjasto</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:21.030" level="INFO">Page title is 'Lukuvinkkikirjasto'.</msg>
+<status status="PASS" starttime="20211213 10:40:21.026" endtime="20211213 10:40:21.030"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:21.025" endtime="20211213 10:40:21.031"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:20.435" endtime="20211213 10:40:21.031"/>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20211213 10:40:21.033" endtime="20211213 10:40:21.090"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:16.557" endtime="20211213 10:40:21.090"/>
+</suite>
+<suite id="s1-s3" name="Home" source="/src/tests/home.robot">
+<kw name="Open And Configure Browser" library="resource" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=${BROWSER}</arg>
+<arg>options= add_argument("--no-sandbox"); add_argument("--disable-dev-shm-usage")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211213 10:40:21.099" level="INFO">Opening browser 'headlesschrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20211213 10:40:21.098" endtime="20211213 10:40:21.789"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20211213 10:40:21.789" endtime="20211213 10:40:21.789"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGIN URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:21.790" level="INFO">Opening url 'http://localhost:5000/login'</msg>
+<status status="PASS" starttime="20211213 10:40:21.790" endtime="20211213 10:40:21.887"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>testi</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:21.888" level="INFO">Typing text 'testi' into text field 'username'.</msg>
+<status status="PASS" starttime="20211213 10:40:21.888" endtime="20211213 10:40:21.979"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>testi</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:21.979" level="INFO">Typing text 'testi' into text field 'password'.</msg>
+<status status="PASS" starttime="20211213 10:40:21.979" endtime="20211213 10:40:22.065"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitLogin</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:22.066" level="INFO">Clicking button 'submitLogin'.</msg>
+<status status="PASS" starttime="20211213 10:40:22.065" endtime="20211213 10:40:22.362"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:21.098" endtime="20211213 10:40:22.362"/>
+</kw>
+<test id="s1-s3-t1" name="Click Home Page Link">
+<kw name="Go to Main Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:22.363" level="INFO">Opening url 'http://localhost:5000'</msg>
+<status status="PASS" starttime="20211213 10:40:22.363" endtime="20211213 10:40:22.389"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:22.363" endtime="20211213 10:40:22.389"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>Home page</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:22.390" level="INFO">Clicking link 'Home page'.</msg>
+<status status="PASS" starttime="20211213 10:40:22.389" endtime="20211213 10:40:22.474"/>
+</kw>
+<kw name="Main Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Lukuvinkkikirjasto</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:22.479" level="INFO">Page title is 'Lukuvinkkikirjasto'.</msg>
+<status status="PASS" starttime="20211213 10:40:22.474" endtime="20211213 10:40:22.480"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:22.474" endtime="20211213 10:40:22.480"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:22.362" endtime="20211213 10:40:22.480"/>
+</test>
+<test id="s1-s3-t2" name="Click Add Bookmark Link">
+<kw name="Go to Main Page" library="resource" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${HOME URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:22.482" level="INFO">Opening url 'http://localhost:5000'</msg>
+<status status="PASS" starttime="20211213 10:40:22.482" endtime="20211213 10:40:22.506"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:22.481" endtime="20211213 10:40:22.506"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>addBookmark</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:22.507" level="INFO">Clicking link 'addBookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:22.506" endtime="20211213 10:40:22.577"/>
+</kw>
+<kw name="Add Bookmark Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Add bookmark</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:22.584" level="INFO">Page title is 'Add bookmark'.</msg>
+<status status="PASS" starttime="20211213 10:40:22.578" endtime="20211213 10:40:22.585"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:22.578" endtime="20211213 10:40:22.585"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:22.480" endtime="20211213 10:40:22.585"/>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20211213 10:40:22.587" endtime="20211213 10:40:22.642"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:21.094" endtime="20211213 10:40:22.642"/>
+</suite>
+<suite id="s1-s4" name="Login" source="/src/tests/login.robot">
+<kw name="Open And Configure Browser" library="resource" type="SETUP">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>browser=${BROWSER}</arg>
+<arg>options= add_argument("--no-sandbox"); add_argument("--disable-dev-shm-usage")</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20211213 10:40:22.652" level="INFO">Opening browser 'headlesschrome' to base url 'None'.</msg>
+<status status="PASS" starttime="20211213 10:40:22.652" endtime="20211213 10:40:23.360"/>
+</kw>
+<kw name="Set Selenium Speed" library="SeleniumLibrary">
+<arg>${DELAY}</arg>
+<doc>Sets the delay that is waited after each Selenium command.</doc>
+<status status="PASS" starttime="20211213 10:40:23.360" endtime="20211213 10:40:23.361"/>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGIN URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:23.361" level="INFO">Opening url 'http://localhost:5000/login'</msg>
+<status status="PASS" starttime="20211213 10:40:23.361" endtime="20211213 10:40:23.472"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>testi</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:23.472" level="INFO">Typing text 'testi' into text field 'username'.</msg>
+<status status="PASS" starttime="20211213 10:40:23.472" endtime="20211213 10:40:23.560"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>testi</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:23.561" level="INFO">Typing text 'testi' into text field 'password'.</msg>
+<status status="PASS" starttime="20211213 10:40:23.561" endtime="20211213 10:40:23.644"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitLogin</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:23.645" level="INFO">Clicking button 'submitLogin'.</msg>
+<status status="PASS" starttime="20211213 10:40:23.645" endtime="20211213 10:40:23.938"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:22.651" endtime="20211213 10:40:23.938"/>
+</kw>
+<test id="s1-s4-t1" name="Click Home Page Link">
+<kw name="Go To Login Page And Log Out" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGOUT URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:23.940" level="INFO">Opening url 'http://localhost:5000/logout'</msg>
+<status status="PASS" starttime="20211213 10:40:23.939" endtime="20211213 10:40:23.965"/>
+</kw>
+<kw name="Go to Login Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGIN URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:23.966" level="INFO">Opening url 'http://localhost:5000/login'</msg>
+<status status="PASS" starttime="20211213 10:40:23.966" endtime="20211213 10:40:23.987"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:23.966" endtime="20211213 10:40:23.987"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:23.939" endtime="20211213 10:40:23.988"/>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<arg>Home page</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:23.988" level="INFO">Clicking link 'Home page'.</msg>
+<status status="PASS" starttime="20211213 10:40:23.988" endtime="20211213 10:40:24.053"/>
+</kw>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Log In</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:24.058" level="INFO">Page title is 'Log In'.</msg>
+<status status="PASS" starttime="20211213 10:40:24.054" endtime="20211213 10:40:24.058"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:24.053" endtime="20211213 10:40:24.059"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>User not logged in</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211213 10:40:24.073" level="INFO">Current page contains text 'User not logged in'.</msg>
+<status status="PASS" starttime="20211213 10:40:24.059" endtime="20211213 10:40:24.073"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:23.938" endtime="20211213 10:40:24.073"/>
+</test>
+<test id="s1-s4-t2" name="Login With Invalid Username">
+<kw name="Go To Login Page And Log Out" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGOUT URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:24.077" level="INFO">Opening url 'http://localhost:5000/logout'</msg>
+<status status="PASS" starttime="20211213 10:40:24.076" endtime="20211213 10:40:24.101"/>
+</kw>
+<kw name="Go to Login Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGIN URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:24.102" level="INFO">Opening url 'http://localhost:5000/login'</msg>
+<status status="PASS" starttime="20211213 10:40:24.102" endtime="20211213 10:40:24.125"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:24.101" endtime="20211213 10:40:24.125"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:24.076" endtime="20211213 10:40:24.125"/>
+</kw>
+<kw name="Set Username">
+<arg>testi_notfound</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:24.126" level="INFO">Typing text 'testi_notfound' into text field 'username'.</msg>
+<status status="PASS" starttime="20211213 10:40:24.126" endtime="20211213 10:40:24.214"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:24.125" endtime="20211213 10:40:24.214"/>
+</kw>
+<kw name="Set Password">
+<arg>testi</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:24.215" level="INFO">Typing text 'testi' into text field 'password'.</msg>
+<status status="PASS" starttime="20211213 10:40:24.215" endtime="20211213 10:40:24.290"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:24.214" endtime="20211213 10:40:24.290"/>
+</kw>
+<kw name="Submit Login">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitLogin</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:24.291" level="INFO">Clicking button 'submitLogin'.</msg>
+<status status="PASS" starttime="20211213 10:40:24.291" endtime="20211213 10:40:24.358"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:24.290" endtime="20211213 10:40:24.358"/>
+</kw>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Log In</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:24.363" level="INFO">Page title is 'Log In'.</msg>
+<status status="PASS" starttime="20211213 10:40:24.358" endtime="20211213 10:40:24.363"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:24.358" endtime="20211213 10:40:24.363"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Username and password not matching</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211213 10:40:24.376" level="INFO">Current page contains text 'Username and password not matching'.</msg>
+<status status="PASS" starttime="20211213 10:40:24.363" endtime="20211213 10:40:24.377"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:24.075" endtime="20211213 10:40:24.377"/>
+</test>
+<test id="s1-s4-t3" name="Login With Invalid Password">
+<kw name="Go To Login Page And Log Out" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGOUT URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:24.380" level="INFO">Opening url 'http://localhost:5000/logout'</msg>
+<status status="PASS" starttime="20211213 10:40:24.379" endtime="20211213 10:40:24.404"/>
+</kw>
+<kw name="Go to Login Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGIN URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:24.405" level="INFO">Opening url 'http://localhost:5000/login'</msg>
+<status status="PASS" starttime="20211213 10:40:24.405" endtime="20211213 10:40:24.425"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:24.404" endtime="20211213 10:40:24.425"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:24.379" endtime="20211213 10:40:24.426"/>
+</kw>
+<kw name="Set Username">
+<arg>testi</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:24.426" level="INFO">Typing text 'testi' into text field 'username'.</msg>
+<status status="PASS" starttime="20211213 10:40:24.426" endtime="20211213 10:40:24.507"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:24.426" endtime="20211213 10:40:24.507"/>
+</kw>
+<kw name="Set Password">
+<arg>testi2</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:24.508" level="INFO">Typing text 'testi2' into text field 'password'.</msg>
+<status status="PASS" starttime="20211213 10:40:24.508" endtime="20211213 10:40:24.584"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:24.507" endtime="20211213 10:40:24.584"/>
+</kw>
+<kw name="Submit Login">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitLogin</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:24.585" level="INFO">Clicking button 'submitLogin'.</msg>
+<status status="PASS" starttime="20211213 10:40:24.584" endtime="20211213 10:40:24.870"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:24.584" endtime="20211213 10:40:24.870"/>
+</kw>
+<kw name="Login Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Log In</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:24.880" level="INFO">Page title is 'Log In'.</msg>
+<status status="PASS" starttime="20211213 10:40:24.871" endtime="20211213 10:40:24.880"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:24.870" endtime="20211213 10:40:24.880"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Username and password not matching</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20211213 10:40:24.890" level="INFO">Current page contains text 'Username and password not matching'.</msg>
+<status status="PASS" starttime="20211213 10:40:24.880" endtime="20211213 10:40:24.890"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:24.378" endtime="20211213 10:40:24.890"/>
+</test>
+<test id="s1-s4-t4" name="Login With Valid Credentials">
+<kw name="Go To Login Page And Log Out" type="SETUP">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGOUT URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:24.893" level="INFO">Opening url 'http://localhost:5000/logout'</msg>
+<status status="PASS" starttime="20211213 10:40:24.893" endtime="20211213 10:40:24.917"/>
+</kw>
+<kw name="Go to Login Page" library="resource">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${LOGIN URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20211213 10:40:24.918" level="INFO">Opening url 'http://localhost:5000/login'</msg>
+<status status="PASS" starttime="20211213 10:40:24.918" endtime="20211213 10:40:24.940"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:24.918" endtime="20211213 10:40:24.940"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:24.892" endtime="20211213 10:40:24.940"/>
+</kw>
+<kw name="Set Username">
+<arg>testi</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:24.941" level="INFO">Typing text 'testi' into text field 'username'.</msg>
+<status status="PASS" starttime="20211213 10:40:24.941" endtime="20211213 10:40:25.022"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:24.940" endtime="20211213 10:40:25.022"/>
+</kw>
+<kw name="Set Password">
+<arg>testi</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:25.023" level="INFO">Typing text 'testi' into text field 'password'.</msg>
+<status status="PASS" starttime="20211213 10:40:25.023" endtime="20211213 10:40:25.104"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:25.022" endtime="20211213 10:40:25.104"/>
+</kw>
+<kw name="Submit Login">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>submitLogin</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20211213 10:40:25.105" level="INFO">Clicking button 'submitLogin'.</msg>
+<status status="PASS" starttime="20211213 10:40:25.105" endtime="20211213 10:40:25.381"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:25.105" endtime="20211213 10:40:25.382"/>
+</kw>
+<kw name="Main Page Should Be Open" library="resource">
+<kw name="Title Should Be" library="SeleniumLibrary">
+<arg>Lukuvinkkikirjasto</arg>
+<doc>Verifies that the current page title equals ``title``.</doc>
+<msg timestamp="20211213 10:40:25.386" level="INFO">Page title is 'Lukuvinkkikirjasto'.</msg>
+<status status="PASS" starttime="20211213 10:40:25.382" endtime="20211213 10:40:25.386"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:25.382" endtime="20211213 10:40:25.387"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:24.891" endtime="20211213 10:40:25.387"/>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20211213 10:40:25.388" endtime="20211213 10:40:25.443"/>
+</kw>
+<status status="PASS" starttime="20211213 10:40:22.645" endtime="20211213 10:40:25.443"/>
+</suite>
+<status status="PASS" starttime="20211213 10:40:00.832" endtime="20211213 10:40:25.450"/>
+</suite>
+<statistics>
+<total>
+<stat pass="44" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="44" fail="0" skip="0" id="s1" name="Tests">Tests</stat>
+<stat pass="30" fail="0" skip="0" id="s1-s1" name="Add Bookmark">Tests.Add Bookmark</stat>
+<stat pass="8" fail="0" skip="0" id="s1-s2" name="Create">Tests.Create</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s3" name="Home">Tests.Home</stat>
+<stat pass="4" fail="0" skip="0" id="s1-s4" name="Login">Tests.Login</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
