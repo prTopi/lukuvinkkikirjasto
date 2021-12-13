@@ -43,6 +43,7 @@ input#haku {
             <th>Read</th>
             <th>Added on</th>
             <th>Tags</th>
+            <th>View Bookmark</th>
         </tr>
     </thead>
     <tbody id="kentat">
@@ -77,6 +78,17 @@ input#haku {
                 {{ tags[bookmark.id] }}
                 {% endif %}
             </td>
+            {% if bookmark.type == 'BOOK' %}
+                <td><button onclick="document.location='/view/book/{{bookmark.id}}'">View</button></td>
+            {% elif bookmark.type == 'PODCAST' %}
+                <td><button onclick="document.location='/view/podcast/{{bookmark.id}}'">View</button></td>
+            {% elif bookmark.type == 'VIDEO' %}
+                <td><button onclick="document.location='/view/video/{{bookmark.id}}'">View</button></td>
+            {% elif bookmark.type == 'SCIENTIFIC_ARTICLES' %}
+                <td><button onclick="document.location='/view/article/{{bookmark.id}}'">View</button></td>
+            {% elif bookmark.type == 'BLOG' %}
+                <td><button onclick="document.location='/view/blog/{{bookmark.id}}'">View</button></td>
+            {% endif %}
         </tr>
         {% endfor %}
     </tbody>
