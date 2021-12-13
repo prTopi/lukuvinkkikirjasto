@@ -2,20 +2,14 @@
 {% block content %}
 <title>View Video</title>
 {% if session.username %}
-Name of Video<br>
-{{ video.title }}
+
 <br><br>
-Added on<br>
-{{ video.date }}<br>
-Creator<br>
-{{ video.creator }}<br>
-Link<br>
-{{ video.link }}
-
-Description<br>
-{{ video.description }}<br><br>
-
-{{ video.unread }}<br><br>
+<b>Video title:</b> {{ video.title }}<br>
+<b>Creator:</b> {{ video.creator }}<br>
+<b>Description:</b> {{ video.description }}<br>
+<b>Link:</b> {{ video.link }}<br>
+<b>Added on:</b> {{ video.date }}<br><br>
+<b>Unread:</b> {{ video.unread }}<br><br>
 
 Tags:
 {% for tag in tags %}

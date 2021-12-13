@@ -2,26 +2,17 @@
 {% block content %}
 <title>View Scientific Article</title>
 {% if session.username %}
-Name of Scientific Article<br>
-{{ article.title }}
+
 <br><br>
-Added on<br>
-{{ article.date }}<br>
-Authors<br>
-{{ article.authors }}<br>
-Publication title<br>
-{{ article.publication_title }}<br>
-DOI<br>
-{{ article.doi }}
-Year<br>
-{{ article.year }}<br>
-Publisher<br>
-{{ article.publisher }}<br>
-
-Description<br>
-{{ description }}<br><br>
-
-{{ article.unread }}<br><br>
+<b>Article title:</b> {{ article.title }}<br>
+<b>Publication title:</b> {{article.publication_title}}
+<b>Description:</b> {{ article.description }}<br>
+<b>Authors:</b> {{ article.authors }}<br>
+<b>Doi:</b> {{ article.doi }}<br>
+<b>Year:</b> {{article.year}}<br>
+<b>Publisher:</b> {{article.publisher}}<br>
+<b>Added on:</b> {{ article.date }}<br><br>
+<b>Unread:</b> {{ article.unread }}<br><br>
 
 Tags:
 {% for tag in tags %}

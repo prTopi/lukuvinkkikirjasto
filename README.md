@@ -24,6 +24,9 @@
 
 CI is done through [GitHub Actions](https://github.com/prTopi/lukuvinkkikirjasto/actions)
 
+### Test coverages
+    - [Unittest report for main branch](https://prtopi.github.io/lukuvinkkikirjasto/main/unittests/index.html)
+    - [Robot test report for main branch](https://prtopi.github.io/lukuvinkkikirjasto/main/robot/report.html)
 
 
 ## DOD in a nutshell

@@ -104,7 +104,8 @@ class BookmarkRepository:
             dict: searched bookmark
         """
         sql = """
-        SELECT BM.id, B.id, BM.user_id, B.title, BM.description, B.author, B.isbn, BM.unread, BM.date
+        SELECT BM.id, B.id, BM.user_id, B.title, BM.description, B.author, B.isbn, BM.unread, 
+        TO_CHAR(BM.date, 'DD-MM-YYYY HH24:MI')
         FROM Bookmarks BM
         JOIN Books B ON BM.id = B.bookmark_id
         WHERE BM.id=:id
@@ -192,7 +193,8 @@ class BookmarkRepository:
             dict: searched bookmark
         """
         sql = """
-        SELECT BM.id, V.id, BM.user_id, V.title, BM.description, V.creator, V.link, BM.unread, BM.date
+        SELECT BM.id, V.id, BM.user_id, V.title, BM.description, V.creator, V.link, BM.unread, 
+        TO_CHAR(BM.date, 'DD-MM-YYYY HH24:MI')
         FROM Bookmarks BM
         JOIN Videos V ON BM.id = V.bookmark_id
         WHERE BM.id=:id
@@ -280,7 +282,8 @@ class BookmarkRepository:
             dict: searched bookmark
         """
         sql = """
-        SELECT BM.id, B.id, BM.user_id, B.title, BM.description, B.creator, B.link, BM.unread, BM.date
+        SELECT BM.id, B.id, BM.user_id, B.title, BM.description, B.creator, B.link, BM.unread, 
+        TO_CHAR(BM.date, 'DD-MM-YYYY HH24:MI')
         FROM Bookmarks BM
         JOIN Blogs B ON BM.id = B.bookmark_id
         WHERE BM.id=:id
@@ -369,7 +372,8 @@ class BookmarkRepository:
             dict: searched bookmark
         """
         sql = """
-        SELECT BM.id, P.id, BM.user_id, P.episode_name, P.podcast_name, BM.description, P.creator, P.link, BM.unread, BM.date
+        SELECT BM.id, P.id, BM.user_id, P.episode_name, P.podcast_name, BM.description, P.creator, P.link, BM.unread, 
+        TO_CHAR(BM.date, 'DD-MM-YYYY HH24:MI')
         FROM Bookmarks BM
         JOIN Podcasts P ON BM.id = P.bookmark_id
         WHERE BM.id=:id
@@ -469,7 +473,8 @@ class BookmarkRepository:
             dict: searched bookmark
         """
         sql = """
-        SELECT BM.id, SA.id, BM.user_id, SA.title, SA.publication_title, BM.description, SA.authors, SA.doi, SA.year, SA.publisher, BM.unread, BM.date
+        SELECT BM.id, SA.id, BM.user_id, SA.title, SA.publication_title, BM.description, SA.authors, SA.doi, SA.year, SA.publisher, BM.unread, 
+        TO_CHAR(BM.date, 'DD-MM-YYYY HH24:MI')
         FROM Bookmarks BM
         JOIN Scientific_articles SA ON BM.id = SA.bookmark_id
         WHERE BM.id=:id

@@ -13,6 +13,7 @@ python-dotenv = "^0.19.2"
 psycopg2 = "^2.9.2"
 Werkzeug = "^2.0.2"
 isbntools = "^4.3.28"
+coverage = "^6.2"
 
 [tool.poetry.dev-dependencies]
 invoke = "^1.6.0"
