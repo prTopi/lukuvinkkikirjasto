@@ -23,7 +23,7 @@
 
 #### Third Sprint
 
-[Third Sprint Backlog + Burndown](https://docs.google.com/spreadsheets/d/1ftJLNxb8feMG_z_KNAsDa7UJa7GhjID_H2xnk9kyYmI/edit#gid=1829263727)
+[Third Sprint Backlog](https://docs.google.com/spreadsheets/d/1ftJLNxb8feMG_z_KNAsDa7UJa7GhjID_H2xnk9kyYmI/edit#gid=1829263727)
 
 [Second Sprint Burndown](https://docs.google.com/spreadsheets/d/1ftJLNxb8feMG_z_KNAsDa7UJa7GhjID_H2xnk9kyYmI/edit#gid=1683959999)
 
