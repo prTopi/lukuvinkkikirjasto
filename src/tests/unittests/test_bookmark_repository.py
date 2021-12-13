@@ -24,7 +24,7 @@ class TestBookmarkRepository(unittest.TestCase):
         bookmark = bookmark_repository.get_book(bookmark_id)
 
         self.assertEqual(bookmark["bookmark_id"], added_bookmarks+1)
-        self.assertEqual(bookmark["book_id"], 1)
+        self.assertEqual(bookmark["book_id"], 2)
         self.assertEqual(bookmark["user_id"], 1)
         self.assertEqual(bookmark["title"], "Title of the book")
         self.assertEqual(bookmark["description"], "Description of the book")
@@ -40,7 +40,7 @@ class TestBookmarkRepository(unittest.TestCase):
         bookmark = bookmark_repository.get_video(bookmark_id)
 
         self.assertEqual(bookmark["bookmark_id"], added_bookmarks+1)
-        self.assertEqual(bookmark["video_id"], 1)
+        self.assertEqual(bookmark["video_id"], 2)
         self.assertEqual(bookmark["user_id"], 1)
         self.assertEqual(bookmark["title"], "Title of the video")
         self.assertEqual(bookmark["description"], "Description of the video")
@@ -56,7 +56,7 @@ class TestBookmarkRepository(unittest.TestCase):
         bookmark = bookmark_repository.get_blog(bookmark_id)
 
         self.assertEqual(bookmark["bookmark_id"], added_bookmarks+1)
-        self.assertEqual(bookmark["blog_id"], 1)
+        self.assertEqual(bookmark["blog_id"], 2)
         self.assertEqual(bookmark["user_id"], 1)
         self.assertEqual(bookmark["title"], "Title of the blog")
         self.assertEqual(bookmark["description"], "Description of the blog")
@@ -72,7 +72,7 @@ class TestBookmarkRepository(unittest.TestCase):
         bookmark = bookmark_repository.get_podcast(bookmark_id)
 
         self.assertEqual(bookmark["bookmark_id"], added_bookmarks+1)
-        self.assertEqual(bookmark["podcast_id"], 1)
+        self.assertEqual(bookmark["podcast_id"], 2)
         self.assertEqual(bookmark["user_id"], 1)
         self.assertEqual(bookmark["episode_name"], "Name of the episode")
         self.assertEqual(bookmark["podcast_name"], "Name of the podcast")
@@ -90,7 +90,7 @@ class TestBookmarkRepository(unittest.TestCase):
         bookmark = bookmark_repository.get_scientific_article(bookmark_id)
 
         self.assertEqual(bookmark["bookmark_id"], added_bookmarks+1)
-        self.assertEqual(bookmark["scientific_article_id"], 1)
+        self.assertEqual(bookmark["scientific_article_id"], 2)
         self.assertEqual(bookmark["user_id"], 1)
         self.assertEqual(bookmark["title"], "Title of the article")
         self.assertEqual(bookmark["publication_title"],
