@@ -50,3 +50,4 @@ CI is done through [GitHub Actions](https://github.com/prTopi/lukuvinkkikirjasto
     - Pull request is done, and it is approved
 
 ## [License](LICENSE)
+
