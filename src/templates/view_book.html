@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+<title>View Book</title>
+{% if session.username %}
+
+<br><br>
+<b>Book title:</b> {{ book.title }}<br>
+<b>Author:</b> {{ book.author }}<br>
+<b>Description:</b> {{ book.description }}<br>
+<b>ISBN:</b> {{ book.isbn }}<br>
+<b>Added on:</b> {{ book.date }}<br><br>
+<b>Unread:</b> {{ book.unread }}<br><br>
+
+<b>Tags:</b>
+{% for tag in tags %}
+{{ tag }}<br>
+{% endfor %}
+
+<br>
+<button onclick="document.location='/edit/book/{{book.bookmark_id}}'">Edit podcast</button>
+{% endif %}
+{% endblock %}

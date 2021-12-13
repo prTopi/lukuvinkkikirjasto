@@ -104,12 +104,15 @@ class BookmarkRepository:
             dict: searched bookmark
         """
         sql = """
-        SELECT BM.id, B.id, BM.user_id, B.title, BM.description, B.author, B.isbn, BM.unread, BM.date
+        SELECT BM.id, B.id, BM.user_id, B.title, BM.description, B.author, B.isbn, BM.unread, 
+        TO_CHAR(BM.date, 'DD-MM-YYYY HH24:MI')
         FROM Bookmarks BM
         JOIN Books B ON BM.id = B.bookmark_id
         WHERE BM.id=:id
         """
         bookmark = self.db.session.execute(sql, {"id": bookmark_id}).fetchone()
+        if bookmark is None:
+            return None
         return {
             "bookmark_id": bookmark[0],
             "book_id": bookmark[1],
@@ -121,6 +124,33 @@ class BookmarkRepository:
             "unread": bookmark[7],
             "date": bookmark[8]
         }
+
+    def edit_book(self,book_id, bookmark_id,
+                    title, author, isbn, description, unread):
+
+        book_sql = """
+        UPDATE Books
+        SET title=:title, author=:author, isbn=:isbn
+        WHERE id=:id
+        """
+        self.db.session.execute(book_sql,{
+            "title":title,
+            "author":author,
+            "isbn":isbn,
+            "id":book_id
+        })
+
+        bookmark_sql = """
+        UPDATE Bookmarks
+        SET description=:description, unread=:unread
+        WHERE id=:bookmark_id
+        """
+        self.db.session.execute(bookmark_sql, {
+            "description":description,
+            "unread":unread,
+            "bookmark_id":bookmark_id
+        })
+        self.db.session.commit()
 
     def insert_video(self, user_id: int, title: str, description: str,
                      creator: str, link: str) -> int:
@@ -163,12 +193,15 @@ class BookmarkRepository:
             dict: searched bookmark
         """
         sql = """
-        SELECT BM.id, V.id, BM.user_id, V.title, BM.description, V.creator, V.link, BM.unread, BM.date
+        SELECT BM.id, V.id, BM.user_id, V.title, BM.description, V.creator, V.link, BM.unread, 
+        TO_CHAR(BM.date, 'DD-MM-YYYY HH24:MI')
         FROM Bookmarks BM
         JOIN Videos V ON BM.id = V.bookmark_id
         WHERE BM.id=:id
         """
         bookmark = self.db.session.execute(sql, {"id": bookmark_id}).fetchone()
+        if bookmark is None:
+            return None
         return {
             "bookmark_id": bookmark[0],
             "video_id": bookmark[1],
@@ -180,6 +213,33 @@ class BookmarkRepository:
             "unread": bookmark[7],
             "date": bookmark[8]
         }
+
+    def edit_video(self, video_id, bookmark_id,
+                    title, creator, link,
+                    description, unread):
+        video_sql = """
+        UPDATE Videos
+        SET title=:title, creator=:creator, link=:link
+        WHERE id=:id
+        """
+        self.db.session.execute(video_sql, {
+            "title":title,
+            "creator":creator,
+            "link":link,
+            "id":video_id
+        })
+
+        bookmark_sql = """
+        UPDATE Bookmarks
+        SET description=:description, unread=:unread
+        WHERE id=:bookmark_id
+        """
+        self.db.session.execute(bookmark_sql, {
+            "description":description,
+            "unread":unread,
+            "bookmark_id":bookmark_id
+        })
+        self.db.session.commit()
 
     def insert_blog(self, user_id: int, title: str, description: str,
                     creator: str, link: str) -> int:
@@ -222,12 +282,15 @@ class BookmarkRepository:
             dict: searched bookmark
         """
         sql = """
-        SELECT BM.id, B.id, BM.user_id, B.title, BM.description, B.creator, B.link, BM.unread, BM.date
+        SELECT BM.id, B.id, BM.user_id, B.title, BM.description, B.creator, B.link, BM.unread, 
+        TO_CHAR(BM.date, 'DD-MM-YYYY HH24:MI')
         FROM Bookmarks BM
         JOIN Blogs B ON BM.id = B.bookmark_id
         WHERE BM.id=:id
         """
         bookmark = self.db.session.execute(sql, {"id": bookmark_id}).fetchone()
+        if bookmark is None:
+            return None
         return {
             "bookmark_id": bookmark[0],
             "blog_id": bookmark[1],
@@ -239,6 +302,32 @@ class BookmarkRepository:
             "unread": bookmark[7],
             "date": bookmark[8]
         }
+
+    def edit_blog(self, blog_id, bookmark_id, title,
+                    creator, link, description, unread):
+        blog_sql = """
+        UPDATE Blogs
+        SET title=:title, creator=:creator, link=:link
+        WHERE id=:id
+        """
+        self.db.session.execute(blog_sql, {
+            "title":title,
+            "creator":creator,
+            "link":link,
+            "id":blog_id
+        })
+
+        bookmark_sql = """
+        UPDATE Bookmarks
+        SET description=:description, unread=:unread
+        WHERE id=:bookmark_id
+        """
+        self.db.session.execute(bookmark_sql, {
+            "description":description,
+            "unread":unread,
+            "bookmark_id":bookmark_id
+        })
+        self.db.session.commit()
 
     def insert_podcast(self, user_id: int, episode_name: str, podcast_name: str,
                        description: str, creator: str, link: str) -> int:
@@ -283,12 +372,15 @@ class BookmarkRepository:
             dict: searched bookmark
         """
         sql = """
-        SELECT BM.id, P.id, BM.user_id, P.episode_name, P.podcast_name, BM.description, P.creator, P.link, BM.unread, BM.date
+        SELECT BM.id, P.id, BM.user_id, P.episode_name, P.podcast_name, BM.description, P.creator, P.link, BM.unread, 
+        TO_CHAR(BM.date, 'DD-MM-YYYY HH24:MI')
         FROM Bookmarks BM
         JOIN Podcasts P ON BM.id = P.bookmark_id
         WHERE BM.id=:id
         """
         bookmark = self.db.session.execute(sql, {"id": bookmark_id}).fetchone()
+        if bookmark is None:
+            return None
         return {
             "bookmark_id": bookmark[0],
             "podcast_id": bookmark[1],
@@ -301,6 +393,34 @@ class BookmarkRepository:
             "unread": bookmark[8],
             "date": bookmark[9]
         }
+
+    def edit_podcast(self,podcast_id,bookmark_id,podcast_name,
+                    creator,episode,link,description,unread):
+        podcast_sql = """
+        UPDATE Podcasts
+        SET episode_name=:episode, podcast_name=:podcast, creator=:creator, link=:link
+        WHERE id=:id
+        """
+        self.db.session.execute(podcast_sql, {
+            "episode": episode,
+            "podcast": podcast_name,
+            "creator": creator,
+            "link": link,
+            "id": podcast_id
+        })
+        bookmark_sql = """
+        UPDATE Bookmarks
+        SET description=:description, unread=:unread
+        WHERE id=:bookmark_id
+        """
+        self.db.session.execute(bookmark_sql, {
+            "description":description,
+            "unread":unread,
+            "bookmark_id":bookmark_id
+        })
+        self.db.session.commit()
+
+
 
     def insert_scientific_article(self, user_id: int, title: str,
                                   publication_title: str,
@@ -354,12 +474,15 @@ class BookmarkRepository:
             dict: searched bookmark
         """
         sql = """
-        SELECT BM.id, SA.id, BM.user_id, SA.title, SA.publication_title, BM.description, SA.authors, SA.doi, SA.year, SA.publisher, BM.unread, BM.date
+        SELECT BM.id, SA.id, BM.user_id, SA.title, SA.publication_title, BM.description, SA.authors, SA.doi, SA.year, SA.publisher, BM.unread, 
+        TO_CHAR(BM.date, 'DD-MM-YYYY HH24:MI')
         FROM Bookmarks BM
         JOIN Scientific_articles SA ON BM.id = SA.bookmark_id
         WHERE BM.id=:id
         """
         bookmark = self.db.session.execute(sql, {"id": bookmark_id}).fetchone()
+        if bookmark is None:
+            return None
         return {
             "bookmark_id": bookmark[0],
             "scientific_article_id": bookmark[1],
@@ -374,6 +497,38 @@ class BookmarkRepository:
             "unread": bookmark[10],
             "date": bookmark[11]
         }
+
+    def edit_scientific_article(self,scientific_article_id,
+                                bookmark_id,title,authors,
+                                publication_title, doi,
+                                year, publisher,
+                                description, unread):
+        article_sql = """
+        UPDATE Scientific_articles
+        SET title=:title, authors=:authors, publication_title=:publication_title, doi=:doi, year=:year, publisher=:publisher
+        WHERE id=:id
+        """
+        self.db.session.execute(article_sql, {
+            "title":title,
+            "authors":authors,
+            "publication_title":publication_title,
+            "doi":doi,
+            "year":year,
+            "publisher":publisher,
+            "id":scientific_article_id
+        })
+
+        bookmark_sql = """
+        UPDATE Bookmarks
+        SET description=:description, unread=:unread
+        WHERE id=:bookmark_id
+        """
+        self.db.session.execute(bookmark_sql, {
+            "description":description,
+            "unread":unread,
+            "bookmark_id":bookmark_id
+        })
+        self.db.session.commit()
 
     def get_all_books(self, user_id):
         sql = """

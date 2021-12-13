@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+<title>View Blog</title>
+{% if session.username %}
+
+<br><br>
+<b>Blog title:</b> {{ blog.title }}<br>
+<b>Creator:</b> {{ blog.creator }}<br>
+<b>Description:</b> {{ blog.description }}<br>
+<b>Link:</b> {{ blog.link }}<br>
+<b>Added on:</b> {{ blog.date }}<br><br>
+<b>Unread:</b> {{ blog.unread }}<br><br>
+
+Tags:
+{% for tag in tags %}
+{{ tag }}<br>
+{% endfor %}
+
+<br>
+<button onclick="document.location='/edit/blog/{{blog.bookmark_id}}'">Edit Blog</button>
+{% endif %}
+{% endblock %}

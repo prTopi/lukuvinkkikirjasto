@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<title>View Podcast</title>
+{% if session.username %}
+
+<br><br>
+<b>Podcast name:</b> {{ podcast.podcast_name }}<br>
+<b>Episode:</b> {{ podcast.episode_name }}<br>
+<b>Creator:</b> {{ podcast.creator }}<br>
+<b>Description:</b> {{ podcast.description }}<br>
+<b>Link:</b> {{ podcast.link }}<br>
+<b>Added on:</b> {{ podcast.date }}<br><br>
+<b>Unread:</b> {{ podcast.unread }}<br><br>
+
+Tags:
+{% for tag in tags %}
+{{ tag }}<br>
+{% endfor %}
+
+<br>
+<button onclick="document.location='/edit/podcast/{{podcast.bookmark_id}}'">Edit podcast</button>
+{% endif %}
+{% endblock %}
