@@ -187,7 +187,7 @@ if getenv("MODE") != "test":
             session["user_id"], tag_id, bookmark_id)
         return redirect("/")
 
-    @app.route("/view/<bookmark_type>/<id>")
+    @app.route("/view/<bookmark_type>/<bookmark_id>")
     def bookmark_view_page(bookmark_type, bookmark_id):
         if bookmark_type == "book":
             book = bookmark_repository.get_book(bookmark_id)
@@ -227,7 +227,7 @@ if getenv("MODE") != "test":
         else:
             return redirect("/")
 
-    @app.route("/edit/<bookmark_type>/<id>",methods=["GET"])
+    @app.route("/edit/<bookmark_type>/<bookmark_id>",methods=["GET"])
     def bookmark_edit_page(bookmark_type, bookmark_id):
         if bookmark_type == "book":
             book = bookmark_repository.get_book(bookmark_id)
