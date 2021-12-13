@@ -26,4 +26,4 @@ EXPOSE 5000
 
 COPY . /usr/src/lukuvinkkikirjasto
 
-CMD ["poetry","run","invoke","test"]
+CMD ["poetry","run","invoke","coverage-report"]

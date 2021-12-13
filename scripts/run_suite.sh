@@ -9,7 +9,7 @@ fi
 # Give the app time to start
 sleep 5
 
-CMD="robot --console verbose --outputdir /reports /src/tests/$TEST_SUITE"
+CMD="robot --console verbose --outputdir /documentation/test_reports/robot /src/tests/$TEST_SUITE"
 
 echo ${CMD}
 
