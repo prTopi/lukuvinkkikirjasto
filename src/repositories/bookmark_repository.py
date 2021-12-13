@@ -124,10 +124,10 @@ class BookmarkRepository:
             "unread": bookmark[7],
             "date": bookmark[8]
         }
-    
+
     def edit_book(self,book_id, bookmark_id,
                     title, author, isbn, description, unread):
-        
+
         book_sql = """
         UPDATE Books
         SET title=:title, author=:author, isbn=:isbn
@@ -139,7 +139,7 @@ class BookmarkRepository:
             "isbn":isbn,
             "id":book_id
         })
-        
+
         bookmark_sql = """
         UPDATE Bookmarks
         SET description=:description, unread=:unread
@@ -213,7 +213,7 @@ class BookmarkRepository:
             "unread": bookmark[7],
             "date": bookmark[8]
         }
-    
+
     def edit_video(self, video_id, bookmark_id,
                     title, creator, link,
                     description, unread):
@@ -302,8 +302,8 @@ class BookmarkRepository:
             "unread": bookmark[7],
             "date": bookmark[8]
         }
-    
-    def edit_blog(self, blog_id, bookmark_id, title, 
+
+    def edit_blog(self, blog_id, bookmark_id, title,
                     creator, link, description, unread):
         blog_sql = """
         UPDATE Blogs
@@ -393,8 +393,9 @@ class BookmarkRepository:
             "unread": bookmark[8],
             "date": bookmark[9]
         }
-    
-    def edit_podcast(self,podcast_id,bookmark_id,podcast_name,creator,episode,link,description,unread):
+
+    def edit_podcast(self,podcast_id,bookmark_id,podcast_name,
+                    creator,episode,link,description,unread):
         podcast_sql = """
         UPDATE Podcasts
         SET episode_name=:episode, podcast_name=:podcast, creator=:creator, link=:link
@@ -418,7 +419,7 @@ class BookmarkRepository:
             "bookmark_id":bookmark_id
         })
         self.db.session.commit()
-        
+
 
 
     def insert_scientific_article(self, user_id: int, title: str,
@@ -496,7 +497,7 @@ class BookmarkRepository:
             "unread": bookmark[10],
             "date": bookmark[11]
         }
-    
+
     def edit_scientific_article(self,scientific_article_id,
                                 bookmark_id,title,authors,
                                 publication_title, doi,

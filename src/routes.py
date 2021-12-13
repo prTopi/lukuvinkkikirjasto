@@ -185,37 +185,37 @@ if getenv("MODE") != "test":
         return redirect("/")
 
     @app.route("/view/<bookmark_type>/<id>")
-    def bookmark_view_page(bookmark_type,id):
+    def bookmark_view_page(bookmark_type, bookmark_id):
         if bookmark_type == "book":
-            book = bookmark_repository.get_book(id)
+            book = bookmark_repository.get_book(bookmark_id)
             if book is None:
                 return redirect("/")
             elif book["user_id"] == session["user_id"]:
                 return render_template("view_book.html",book=book)
             return redirect("/")
         elif bookmark_type == "video":
-            video = bookmark_repository.get_video(id)
+            video = bookmark_repository.get_video(bookmark_id)
             if video is None:
                 return redirect("/")
             if video["user_id"] == session["user_id"]:
                 return render_template("view_video.html",video=video)
             return redirect("/")
         elif bookmark_type == "blog":
-            blog = bookmark_repository.get_blog(id)
+            blog = bookmark_repository.get_blog(bookmark_id)
             if blog is None:
                 return redirect("/")
             elif blog["user_id"] == session["user_id"]:
                 return render_template("view_blog.html",blog=blog)
             return redirect("/")
         elif bookmark_type == "podcast":
-            podcast = bookmark_repository.get_podcast(id)
+            podcast = bookmark_repository.get_podcast(bookmark_id)
             if podcast is None:
                 return redirect("/")
             if podcast["user_id"] == session["user_id"]:
                 return render_template("view_podcast.html",podcast=podcast)
             return redirect("/")
         elif bookmark_type == "article":
-            article = bookmark_repository.get_scientific_article(id)
+            article = bookmark_repository.get_scientific_article(bookmark_id)
             if article is None:
                 return redirect("/")
             if article["user_id"] == session["user_id"]:
@@ -225,37 +225,37 @@ if getenv("MODE") != "test":
             return redirect("/")
 
     @app.route("/edit/<bookmark_type>/<id>",methods=["GET"])
-    def bookmark_edit_page(bookmark_type,id):
+    def bookmark_edit_page(bookmark_type, bookmark_id):
         if bookmark_type == "book":
-            book = bookmark_repository.get_book(id)
+            book = bookmark_repository.get_book(bookmark_id)
             if book is None:
                 return redirect("/")
             elif book["user_id"] == session["user_id"]:
                 return render_template("edit_book.html",book=book)
             return redirect("/")
         elif bookmark_type == "video":
-            video = bookmark_repository.get_video(id)
+            video = bookmark_repository.get_video(bookmark_id)
             if video is None:
                 return redirect("/")
             elif video["user_id"] == session["user_id"]:
                 return render_template("edit_video.html",video=video)
             return redirect("/")
         elif bookmark_type == "blog":
-            blog = bookmark_repository.get_blog(id)
+            blog = bookmark_repository.get_blog(bookmark_id)
             if blog is None:
                 return redirect("/")
             elif blog["user_id"] == session["user_id"]:
                 return render_template("edit_blog.html",blog=blog)
             return redirect("/")
         elif bookmark_type == "podcast":
-            podcast = bookmark_repository.get_podcast(id)
+            podcast = bookmark_repository.get_podcast(bookmark_id)
             if podcast is None:
                 return redirect("/")
             elif podcast["user_id"] == session["user_id"]:
                 return render_template("edit_podcast.html",podcast=podcast)
             return redirect("/")
         elif bookmark_type == "article":
-            article = bookmark_repository.get_scientific_article(id)
+            article = bookmark_repository.get_scientific_article(bookmark_id)
             if article is None:
                 return redirect("/")
             elif article["user_id"] == session["user_id"]:
@@ -275,7 +275,7 @@ if getenv("MODE") != "test":
             if book_to_edit is None:
                 return redirect("/")
             elif book_to_edit["user_id"] == session["user_id"]:
-                unread = False if request.form["Unread"] == "0" else True
+                unread = bool(request.form["Unread"] == "0")
                 title = request.form["title"]
                 author = request.form["author"]
                 isbn = request.form["isbn"]
@@ -295,7 +295,7 @@ if getenv("MODE") != "test":
             if video_to_edit is None:
                 return redirect("/")
             elif video_to_edit["user_id"] == session["user_id"]:
-                unread = False if request.form["Unread"] == "0" else True
+                unread = bool(request.form["Unread"] == "0")
                 title = request.form["title"]
                 creator = request.form["creator"]
                 link = request.form["link"]
@@ -316,7 +316,7 @@ if getenv("MODE") != "test":
             if blog_to_edit is None:
                 return redirect("/")
             elif blog_to_edit["user_id"] == session["user_id"]:
-                unread = False if request.form["Unread"] == "0" else True
+                unread = bool(request.form["Unread"] == "0")
                 title = request.form["title"]
                 creator = request.form["creator"]
                 link = request.form["link"]
@@ -337,7 +337,7 @@ if getenv("MODE") != "test":
             if podcast_to_edit is None:
                 return redirect("/")
             elif podcast_to_edit["user_id"] == session["user_id"]:
-                unread = False if request.form["Unread"] == "0" else True
+                unread = bool(request.form["Unread"] == "0")
                 name = request.form["name"]
                 creator = request.form["creator"]
                 episode = request.form["episode"]
@@ -355,11 +355,12 @@ if getenv("MODE") != "test":
         elif bookmark_type == "article":
             scientific_article_id = request.form["scientific_article_id"]
             bookmark_id = request.form["bookmark_id"]
-            article_to_edit = bookmark_repository.get_scientific_article(bookmark_id)
+            article_to_edit = bookmark_repository.get_scientific_article(
+                                                    bookmark_id)
             if article_to_edit is None:
                 return redirect("/")
             elif article_to_edit["user_id"] == session["user_id"]:
-                unread = False if request.form["Unread"] == "0" else True
+                unread = bool(request.form["Unread"] == "0")
                 title = request.form["title"]
                 authors = request.form["authors"]
                 publication_title = request.form["publication_title"]
@@ -380,11 +381,10 @@ if getenv("MODE") != "test":
                     description,
                     unread)
         return redirect("/")
-    
+
     @app.route("/delete",methods=["POST"])
     def delete_bookmark():
         bookmark_type = request.form["bookmark_type"]
-        id = request.form["id"]
         if bookmark_type == "book":
             pass
         elif bookmark_type == "video":
