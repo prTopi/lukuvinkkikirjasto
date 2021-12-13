@@ -9,11 +9,24 @@
 
 ### Sprint Backlogs
 
-[First Sprint Backlog + Burndown](https://docs.google.com/spreadsheets/d/1ftJLNxb8feMG_z_KNAsDa7UJa7GhjID_H2xnk9kyYmI/edit?skip_itp2_check=true#gid=73558073)
+#### First Sprint
 
-[Second Sprint Backlog + Burndown](https://docs.google.com/spreadsheets/d/1ftJLNxb8feMG_z_KNAsDa7UJa7GhjID_H2xnk9kyYmI/edit#gid=337422552)
+[First Sprint Backlog](https://docs.google.com/spreadsheets/d/1ftJLNxb8feMG_z_KNAsDa7UJa7GhjID_H2xnk9kyYmI/edit?skip_itp2_check=true#gid=73558073)
+
+[First sprint Burndown](https://docs.google.com/spreadsheets/d/1ftJLNxb8feMG_z_KNAsDa7UJa7GhjID_H2xnk9kyYmI/edit#gid=955910474)
+
+#### Second Sprint
+
+[Second Sprint Backlog](https://docs.google.com/spreadsheets/d/1ftJLNxb8feMG_z_KNAsDa7UJa7GhjID_H2xnk9kyYmI/edit#gid=337422552)
+
+[Second Sprint Burndown](https://docs.google.com/spreadsheets/d/1ftJLNxb8feMG_z_KNAsDa7UJa7GhjID_H2xnk9kyYmI/edit#gid=1725976548)
+
+#### Third Sprint
 
 [Third Sprint Backlog + Burndown](https://docs.google.com/spreadsheets/d/1ftJLNxb8feMG_z_KNAsDa7UJa7GhjID_H2xnk9kyYmI/edit#gid=1829263727)
+
+[Second Sprint Burndown](https://docs.google.com/spreadsheets/d/1ftJLNxb8feMG_z_KNAsDa7UJa7GhjID_H2xnk9kyYmI/edit#gid=1683959999)
+
 
 ### Timesheet
 
