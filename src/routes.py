@@ -59,7 +59,7 @@ if getenv("MODE") != "test":
             if check_password_hash(hash_value[0], password):
                 return update_session(username)
         return render_template("login.html",
-                               error="Username and password not matching")
+                               error="Username and password do not match")
 
     @app.route("/logout")
     def logout():
