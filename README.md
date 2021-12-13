@@ -36,3 +36,4 @@ CI is done through [GitHub Actions](https://github.com/prTopi/lukuvinkkikirjasto
     - Code quality is assured (review
     - Pull request is done, and it is approved
 
+## [License](LICENSE)
