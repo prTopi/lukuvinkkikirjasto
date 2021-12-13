@@ -1,33 +1,80 @@
 {% extends "layout.html" %}
+{% block head %}
+<script>
+    $(document).ready(function(){
+      $("#haku").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#kentat tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+</script>
+<style>
+    .fa-search {
+    position: absolute;
+    top: 12px;
+    left: 23px;
+}
+input#haku {
+    padding-left: 30px;
+}
+</style>
+{% endblock %}
 {% block content %}
 <title>Lukuvinkkikirjasto</title>
 <br><h1>Lukuvinkkikirjasto</h1><br>
 {% if session.username %}
-<h2>Lukuvinkit</h2>
-  <table class="table table-light">
+<div class="d-flex flex-row justify-content-between ">
+    <h2>Lukuvinkit</h2>
+    <div class="col-md-3">
+        <i class="fa fa-search"></i>
+        <input id="haku" type="text" class="form-control" placeholder="Hae lukuvinkkiä">
+</div>
+</div>
+  <table class="table table-light table-bordered">
     <thead>
         <tr>
+            <th>Type</th>
             <th>Title</th>
             <th>Author</th>
             <th>Description</th>
-            <th>ISBN</th>
+            <th>Link</th>
             <th>Read</th>
             <th>Added on</th>
             <th>Tags</th>
         </tr>
     </thead>
-    <tbody>
-        {% for book in books %}
+    <tbody id="kentat">
+        {% for bookmark in bookmarks %}
         <tr>
-            <td>{{book.title}}</td>
-            <td>{{book.author}}</td>
-            <td>{{book.description}}</td>
-            <td>{{book.isbn}}</td>
-            <td>{{"Read" if book.unread else "Unread"}}</td>
-            <td>{{book.date.strftime("%d.%m.%Y")}}</td>
+            <td style="display: none;">{{bookmark.type}}</td>
+            {% if bookmark.type == 'BOOK' %}
+                <td><i class="fa fa-book"</i></td>
+            {% elif bookmark.type == 'PODCAST' %}
+                <td><i class="fa fa-podcast"</i></td>
+            {% elif bookmark.type == 'VIDEO' %}
+                <td><i class="fa fa-video"</i></td>
+            {% elif bookmark.type == 'SCIENTIFIC_ARTICLES' %}
+                <td><i class="fa fa-microscope"</i></td>
+            {% elif bookmark.type == 'BLOG' %}
+                <td><i class="fa fa-blog"</i></td>
+            {% endif %}
+            <td>{{bookmark.title}}</td>
+            <td>{{bookmark.author}}</td>
+            <td>{{bookmark.description}}</td>
+            {% if bookmark.type == 'BOOK' %}
+                <td><a href="https://isbnsearch.org/isbn/{{bookmark.isbn}}">{{bookmark.isbn}}</a></td>
+            {% elif bookmark.type == 'SCIENTIFIC_ARTICLES' %}
+                <td><a href="https://doi.org/{{bookmark.isbn}}">{{bookmark.isbn}}</a></td>
+            {% else  %}
+                <td><a href={{bookmark.isbn}}>{{bookmark.isbn}}</a></td>
+            {% endif %}
+            <td>{{"Read" if bookmark.unread else "Unread"}}</td>
+            <td>{{bookmark.date.strftime("%d.%m.%Y")}}</td>
             <td>
-                {% if book.bookmark_id in tags %}
-                {{ tags[book.bookmark_id] }}
+                {% if bookmark.id in tags %}
+                {{ tags[bookmark.id] }}
                 {% endif %}
             </td>
         </tr>

@@ -539,3 +539,34 @@ class BookmarkRepository:
         """
         books = self.db.session.execute(sql, {"id": user_id}).fetchall()
         return books
+
+    def get_all_bookmarks(self, user_id):
+        sql = """
+        SELECT BM.id, B.title, B.author, BM.description, B.isbn, BM.unread, BM.date,'BOOK' AS "type"
+        FROM Bookmarks BM
+        JOIN BOOKS B ON BM.id = B.bookmark_id
+        WHERE BM.user_id=:id
+        UNION
+        SELECT BM.id, BL.title, BL.creator, BM.description, BL.link, BM.unread, BM.date,'BLOG' AS "type" 
+ 		FROM Bookmarks BM      
+        JOIN BLOGS BL ON BM.id = BL.bookmark_id
+        WHERE BM.user_id=:id
+		UNION
+        SELECT BM.id, P.podcast_name||'/'||P.episode_name, P.creator, BM.description, P.link, BM.unread, BM.date,'PODCAST' AS "type" 
+ 		FROM Bookmarks BM      
+        JOIN PODCASTS P ON BM.id = P.bookmark_id
+        WHERE BM.user_id=:id
+        UNION
+        SELECT BM.id, SA.title, SA.authors, BM.description, SA.doi, BM.unread, BM.date,'SCIENTIFIC_ARTICLES' AS "type" 
+ 		FROM Bookmarks BM
+        JOIN SCIENTIFIC_ARTICLES SA  ON BM.id = SA.bookmark_id
+        WHERE BM.user_id=:id
+        UNION
+        SELECT BM.id, V.title , V.creator, BM.description, V.link, BM.unread, BM.date,'VIDEO' AS "type" 
+ 		FROM Bookmarks BM
+        JOIN VIDEOS V  ON BM.id = V.bookmark_id
+        WHERE BM.user_id=:id
+        ORDER BY type,id
+        """
+        bookmarks = self.db.session.execute(sql, {"id": user_id}).fetchall()
+        return bookmarks

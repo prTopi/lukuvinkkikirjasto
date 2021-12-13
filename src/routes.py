@@ -27,7 +27,8 @@ if getenv("MODE") != "test":
     @app.route("/")
     def index():
         try:
-            books = bookmark_repository.get_all_books(session["user_id"])
+            bookmarks = bookmark_repository.get_all_bookmarks(
+                session["user_id"])
             bookmark_tags = tag_repository.get_all_users_marked_tags(
                 session["user_id"])
 
@@ -37,9 +38,11 @@ if getenv("MODE") != "test":
                     tags_dict[tag.bookmark_id] = [tag.tag_name]
                 else:
                     tags_dict[tag.bookmark_id].append(tag.tag_name)
-            return render_template("index.html", books=books, tags=tags_dict)
+            return render_template("index.html",
+                bookmarks=bookmarks,
+                tags=tags_dict)
         except KeyError:
-            books = None
+            bookmarks = None
             bookmark_tags = None
             return render_template("login.html", error="User not logged in")
 
