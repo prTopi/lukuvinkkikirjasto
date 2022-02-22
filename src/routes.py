@@ -175,8 +175,8 @@ if getenv("MODE") != "test":
 
     @app.route("/tag", methods=["POST"])
     def tags():
-        tag_name = request.form["new_tag_name"]
-        tag_repository.create_new_tag(session["user_id"], tag_name)
+        new_tag_name = request.form["new_tag_name"]
+        tag_repository.create_new_tag(session["user_id"], new_tag_name)
         return redirect("/add_bookmark")
 
     @app.route("/bookmark_tag", methods=["POST"])
